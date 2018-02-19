@@ -32,7 +32,7 @@ Machine Learning Engineer가 되기 위해 매일 필요한 내용들을 공부�
 | 프로젝트명 	| 기간 	|  역할 	| 설명 	|
 |-----------------------------------------|-------------|----------------------------|---------------------------------------------------	|
 | Zillow's Home Value 예측 	| 2017.9 - 11 	|  모델링<br>데이터 엔지니어링 	| Kaggle 대회 <br>  최종 등수 : **81등** / 3779팀 	|
-| Santander Product 추천 	| 2016.12 	| 분석<br>모델링 	| Kaggle 대회 <br> 최종 등수 : **600등** / 1784팀 	|
+| Santander Product 추천 	| 2016.12 	| 분석<br>모델링 	| Kaggle 대회 <br> 최종 등수 : **603등** / 1784팀 	|
 | Github 유저 추천 시스템 	| 2016.7 	| 분석<br>모델링 	| Word2Vec을 활용한<br>Github 유저 추천 시스템 	|
 | 맥주 추천 시스템 	| 2015.6 - 12 	| 기획/디자인<br>데이터 크롤링 	| Collavorative Filtering을 <br>활용한 맥주 추천 시스템 	|
 
@@ -45,3 +45,5 @@ Machine Learning Engineer가 되기 위해 매일 필요한 내용들을 공부�
 - [Kaggle knowhow](https://github.com/zzsza/Kaggle-knowhow)
 
 ## 기타
+- 패스트캠퍼스 [PyTorch로 시작하는 딥러닝 입문 CAMP](http://www.fastcampus.co.kr/data_camp_pytorch/) 3기 실습 조교
+- 제이펍 베타리더스 6기
