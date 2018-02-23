@@ -8,7 +8,7 @@ comments: true
 ---
 [An Introduction to different Types of Convolutions in Deep Learning](https://towardsdatascience.com/types-of-convolutions-in-deep-learning-717013397f4d)을 번역한 글입니다. 개인 공부를 위해 번역해봤으며 이상한 부분은 언제든 알려주세요 :)
 
---
+
 
 Convolution의 여러 유형에 대해 빠르게 소개하며 각각의 장점을 알려드리겠습니다. 단순화를 위해서, 이 글에선 2D Convolution에만 초점을 맞추겠습니다
 
