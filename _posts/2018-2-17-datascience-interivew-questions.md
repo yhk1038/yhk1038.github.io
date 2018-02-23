@@ -3,7 +3,7 @@ layout: post
 title:  "데이터 사이언스 인터뷰 질문 모음집"
 subtitle:   "데이터 사이언스 인터뷰 질문 모음집"
 categories: data
-tags: data-dl
+tags: dl
 comments: true
 ---
 데이터 사이언스 분야의 인터뷰 질문을 모아봤습니다. (데이터 분석가 / 데이터 사이언티스트 / 데이터 엔지니어)  
