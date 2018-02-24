@@ -22,7 +22,7 @@ Convolution의 여러 유형에 대해 빠르게 소개하며 각각의 장점�
 
 > 역자 : 파란색이 input이며 초록색이 output입니다
 
-- **Kenel Size** : kernel size는 convolution의 시야(view)를 결정합니다. 보통 2D에서 3x3 pixel로 사용합니다
+- **Kernel Size** : kernel size는 convolution의 시야(view)를 결정합니다. 보통 2D에서 3x3 pixel로 사용합니다
 - **Stride** : stride는 이미지를 횡단할 때 커널의 스텝 사이즈를 결정합니다.  기본값은 1이지만 보통 Max Pooling과 비슷하게 이미지를 다운샘플링하기 위해 Stride를 2로 사용할 수 있습니다
 - **Padding** : Padding은 샘플 테두리를 어떻게 조절할지를 결정합니다. 패딩된 Convolution은 input과 동일한 output 차원을 유지하는 반면, 패딩되지 않은 Convolution은 커널이 1보다 큰 경우 테두리의 일부를 잘라버릴 수 있습니다
 - **Input & Output Channels** : convolution layer는 Input 채널의 특정 수(I)를 받아 output 채널의 특정 수(O)로 계산합니다. 이런 계층에서 필요한 파라미터의 수는 I\*O\*K로 계산할 수 있습니다. K는 커널의 수입니다
