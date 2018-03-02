@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: SQL
-slug: sql
+title: Python
+slug: python
 category: development
 menu: false
-order: 4
+order: 3
 ---
