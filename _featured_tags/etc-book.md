@@ -1,6 +1,6 @@
 ---
 layout: tag-blog
-title: book
+title: Book
 slug: book
 category: etc
 menu: false

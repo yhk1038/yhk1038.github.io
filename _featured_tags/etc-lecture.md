@@ -1,6 +1,6 @@
 ---
 layout: tag-blog
-title: lecture
+title: Lecture
 slug: lecture
 category: etc
 menu: false
