@@ -3,7 +3,7 @@ layout: post
 title: "OKKY 특강 - IT 회사 탐방기"
 subtitle: "OKKY 특강 - IT 회사 탐방기"
 categories: etc
-tags: etc
+tags: lecture
 comments: true
 ---
 OKKY에서 진행한 황후순님의 IT회사 탐방기 강연 후기입니다. [발표 자료](https://drive.google.com/file/d/1fbVY7GeKf6iSBCNuYwaSaq58hbI5_O-_/view)
