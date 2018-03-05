@@ -122,4 +122,3 @@ Sobel X and Y filters
 - [MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications](http://openresearch.ai/t/mobilenets-efficient-convolutional-neural-networks-for-mobile-vision-applications/20)
 - [Convolution Arithmetic in Deep Learning Part 2](https://nrupatunga.github.io/convolution-2/)
 - [Tensorflow KR - PR12 유튜브 강의](https://www.youtube.com/playlist?list=PLlMkM4tgfjnJhhd4wn5aj8fVTYJwIpWkS)
-- 
