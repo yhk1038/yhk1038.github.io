@@ -42,7 +42,7 @@ Dilated Convolution은 Convolutional layer에 또 다른 파라미터인 dilatio
 Dilated convolution은 특히 real-time segmentation 분야에서 주로 사용됩니다. 넓은 시야가 필요하고 여러 convolution이나 큰 커널을 사용할 여유가 없는 경우 사용합니다
 
 > 역자 : Dilated Convolution은 필터 내부에 zero padding을 추가해 강제로 receptive field를 늘리는 방법입니다. 위 그림에서 진한 파란 부분만 weight가 있고 나머지 부분은 0으로 채워집니다. (receptive field : 필터가 한번 보는 영역으로 사진의 feature를 추출하기 위해선 receptive field가 높을수록 좋습니다)   
-> pooling을 수행하지 않고도 receptive field를 크게 가져갈 수 있기 때문에 spatial dimension 손실이 적고 대부분의 weight가 0이기 때문에 연산의 효율이 좋습니다. 공간적 특징을 유지하기 때문에 Segmantion에서 많이 사용합니다
+> pooling을 수행하지 않고도 receptive field를 크게 가져갈 수 있기 때문에 spatial dimension 손실이 적고 대부분의 weight가 0이기 때문에 연산의 효율이 좋습니다. 공간적 특징을 유지하기 때문에 Segmentation에서 많이 사용합니다
 
 ## Transposed Convolutions
 (a.k.a. deconvolutions or fractionally strided convolutions)
