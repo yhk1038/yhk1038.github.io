@@ -84,7 +84,7 @@ transposed convolution은 위와 같은 방법을 사용하지 않습니다. dec
 > 정리하면 전치(transpose)하여 우변에 곱해주기 때문에 transposed convolution이라 부릅니다. 
 
 
-## Seperable Convolutions
+## Separable Convolutions
 
 separable convolution에선 커널 작업을 여러 단계로 나눌 수 있습니다. convolution을 y = conv(x, k)로 표현해봅시다. x는 입력 이미지, y는 출력 이미지, k는 커널입니다. 그리고 k=k1.dot(k2)로 계산된다고 가정해보겠습니다. 이것은 K와 2D convolution을 수행하는 대신 k1와 k2로 1D convolution하는 것과 동일한 결과를 가져오기 때문에 separable convolution이 됩니다.  
 
@@ -94,7 +94,7 @@ Sobel X and Y filters
 </p>
 
 이미지 처리에서 자주 사용되는 Sobel 커널을 예로 들겠습니다. 벡터 [1, 0, -1]과 [1, 2, 1].T를 곱하면 동일한 커널을 얻을 수 있습니다. 동일 작업을 하기 위해 9개의 파라미터 대신 6개가 필요합니다.  이 사례는 Spatial Separable Convolution의 예시이지만, 딥러닝에선 사용되지 않습니다
-> 수정 : 사실 1xN, Nx1 커널 레이어를 쌓아 Seperable convolution과 유사한 것을 만들 수 있습니다. 이것은 최근 유망한 결과를 보여준 EffNet라는 아키텍쳐에서 사용되었습니다.
+> 수정 : 사실 1xN, Nx1 커널 레이어를 쌓아 Separable convolution과 유사한 것을 만들 수 있습니다. 이것은 최근 유망한 결과를 보여준 EffNet라는 아키텍쳐에서 사용되었습니다.
 
 뉴럴넷에선 depthwise separable convolution라는 것을 주로 사용합니다. 이 방법은 채널을 분리하지 않고 spatial convolution을 수행한 다음 depthwise convolution을 수행합니다. 예를 들어보겠습니다.
 
@@ -107,7 +107,7 @@ Sobel X and Y filters
 
 우리는 spatial하고 depthwise한 정보를 나눌 수 있다는 가정하에 이 작업을 합니다. Xception 모델의 성능을 보면 이 이론이 효과가 있는 것으로 보입니다. depthwise seprable convolution은 매개변수를 효율적으로 사용하기 때문에 모바일 장치에도 사용됩니다
 
-> 역자 : 채널, 공간상 상관성 분리를 하는 인셉션 모델을 극단적으로 밀어붙여 depthwise seperable convolution 구조를 만듭니다. input의 1x1 convolution을 씌운 후 나오는 모든 채널에 3x3 convolution을 수행합니다. 원글에서 separable convolution의 설명이 부족한 것 같아 PR12의 영상을 보고 이해했습니다  
+> 역자 : 채널, 공간상 상관성 분리를 하는 인셉션 모델을 극단적으로 밀어붙여 depthwise separable convolution 구조를 만듭니다. input의 1x1 convolution을 씌운 후 나오는 모든 채널에 3x3 convolution을 수행합니다. 원글에서 separable convolution의 설명이 부족한 것 같아 PR12의 영상을 보고 이해했습니다  
 > 유재준님의 [PR-034: Inception and Xception](https://www.youtube.com/watch?v=V0dLhyg5_Dw)과 이진원님의 [PR-044: MobileNet](https://www.youtube.com/watch?v=7UoOFKcyIvM&feature=youtu.be)을 보면 이해가 잘됩니다 :)
 
 # Questions?
@@ -118,7 +118,7 @@ Sobel X and Y filters
 - [라온피플 Deconvolutional Network](http://laonple.blog.me/220985349467)
 - [라온 피플 Dilated Convolution](http://laonple.blog.me/220991967450)
 - [라온 피플 Semantic Segmentation](http://laonple.blog.me/221000648527)
-- [Seperable Kernel Convolution](http://trip2ee.tistory.com/74)
+- [Separable Kernel Convolution](http://trip2ee.tistory.com/74)
 - [MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications](http://openresearch.ai/t/mobilenets-efficient-convolutional-neural-networks-for-mobile-vision-applications/20)
 - [Convolution Arithmetic in Deep Learning Part 2](https://nrupatunga.github.io/convolution-2/)
 - [Tensorflow KR - PR12 유튜브 강의](https://www.youtube.com/playlist?list=PLlMkM4tgfjnJhhd4wn5aj8fVTYJwIpWkS)
