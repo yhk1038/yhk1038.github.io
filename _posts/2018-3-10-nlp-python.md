@@ -490,8 +490,8 @@ $$otherwise : 1$$
 7. 학습이 끝난 뒤에는 Center vector와 Context vector를 덧셈해서 사용한다.
 
 
-### Pretained word vector
-[https://github.com/stanfordnlp/GloVe](https://github.com/stanfordnlp/GloVe)
+### Pretrained word vector
+[https://github.com/stanfordnlp/GloVe](https://github.com/stanfordnlp/GloVe)  
 [https://github.com/mmihaltz/word2vec-GoogleNews-vectors](https://github.com/mmihaltz/word2vec-GoogleNews-vectors)  
 
 - 대용량의 코퍼스에 미리 학습된 Word Vector들을 다운받아 사용할 수 있음. 많은 딥러닝 기반의 NLP 모델에선 이러한 Pre-trained word vector를 사용해 초기화함
