@@ -63,7 +63,7 @@ Idea/Thing을 여러 Symbol로 표현할 수 있습니다.(같은 것을 다르�
 - 만약 1만개의 단어를 One-hot vector로 표현하면?
 	- 1만 차원의 벡터가 필요해 차원의 저주가 발생함
 
-### Distrivuted word representation
+### Distributed word representation
 - 그렇다면, 단어의 의미를 분산시켜 벡터로 표현하자!
 - 그 단어의 속성은 함꼐 쓰이는 단어(맥락)에 의해 결정될 것이다
 - Dense한 Vector를 만들어봄!
