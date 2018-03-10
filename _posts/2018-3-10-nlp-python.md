@@ -6,7 +6,7 @@ categories: data
 tags: dl
 comments: true
 ---
-Pytorch를 활용한 자연어 처리 내용입니다.
+[김성동](https://github.com/dsksd)님의 Pytorch를 활용한 딥러닝 입문 중 자연어처리 파트 정리 파일입니다.
 
 # Distributed Word Representation
 
@@ -330,12 +330,12 @@ V : 11 (코퍼스 내의 단어의 집합. 중복을 제거한 집합)
 1. Corpus에서 단어 집합**(Vocabulary)**을 구해서 **Index**를 매긴다.
 2. **Window size**를 정하고 **T개의 데이터셋**를 준비한다.
 3. **Center word**와 **Context word**를 표현할 **2개의 Embedding Matrix**를 선언한다.
-4. **P(o|c)**를 구해서 **Negative log-likelihood(loss)**를 구한다.
+4. **P(o\|c)**를 구해서 **Negative log-likelihood(loss)**를 구한다.
 5. **Gradient Descent**를 사용하여 **loss**를 최소화한다.
 6. 학습이 끝난 뒤에는 **Center vector와 Context vector를 평균**해서 사용한다.
 
 ### 코드 예시
-- 1. Corpus에서 단어 집합을 구해 Index를 매김
+- 1 Corpus에서 단어 집합을 구해 Index를 매김
 
 ```
 corpus = "I have a puppy. His name is Bori. I love him."
@@ -351,7 +351,7 @@ for voca in vocabulary:
 print(word2index)
 ```
 
-- 2. Window size를 정하고 데이터를 준비
+- 2 Window size를 정하고 데이터를 준비
 
 ```
 WINDOW_SIZE = 2
@@ -381,7 +381,7 @@ train_data = list(zip(X_p,y_p))
 train_data[0]
 ```
 
-- 3. Center word와 Context word를 표현할 2개의 Embedding Matrix를 선언
+- 3 Center word와 Context word를 표현할 2개의 Embedding Matrix를 선언
 
 ```
 center_embed = nn.Embedding(len(word2index),3)
@@ -399,7 +399,7 @@ print(context_vector)
 # 배치 사이즈 : 1 
 ```
 
-- 4. P(o|c)를 구해서 Negative log-likelihood(loss)를 구한다 
+- 4 P(o\|c)를 구해서 Negative log-likelihood(loss)를 구한다 
 
 ```
 # 분자값
@@ -428,3 +428,198 @@ score/norm_scores
 - 이 정도의 문장이라면 T*2m 만큼의 배치 사이즈로 한번에
 J(θ) 구할 수 있지만, 보통은 코퍼스의 크기가 매우 크기 때문에 미니 배치로 Negative log likelihood를 구해서 업데이트한다.(SGD)
 - 학습 후에는 두 벡터를 평균내서 최종 Word Vector로 사용함
+- 빈도 수가 적은 단어는 stopwords로 지정
+
+### [실습](https://github.com/DSKSD/Pytorch_Fast_Campus_2018/blob/master/week6/2_Embedding_basic.ipynb)
+
+## Negative Sampling
+- word2vec의 비효율성을 개선하려고 한 논문
+	- 기존 방식의 문제점 : J(θ)를 계산하는 것이 매우 비싸고 비효율적
+	- 보통의 코퍼스는 Vocaburaly의 크기가 
+1만개 이상이다. 즉, 이  Softmax 연산이 매우 비싼 연산이다. (== 학습이 느림)
+- 문제점을 해소하기 위해 2가지 방법을 제시. 그 중 1개가 Negative Sampling
+
+<img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/nlp-8.png?raw=true">
+
+- $P(w)=U(x)^(3/4)/Z$
+- Unigram 분포!
+- 3/4라는 지수의 역할 : 빈도가 낮은 단어가 샘플링될 확률을 높여줌(Negative Sample)
+- SoftMax는 비싼 연산이기 때문에 다른 방법이 많이 고안됨(면접 질문~)
+- Negative Sampling을 하면 vector간 연산이 가능해짐
+
+<img src="https://adriancolyer.files.wordpress.com/2016/04/word2vec-plural-relation.png?w=600">
+
+
+## Glove : Global Vector
+- Timestep t 기준으로만 다른 주변단어와 co-occurrence를 포착했는데, 코퍼스(문서) 전체 기준으로 모든 Co-occurrence를 반영할 수는 없을까?
+
+```
+I have a puppy . His name is Bori . I love him . 
+And also I have a lovely cat. 
+```
+
+| word | frequency |
+|------|---|
+| have | 2 |
+| . | 1 |
+| love | 1 |
+| also | 1 |
+
+### Co-occurrence
+<img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/nlp-9.png?raw=true">
+
+- 위 두 방식을 융합함! 통계적 정보를 반영해 fixed voca에 적용
+
+### Object Function
+<img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/nlp-10.png?raw=true">
+
+- 코퍼스 내의 모든 단어 W에 대해, 두 단어 벡터의 내적(유사도)과 두 단어의 Co-occurrence 확률($P_{ij}$)의 차이를 최소로 만들자
+- 특정 단어 간의 Co-occurrence는 다른 것들에 비해 과하게 높을 수가 있습니다. 그래서 이렇게 Co-occurrence가 너무 큰 경우의 영향을 줄이기 위한 Weighting Function 을 사용합니다($f(P_{ij})$)
+
+$$f(x)= if x < x_{max} : (x/x_{max})^a$$
+$$otherwise : 1$$
+
+
+### Process
+1. Corpus에서 단어 집합(Vocabulary)을 구해서 Index를 매긴다.
+2. Window size를 정하고 T개의 데이터셋를 준비한다.
+3. Center word와 Context word를 표현할 2개의 Embedding Matrix를 선언한다.
+4. 전체 코퍼스에 대해 Co-occurrence matrix를 구축한다. => 단어셋이 클수록 메모리 에러가 남(VxV = 1억..)
+5. Objective function을 이용해 J(θ)를 구하고 여기에 -를 붙여서 loss로 만든다
+6. Gradient Descent를 사용하여 loss를 최소화한다.
+7. 학습이 끝난 뒤에는 Center vector와 Context vector를 덧셈해서 사용한다.
+
+
+### Pretained word vector
+[https://github.com/stanfordnlp/GloVe](https://github.com/stanfordnlp/GloVe)
+[https://github.com/mmihaltz/word2vec-GoogleNews-vectors](https://github.com/mmihaltz/word2vec-GoogleNews-vectors)  
+
+- 대용량의 코퍼스에 미리 학습된 Word Vector들을 다운받아 사용할 수 있음. 많은 딥러닝 기반의 NLP 모델에선 이러한 Pre-trained word vector를 사용해 초기화함
+
+
+## Word Vector Evaluation
+- Intrinsic
+	- a:b == c:?
+	- 데이터셋을 4개의 pair를 준비하고 구멍을 만듬
+	- cosine similarity를 사용해서 Distance가 가장 짧은 i를 찾음
+	$$d = argmax_i((x_b-x_a+x_c)^T*x_i)/(||x_b-x_a+x_c||)$$ 
+	- GloVe의 경우 더 오랜 훈련시킬수록 모델의 정확도가 더 높아지는 경향이 있음(수렴 역시 더 빠름!)
+	- 무조건 GloVe가 좋다고할 순 없지만 대체로 좋은 편
+	- 여러 사람이 두 단어의 관계에 대한 상관관계를 1~10 사이의 점수를 매기면 이를 평균내서 Test Set으로 구축하긴 함(But.. 하기 힘듬
+- Extrinsic
+	- 실제 task를 평가
+
+	
+## TensorboardX를 사용한 시각화
+[코드](https://github.com/DSKSD/Pytorch_Fast_Campus_2018/blob/master/week6/5_Skip-gram-Negative-Sampling.ipynb)
+
+- 필요한 데이터셋
+	- 학습이 끝난 weight matrix를 가지고 옴(345, 30)
+	- 각 인덱스에 맞는 단어(라벨)
+- Search에 토치를 검색해서 볼 수 있음
+
+```
+from tensorboardX import SummaryWriter
+import pickle
+import os
+
+# 텐서보드 데이터 파일 초기화
+try:
+    shutil.rmtree('runs/')
+except:
+    pass
+
+writer = SummaryWriter(comment='-embedding')
+matrix = (model.embedding_u.weight.data + model.embedding_v.weight.data)/2
+label = [index2word[i] for i in range(len(index2word))]
+
+writer.add_embedding(matrix, metadata=label)
+writer.close()
+
+!tensorboard --logdir runs --port 6006    
+``` 
+
+<img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/nlp-12.png?raw=true">
+
+## Using Pretrained Word Vector
+
+<img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/nlp-11.png?raw=true">
+
+- 자신이 가지고 있는 코퍼스보다 더 큰 코퍼스로 학습 된 매트릭스!! using Word2Vec, GloVe, FastText….
+- 이전 Transfer Learning에서 Fine tuning했던 것과 
+비슷한 효과를 기대함.
+- 단어 단위에서의 Representation Power 빌리기!
+거의 모든 딥러닝 NLP 모델에서의 기본재료
+- Unsupervised Learning! 레이블과 상관없이 큰 코퍼스로 학습을 시킨 후, 우리가 사용하려는 embedding matrix에 반영
+- [코드](https://github.com/DSKSD/Pytorch_Fast_Campus_2018/blob/master/week6/6_Using_Pretrained_Word_Vector.ipynb)
+- Gensim : 오직 word vector만을 위한 라이브러리! 굉장히 빠름!
+
+```
+import torch
+import torch.nn as nn
+from torch.autograd import Variable
+import torch.optim as optim
+import torch.nn.functional as F
+import numpy as np
+import nltk
+import torchtext
+from konlpy.tag import Kkma
+
+tagger = Kkma()
+import gensim
+
+torchtext.vocab.pretrained_aliases
+
+corpus = open('data/corpus.txt','r',encoding="utf-8").readlines()
+corpus = [c[:-1] for c in corpus]
+
+tokenized = [tagger.morphs(c) for c in corpus]
+
+model = gensim.models.Word2Vec(tokenized, size=15, window=5, min_count=2, workers=4)
+
+model.most_similar("토치")
+
+model.wv.save_word2vec_format("data/word_vector_sample.bin",binary=True) # 저장
+
+pretrained_vectors_model = gensim.models.KeyedVectors.load_word2vec_format("data/word_vector_sample.bin",binary=True)
+
+pretrained_vectors_model['토치']
+
+vocab = list(pretrained_vectors_model.vocab.keys()) # Word2Vec에서 사용한 vocab
+
+pretrained_vectors=[]
+for vo in vocab:
+    pretrained_vectors.append(pretrained_vectors_model[vo])
+    
+pretrained_vectors = np.vstack(pretrained_vectors)
+
+pretrained_vectors.shape
+
+# Init embedding matrix
+class MyModel(nn.Module):
+    def __init__(self,vocab_size,embed_size):
+        super(MyModel,self).__init__()
+        
+        self.embed = nn.Embedding(vocab_size,embed_size)
+        
+    def init_embed(self,pretrained_vectors):
+        self.embed.weight.data = torch.from_numpy(pretrained_vectors).float()
+    
+    def forward(self,inputs):
+        return self.embed(inputs)
+
+model = MyModel(len(vocab),15)
+model.embed.weight
+model.init_embed(pretrained_vectors)
+model.embed.weight
+    
+```
+
+### CNN을 사용한 Sentence Classification 예시
+
+<img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/nlp-13.png?raw=true">
+
+### FastText
+- Word2Vec이나 GloVe와 같은 Word level representation model의 문제점은 선정의한 단어셋에 대한 매트릭스만을 학습시킬 수 있다는 것입니다
+- 즉, 단어셋에 없는 단어를 만나면 아예 Indexing 자체를 할 수 없게 됩니다. 이러한 문제를 Out of Vocabulary(OOV)라고 부릅니다
+- FastText는 Subword Information을 이용하여 Word representation을 시도합니다. OOV 문제를 어느 정도 중화시켰습니다
