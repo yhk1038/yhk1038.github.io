@@ -29,11 +29,12 @@ NLP Task는 지금까지 봤던 접근법이랑(CNN류) 많이 다릅니다. RNN
 ## Word Representation
 Idea/Thing을 여러 Symbol로 표현할 수 있습니다.(같은 것을 다르게 표현할 수 있습니다) 여기서 각 단어간의 관계도 알 수 있습니다(유사한지)  
 
-<img src="../assets/img/nlp-1.png">
+
+<img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/nlp-1.png?raw=true">
 
 ### WordNet 
 
-<img src="../assets/img/nlp-2.png">
+<img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/nlp-2.png?raw=true">
 
 - 단어 의미를 그래프 형태로 출력
 - 사람이 직접 구축해야 함(비싼 비용)
@@ -46,9 +47,9 @@ Idea/Thing을 여러 Symbol로 표현할 수 있습니다.(같은 것을 다르�
 ### One-hot Vector
 
 ```
-파이토치	 [1,0,0,0,0,0,0,0]
+파이토치		 [1,0,0,0,0,0,0,0]
 짱		  [0,1,0,0,0,0,0,0]
-텐서플로우	[0,0,1,0,0,0,0,0]
+텐서플로우		 [0,0,1,0,0,0,0,0]
 구글		 [0,0,0,1,0,0,0,0]
 쉽다		 [0,0,0,0,1,0,0,0]
 페북		 [0,0,0,0,0,1,0,0]
@@ -70,7 +71,7 @@ Idea/Thing을 여러 Symbol로 표현할 수 있습니다.(같은 것을 다르�
 ```
 파이토치	 [0.6, -0.2, 0.7, 0.3, 0.7, -0.2, 0.1, 0.1]
 텐서플로우	[0.4, -0.1, 0.6, -0.2, 0.6, -0.2, 0.3, 0.4]
-고양이	     [-0.3, 0.2, 0.1, 0.2, -0.2, 0.1, -0.3, 0.1]
+고양이	  [-0.3, 0.2, 0.1, 0.2, -0.2, 0.1, -0.3, 0.1]
 
 유사도
 파이토치^T * 텐서플로우 = 1.15
@@ -266,7 +267,8 @@ for test in test_data:
 - 단어의 속성은 주변 단어로부터 결정된다라는 전제가 있었는데, 주변 단어가 Input이고 중심 단어가 Output이 나오는 CBOW 모델과 중심 단어가 Input이고 주변 단어가 Output인 Skip-gram이 있습니다 
 
 ### Skip-gram
-<img src="../assets/img/nlp-3.png">
+<img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/nlp-3.png?raw=true">
+
 
 - 중심 단어가 있으면 주변 단어가 나올 조건부 확률을 구할 수 있음
 - 윈도우 사이즈는 하이퍼 파라미터
@@ -288,7 +290,8 @@ embed.weight
 
 
 ### Object Function
-<img src="../assets/img/nlp-4.png">
+<img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/nlp-4.png?raw=true">
+
 
 - Corpus : 텍스트의 뭉치
 - 각 토큰마다 그 단어가 중심단어가 될 수 있음
@@ -296,13 +299,22 @@ embed.weight
 	- 최적화를 쉽게하기 위해 Log로 바꿔서 곱을 합으로 변경
 	- -를 붙여서 Log-Likelihood를 **최소화** 
 
-<img src="../assets/img/nlp-5.png">
+<img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/nlp-5.png?raw=true">
+
 
 - 각 단어는 Center Word와 Context word가 될 수 있음
-<img src="../assets/img/nlp-6.png">
+<img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/nlp-6.png?raw=true">
+
 
 $u_o^T*v_c$ : 내적을 해서 유사도를 구함
 
+- 데이터셋 예시
+<img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/nlp-7.png?raw=true">
+
+
+```
+list(nltk.ngrams(tokenized, 5))
+```
 ### 예시
 ```
 I have a puppy . His name is Bori . I love him .
@@ -322,4 +334,97 @@ V : 11 (코퍼스 내의 단어의 집합. 중복을 제거한 집합)
 5. **Gradient Descent**를 사용하여 **loss**를 최소화한다.
 6. 학습이 끝난 뒤에는 **Center vector와 Context vector를 평균**해서 사용한다.
 
+### 코드 예시
+- 1. Corpus에서 단어 집합을 구해 Index를 매김
 
+```
+corpus = "I have a puppy. His name is Bori. I love him."
+tokenized = nltk.word_tokenize(corpus)
+vocabulary = list(set(tokenized)) # 단어의 집합(중복 x)
+print(tokenized)
+print(vocabulary)
+
+word2index={}
+for voca in vocabulary:
+    if word2index.get(voca)==None:
+        word2index[voca]=len(word2index)
+print(word2index)
+```
+
+- 2. Window size를 정하고 데이터를 준비
+
+```
+WINDOW_SIZE = 2
+windows = list(nltk.ngrams(['<DUMMY>'] * WINDOW_SIZE + tokenized + ['<DUMMY>'] * WINDOW_SIZE, WINDOW_SIZE * 2 + 1))
+
+train_data = []
+
+for window in windows:
+    for i in range(WINDOW_SIZE * 2 + 1):
+        if i == WINDOW_SIZE or window[i] == '<DUMMY>': 
+            continue
+        train_data.append((window[WINDOW_SIZE], window[i]))
+
+print(train_data[:WINDOW_SIZE * 2])
+# >>> [('I', 'have'), ('I', 'a'), ('have', 'I'), ('have', 'a')]
+# 각 단어를 index로 바꾸고 LongTensor로 바꿔주는 함수
+def prepare_word(word, word2index):
+    return Variable(torch.LongTensor([word2index[word]]))
+
+X_p,y_p=[],[]
+
+for (center,context) in train_data:
+    X_p.append(prepare_word(center, word2index).view(1, -1))
+    y_p.append(prepare_word(context, word2index).view(1, -1))
+    
+train_data = list(zip(X_p,y_p))
+train_data[0]
+```
+
+- 3. Center word와 Context word를 표현할 2개의 Embedding Matrix를 선언
+
+```
+center_embed = nn.Embedding(len(word2index),3)
+context_embed = nn.Embedding(len(word2index),3)
+
+print(center_embed.weight)
+print(context_embed.weight)
+
+center,context = train_data[0]
+
+center_vector = center_embed(center)
+context_vector = context_embed(context)
+print(center_vector)
+print(context_vector)
+# 배치 사이즈 : 1 
+```
+
+- 4. P(o|c)를 구해서 Negative log-likelihood(loss)를 구한다 
+
+```
+# 분자값
+score = torch.exp(context_vector.bmm(center_vector.transpose(1,2))).squeeze(2)
+score
+
+# 분모값
+#  시퀀스(단어들의 연속된 리스트)가 들어오면 LongTensor로 매핑
+def prepare_sequence(seq, word2index):
+    idxs = list(map(lambda w: word2index[w], seq))
+    return Variable(torch.LongTensor(idxs))
+
+vocabulary_tensor = prepare_sequence(vocabulary,word2index).view(1,-1)
+print(vocabulary_tensor)
+
+vocabulary_vector = context_embed(vocabulary_tensor)
+
+norm_scores = vocabulary_vector.bmm(center_vector.transpose(1, 2))
+norm_scores = torch.sum(torch.exp(norm_scores,1))
+print(norm_scores)
+
+# 결과
+score/norm_scores
+```
+
+- 이 정도의 문장이라면 T*2m 만큼의 배치 사이즈로 한번에
+J(θ) 구할 수 있지만, 보통은 코퍼스의 크기가 매우 크기 때문에 미니 배치로 Negative log likelihood를 구해서 업데이트한다.(SGD)
+- 학습 후에는 두 벡터를 평균내서 최종 Word Vector로 사용함
