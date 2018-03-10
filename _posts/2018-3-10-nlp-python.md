@@ -306,7 +306,7 @@ embed.weight
 <img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/nlp-6.png?raw=true">
 
 
-$u_o^T*v_c$ : 내적을 해서 유사도를 구함
+$$u_o^T*v_c$$ : 내적을 해서 유사도를 구함
 
 - 데이터셋 예시
 <img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/nlp-7.png?raw=true">
@@ -435,13 +435,13 @@ J(θ) 구할 수 있지만, 보통은 코퍼스의 크기가 매우 크기 때�
 ## Negative Sampling
 - word2vec의 비효율성을 개선하려고 한 논문
 	- 기존 방식의 문제점 : J(θ)를 계산하는 것이 매우 비싸고 비효율적
-	- 보통의 코퍼스는 Vocaburaly의 크기가 
+	- 보통의 코퍼스는 Vocabulary의 크기가 
 1만개 이상이다. 즉, 이  Softmax 연산이 매우 비싼 연산이다. (== 학습이 느림)
 - 문제점을 해소하기 위해 2가지 방법을 제시. 그 중 1개가 Negative Sampling
 
 <img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/nlp-8.png?raw=true">
 
-- $P(w)=U(x)^(3/4)/Z$
+- $$P(w)=U(x)^(3/4)/Z$$
 - Unigram 분포!
 - 3/4라는 지수의 역할 : 빈도가 낮은 단어가 샘플링될 확률을 높여줌(Negative Sample)
 - SoftMax는 비싼 연산이기 때문에 다른 방법이 많이 고안됨(면접 질문~)
@@ -473,8 +473,8 @@ And also I have a lovely cat.
 ### Object Function
 <img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/nlp-10.png?raw=true">
 
-- 코퍼스 내의 모든 단어 W에 대해, 두 단어 벡터의 내적(유사도)과 두 단어의 Co-occurrence 확률($P_{ij}$)의 차이를 최소로 만들자
-- 특정 단어 간의 Co-occurrence는 다른 것들에 비해 과하게 높을 수가 있습니다. 그래서 이렇게 Co-occurrence가 너무 큰 경우의 영향을 줄이기 위한 Weighting Function 을 사용합니다($f(P_{ij})$)
+- 코퍼스 내의 모든 단어 W에 대해, 두 단어 벡터의 내적(유사도)과 두 단어의 Co-occurrence 확률($$P_{ij}$$)의 차이를 최소로 만들자
+- 특정 단어 간의 Co-occurrence는 다른 것들에 비해 과하게 높을 수가 있습니다. 그래서 이렇게 Co-occurrence가 너무 큰 경우의 영향을 줄이기 위한 Weighting Function 을 사용합니다($$f(P_{ij})$$)
 
 $$f(x)= if x < x_{max} : (x/x_{max})^a$$
 $$otherwise : 1$$
@@ -538,6 +538,8 @@ writer.close()
 
 !tensorboard --logdir runs --port 6006    
 ``` 
+
+- 이미지를 크게 보시려면 우측마우스 클릭 후 새 창에서 이미지를 열어주세요!
 
 <img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/nlp-12.png?raw=true">
 
