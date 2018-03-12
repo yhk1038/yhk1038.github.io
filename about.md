@@ -13,7 +13,7 @@ order: 10
 
 Machine Learning Engineer가 되기 위해 매일 필요한 내용들을 공부하고, 코딩하고 있습니다. 종종 ```Kaggle```에 참여해 등수 올리는 재미를 느끼고 있습니다.  
 
-처음 시작한 언어는 ```Python```이며, 데이터 엔지니어링 업무를 위해 Google Cloud의 ```BigQuery```, ```Dataflow```, ```Apache Beam```을 회사에서 주로 사용하고 있습니다.  
+처음 시작한 언어는 ```Python```이며, 데이터 엔지니어링 업무를 위해 Google Cloud의 ```BigQuery```, ```Dataflow```, ```Apache Beam```을 주로 사용하고 있습니다.  
 
 좋아하는 딥러닝 프레임워크는 ```PyTorch```입니다. Pythonic한 코딩 방식을 유지하려고 노력하고 있습니다. ```Keras```나 ```Tensorflow```도 필요할 경우 사용하고 있습니다.    
 
@@ -34,7 +34,7 @@ Machine Learning Engineer가 되기 위해 매일 필요한 내용들을 공부�
 | Zillow's Home Value 예측 	| 2017.9 - 11 	|  모델링<br>데이터 엔지니어링 	| Kaggle 대회 <br>  최종 등수 : **81등** / 3779팀 	|
 | Santander Product 추천 	| 2016.12 	| 분석<br>모델링 	| Kaggle 대회 <br> 최종 등수 : **603등** / 1784팀 	|
 | Github 유저 추천 시스템 	| 2016.7 	| 분석<br>모델링 	| Word2Vec을 활용한<br>Github 유저 추천 시스템 	|
-| 맥주 추천 시스템 	| 2015.6 - 12 	| 기획/디자인<br>데이터 크롤링 	| Collavorative Filtering을 <br>활용한 맥주 추천 시스템 	|
+| 맥주 추천 시스템 	| 2015.6 - 12 	| 기획/디자인<br>데이터 크롤링 	| Collaborative Filtering을 <br>활용한 맥주 추천 시스템 	|
 
 ## 발표 / 작성 문서
 - [2017년 회고, 2018년 계획](https://zzsza.github.io/diary/2017/12/30/2017-retrospect/)
