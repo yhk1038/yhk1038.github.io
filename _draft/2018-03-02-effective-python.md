@@ -125,3 +125,124 @@ def to_bytes(bytes_or_str):
         value = bytes_or_str
     return value
 ```
+
+파이썬2에선 str이나 unicode를 입력으로 받고 unicode를 반환시키는 메서드가 필요합니다
+
+```
+# Python2
+def to_unicode(unicode_or_str):
+	if isinstance(unicode_or_str, str):
+		value = unicode_or_str.decode('utf-8')
+	else:
+		value = unicode_or_str
+	return value
+```
+
+```
+# Python2
+def to_str(unicode_or_str):
+	if isinstance(unicode_or_str, unicode):
+		value = unicode_or_str.encode('utf-8')
+	else:
+		value = unicode_or_str
+	return value
+```
+
+파이썬에서 로 8비트 값과 유니코드 문자를 처리할 때는 중대한 이슈 2개가 있음  
+
+- 1 : 파이썬2의 str은 7비트 아스키 문자만 포함하고 있다면 unicode와 str 인스턴스가 같은 타입처럼 보입니다 ( 반면 파이썬3은 bytes와 str 인스턴스는 빈 문자열이라도 절대 같지 않으므로 함수에 넘기는 문자열 타입을 신중하게 처리해야 함)
+	- 이런 str과 unicode를 + 연산자로 묶을 수 있음
+	- equality, inequality 연산자로 비교할 수 있음
+	- '%s' 같은 포맷 문자열에 unicode 인스턴스를 사용할 수 있음
+- 2 : 파이썬 3에선 내장 함수 open이 반환하는 파일 핸들에서 사용하는 연산이 기본적으로 UTF-8 인코딩을 사용. 파이썬2은 기본으로 바이너리 인코딩을 사용
+	- 바이너리 쓰기모드('wb')로 오픈해야 함
+	
+	```
+	with open('/tmp/data.bin/', 'wb') as f:
+		f.write(os.urandom(10))
+	```
+	
+## BETTER WAY 4
+복잡한 표현식 대신 헬퍼 함수를 작성하자
+
+URL에서 쿼리 문자열을 디코드해야 한다고 할 경우   
+
+```
+from urllib.parse import parse_qs
+my_values = parse_qs('red=5&blue=0&green=',
+					  keep_blank_values=True)
+print(repr(my_values))
+>>> {'red': ['5'], 'green':[''], 'blue': ['0']}
+```	
+
+이렇게 만들면 ```my_values.get('red')```로 값을 추출할 수 있으나 딕셔너리에 없는 값은 None으로 나올 것입니다. 이럴 경우엔 ```my_values.get('opacity', [''])[0] or 0``` 으로 처리하면 없는 값도 0이 나올 것입니다. 여기서 사용된 트릭은 빈 문자열, 빈 리스트, 0이 모두 암시적으로 False로 평가되는 것을 사용했습니다  
+
+수학식에서도 사용하기 위해 int로 감싸줘야 합니다. 코드를 펼쳐서 보면 아래와 같습니다
+
+```
+green = my_values.get('green', [''])
+if green[0]:
+	green = int(green[0])
+else:
+	green = 0	
+```
+
+이 로직을 반복해서 사용해야 한다면 헬퍼 함수를 만드는 것이 좋습니다
+
+```
+def get_first_int(Values, key, default=0):
+	found = values.get(key, [''])
+	if found[0]:
+		found = int(found[0])
+	else:
+		found = default
+	return found
+```
+
+이젠 ```green = get_first_int(my_values, 'green')```으로 간단히 표현할 수 있습니다
+
+
+## BETTER WAY 5
+시퀀스를 슬라이스하는 방법을 알자
+
+파이썬은 시퀀스를 슬라이스(slice:자르기)해서 조각으로 맏느는 문법을 제공합니다. 이렇게 슬라이스하면 최소한의 노력으로 시퀀스 아이템의 부분집합(subset)에 접근할 수 있습니다. 가장 간단한 슬라이싱 대상은 내장 타입인 list, str, bytes입니다. ```__getitem__```과 ```__setitem__```이라는 특별한 메서드를 구현한 클래스에도 슬라이싱을 적용할 수 있습니다  
+
+문법의 기본 형태는 somelist[start:end]이며 start 인덱스는 포함되고 end 인덱스는 제외됩니다. 끝을 기준으로 계산할 때는 음수로 슬라이스할 수 있습니다. 
+
+할당에 사용하면 슬라이스는 원본 리스트에서 지정한 범위를 대체합니다. 길이가 같아야 하는 튜플 할당과는 달리 슬라이스 할당은 길이가 달라도 됩니다. 리스트는 새로 들어온 값에 맞춰 늘어나거나 줄어듭니다  
+
+```
+print('before', a)
+a[2:7] = [99, 22, 14]
+print('after', a)
+>>>
+before ['a','b','c','d','e','f','g','h']
+after ['a', 'b', 99, 22, 14, 'h']	
+```
+
+시작과 끝 인덱스를 모두 생략하고 슬라이스하면 원본 리스트의 복사본을 얻습니다
+
+```
+b = a[:]
+asser b== a and b is not a
+```
+
+슬라이스에 시작과 끝 인덱스를 지정하지 않고 할당하면 슬라이스 전체 내용을 참조 대상의 복사본으로 대체
+
+```
+b = a
+print('before', a)
+a[:] = [101, 102, 103]
+assert a is b # 여전히 같은 리스트 객체
+print('after', a) # 이제 다른 내용을 담음
+>>>
+before ['a','b','99, 22, 14, 'h']
+after [101, 102, 103]
+```
+
+## BETTER WAY 6
+한 슬라이스에 start, end, stride를 함께 쓰지 말자
+
+파이썬 슬라이스 문법 중 stride는 오작동을 하는 경우가 있다. 예를 들어 utf-8 바이트 문자열로 인코드된 유니코드 문자에는 작동하지 않습니다. 따라서 stride 부분이 매우 혼란스러울 수 있기에 함께 사용하지 않는 것을 추천합니다. 특히 stride가 음수일 땐 더욱!! 만약 파라미터를 3개 사용해야 한다면 내장 모듈인 ```itertools```의 ```islice```를 사용하면 됩니다
+
+
