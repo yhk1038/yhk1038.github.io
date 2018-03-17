@@ -352,3 +352,34 @@ class RNN(nn.Module):
         
         return output
 ```
+
+### Dropout / Layer Normalization
+
+<img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/rnn14.png?raw=true">
+
+- Recurrent connection(가로 방향)에는 Dropout을 적용하지 않고, 나머지 connection(세로 방향)에만 Dropout을 적용합니다!!
+- Recurrent Connection에 Dropout을 적용하면 과거의 정보까지 잃어버리게 되기 때문입니다-
+
+### Layer Normalization
+- RNN에선 레이어 노말라이제이션이 표준이 되가고 있습니다
+- Batch와는 독립적으로 Layer의 Output 자체를
+Normalization합니다. (Batch size의 의존성 X)
+- LSTM, GRU에 적용하는 것은 복잡할 수 있지만, RNN에 적용한다면!
+
+<img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/rnn15.png?raw=true">
+
+- Pytorch에서는 0.4 버전부터 정식으로 사용 가능할 것으로 예상됩니다(현재 0.3.1)
+
+
+## Sequence Tagging
+- 연속된 시퀀스에 태그를 다는 테스크
+- POS tagging, NER, SRL
+- Text 분류는 many to one
+- Language Model, Sequence Tagging은 many to many
+
+### Named Entity Recognition(NER)
+- 엔티티의 이름을 인지
+- 보통 2개 이상의 토큰이 하나의 Entity를 구성
+	- B : Entity의 시작
+	- I : B로 시작한 Entity에 속함
+	- O : Entity가 아님
