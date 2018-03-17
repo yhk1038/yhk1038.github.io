@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Pytorch를 활용한 RNN(Recurrent Neural Network)"
-subtitle: "Pytorch를 활용한 RNN"
+title: "Pytorch를 활용한 RNN"
+subtitle: "Pytorch를 활용한 RNN(Recurrent Neural Network)"
 categories: data
 tags: dl
 comments: true
@@ -37,7 +37,7 @@ $$P(x^{(t+1)}=w_j|x^{(t)}, ...,x^{(1)})$$
 #### 가정 : t+1의 확률은 이전 n-1개의 단어(토큰)에만 의존한다
 
 
-<img src="../assets/img/rnn1.png">
+<img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/rnn1.png?raw=true">
 
 
 ### 문제점 
@@ -61,15 +61,15 @@ FFN(Feed Forward Neural Network)
 - Input의 길이가 가변적입니다
 
 
-<img src="../assets/img/rnn2.png">
+<img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/rnn2.png?raw=true">
 
-<img src="../assets/img/rnn3.png">
+<img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/rnn3.png?raw=true">
 
 - time t의 hidden state는 이전 모든 time step x를 인풋으로 받는 함수 g의 아웃풋으로 볼 수 있습니다(모두 연결되어 있으니까-!)
 
 #### Notation
-<img src="../assets/img/rnn4.png">
-<img src="../assets/img/rnn5.png">
+<img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/rnn4.png?raw=true">
+<img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/rnn5.png?raw=true">
 
 - 인풋의 차원에 대한 감이 있어야 합니다!
 - x는 word vector
@@ -91,9 +91,9 @@ D=3로 총 4개의 Timestamp가 있어서 4x3 매트릭스를 indexing했습니�
 | 1.0 	| 0.0 	| 0.2 	|
 | 0.1 	| 0.1 	| 0.  	|
 
-첫 행이 $h^{(0)}$! 
+첫 행이 $$h^{(0)}$$! 
 
-<img src="../assets/img/rnn6.png">
+<img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/rnn6.png?raw=true">
 
 - 마지막 step의 Hidden state는 "뭐 먹을까?"라는 문장을 인코딩한 벡터로 볼 수 있습니다
 
@@ -128,18 +128,18 @@ hidden.size() # 1, B, H
 - Style마다 먼저 쓰는 것이 다른데, B, T, D로 많이 사용하곤 함 (batch_first=Ture)
 - hidden은 마지막 hidden state를 뜻합니다
 
-<img src="../assets/img/rnn7.png">
-
+<img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/rnn7.png?raw=true">
 
 
 #### 하이퍼 파라미터 세팅
-<img src="../assets/img/rnn8.png">
+<img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/rnn8.png?raw=true">
 
 - ?에 들어갈 것은 무엇일까요?  
-$E$ : VxD  
-$W_e$ : DxH  
-$W_h$ : HxH  
-$U$ : HxV  
+$$E$$ : VxD  
+$$W_e$$ : DxH  
+$$W_h$$ : HxH  
+$$U$$ : HxV  
+
 
 
 
