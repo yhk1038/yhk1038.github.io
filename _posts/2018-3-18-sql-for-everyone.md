@@ -16,14 +16,13 @@ comments: true
 - 계속 업데이트 할 예정입니다(최종 수정일 : 3월 18일)
 
 ## ToDo
-- [x] SELECT / FROM
-- [x] WHERE
-- [x] GROUP BY / HAVING
-- [x] LIMIT
-- [ ] Join
+- Join
+- Pivot
+- Window Function
 
 
-SQL은 **Structured Query Language**의 약자로 관계형 데이터베이스 관리 시스템(RDBMS)의 데이터를 관리하기 위해 설계된 특수 목적의 프로그래밍 언어입니다. 그냥 데이터를 뽑아내기 위한 도구라고 생각하면 조금 이해하기 쉬울 것 같습니다<br/><br/>
+## SQL
+SQL은 **Structured Query Language**의 약자로 관계형 데이터베이스 관리 시스템(RDBMS)의 데이터를 관리하기 위해 설계된 특수 목적의 프로그래밍 언어입니다. 그냥 데이터를 뽑아내기 위한 도구라고 생각하면 조금 이해하기 쉬울 것 같습니다. 대부분의 회사에서 데이터를 RDB에 저장하고 있습니다. 많이 사용되는 것은 MySQL, PostgreSQL, MaridDB, <br/><br/>
 
 기본적인 구조는 다음과 같습니다. 지금은 이해가 안되실텐데 그냥 그렇구나~ 하고 쭉 글을 읽어주세요! <br/>	
 
