@@ -6,7 +6,7 @@ categories: development
 tags: sql
 comments: true
 ---
-데이터 사이언스를 공부하기 전, 마케팅/광고를 공부했습니다. 마케터가 배우면 제일 좋을 도구가 GA일까? 엑셀일까? 이것저것 고민하다가 그 당시 내린 결정은 SQL이었습니다. 일단 데이터를 스스로 가지고 올 수 있어야 분석을 할 수 있습니다(개발자들에게 매번 부탁하면 업무의 디펜던시가 개발자에게 걸리니..) 개발을 하지 않은 분들이 조금 쉽게 SQL을 다룰 수 있도록 글을 써볼 예정입니다 
+데이터 사이언스를 공부하기 전, 마케팅/광고를 공부했습니다. 마케터가 배우면 제일 좋을 도구가 GA일까? 엑셀일까? 이것저것 고민하다가 그 당시 내린 결정은 SQL이었습니다. 일단 데이터를 스스로 가지고 올 수 있어야 분석을 할 수 있습니다(개발자들에게 매번 부탁하면 업무의 디펜던시가 개발자에게 걸리니..) 개발을 하지 않은 분들이 조금 쉽게 SQL을 다룰 수 있도록 글을 작성할 예정입니다 
 <br/><br/>
 
 
@@ -17,12 +17,13 @@ comments: true
 
 ## ToDo
 - Join
+- LIKE
 - Pivot
 - Window Function
 
 
 ## SQL
-SQL은 **Structured Query Language**의 약자로 관계형 데이터베이스 관리 시스템(RDBMS)의 데이터를 관리하기 위해 설계된 특수 목적의 프로그래밍 언어입니다. 그냥 데이터를 뽑아내기 위한 도구라고 생각하면 조금 이해하기 쉬울 것 같습니다. 대부분의 회사에서 데이터를 RDB에 저장하고 있습니다. 많이 사용되는 것은 MySQL, PostgreSQL, MaridDB, <br/><br/>
+SQL은 **Structured Query Language**의 약자로 관계형 데이터베이스 관리 시스템(RDBMS)의 데이터를 관리하기 위해 설계된 특수 목적의 프로그래밍 언어입니다. 그냥 데이터를 뽑아내기 위한 도구라고 생각하면 조금 이해하기 쉬울 것 같습니다. 대부분의 회사에서 데이터를 RDB에 저장하고 있습니다. 많이 사용되는 것은 MySQL, PostgreSQL, MaridDB, Oracle 등이 있습니다 <br/><br/>
 
 기본적인 구조는 다음과 같습니다. 지금은 이해가 안되실텐데 그냥 그렇구나~ 하고 쭉 글을 읽어주세요! <br/>	
 
@@ -34,6 +35,7 @@ GROUP BY [그룹화할 컬럼]
 HAVING [그룹화한 뒤 조건]
 LIMIT [제한할 개수]
 ```
+
 <br/><br/>
 ## SELECT / FROM
 우선 가장 중심이 되는것은 ```SELECT```와 ```FROM```입니다!  
@@ -131,7 +133,7 @@ INSERT INTO `user_log` (`user_id`, `event`,`event_date`) VALUES
 ```
 SELECT user_id, event, event_date
 FROM user_log
-WHERE user_id = '1'
+WHERE user_id = '1';
 ```
 
 
@@ -157,14 +159,21 @@ WHERE user_id = '1'
 
 ## GROUP BY
 여기서 나오는 개념은 ```GROUP BY``` 입니다! GROUP BY [컬럼 이름] 이런 방식으로 사용하는데, 직관적으로 설명하자면 컬럼들을 그룹화한다(aggregate)라고 생각해주세요
+<br/>
 
-바로 코드를 통해 보여드리겠습니다
+GROUP BY에 대한 이해를 돕기 위해 그림을 그려봤는데, 아래와 같은 과정을 통해 결과가 나타납니다 <br/>
+
+<img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/sql2.png?raw=true">
+
+우선 GROUP BY하기 위해 같은 값들을 모아두고, 그 후에 연산(COUNT 혹은 SUM 같은 집계 함수)을 수행합니다 <br/>
+
+코드를 통해 보여드리겠습니다
 
 ```
 SELECT user_id, event, event_date, COUNT(DISTINCT user_id) AS 'unique', COUNT(user_id) AS 'total'
 FROM user_log
 WHERE user_id = '1'
-GROUP BY user_id, event, event_date
+GROUP BY user_id, event, event_date;
 ```
 <br/>
 
@@ -199,7 +208,7 @@ SELECT user_id, event, event_date, COUNT(DISTINCT user_id) AS 'unique', COUNT(us
 FROM user_log
 WHERE user_id = '1'
 GROUP BY user_id, event, event_date
-ORDER BY event_date
+ORDER BY event_date;
 ```
 <br/>
 
@@ -224,11 +233,12 @@ ORDER BY event_date
 SELECT event, event_date, COUNT(DISTINCT user_id) AS 'unique', COUNT(user_id) AS 'total'
 FROM user_log
 GROUP BY event, event_date
-ORDER BY event_date
+ORDER BY event_date;
 ```
 <br/>
 
 ### 결과
+
 |          event | event_date | unique | total |
 |----------------|------------|--------|-------|
 | login_facebook | 2018-03-12 |      2 |     2 |
@@ -265,7 +275,7 @@ ORDER BY event_date
 SELECT event_date, COUNT(DISTINCT user_id) AS 'DAU'
 FROM user_log
 GROUP BY event_date
-ORDER BY event_date
+ORDER BY event_date;
 ```
 
 ### 결과
@@ -296,10 +306,12 @@ SELECT event_date, COUNT(DISTINCT user_id) AS 'DAU'
 FROM user_log
 GROUP BY event_date
 HAVING DAU >= 2
-ORDER BY event_date
+ORDER BY event_date;
 ```
 <br/><br/>
+
 ### 결과
+
 | event_date | DAU |
 |------------|-----|
 | 2018-03-12 |   2 |
@@ -320,6 +332,16 @@ HAVING [그룹화한 뒤 조건]
 LIMIT [제한할 개수]
 ```
 
-여기서 설명하지 않은 ```LIMIT```은 보여줄 결과를 제한해주는 것입니다. 개수 제한이 필요할 경우 사용하면 됩니다!!
+여기서 설명하지 않은 ```LIMIT```은 보여줄 결과를 제한해주는 것입니다. 개수 제한이 필요할 경우 사용하면 됩니다 :)
+<br/>
 
+SQL은 집합적 관점에서 접근하면 조금 더 쉬운데, 여태까지 배운 내용을 집합으로 표현해보겠습니다
+
+<img src="https://github.com/zzsza/zzsza.github.io/blob/master/assets/img/sql1.png?raw=true">
+
+Table에서 WHERE 조건에 해당하는 값들을 찾은 후, SELECT!
+
+<br/>
+
+이후 글은 ToDo에 나와있는 내용들을 하나씩 추가해보겠습니다
 
