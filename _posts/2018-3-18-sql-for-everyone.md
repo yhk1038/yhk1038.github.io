@@ -266,6 +266,7 @@ ORDER BY event_date;
 
 ## 2. DAU 뽑기
 - DAU의 정의 : Daily Active User로 저희 서비스에서 어떤 이벤트라도 했던 사람을 Active로 정의하겠습니다
+- 이 경우 어떻게 쿼리를 날려야 할까요? 직접 쿼리를 짜보세요!
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
@@ -298,6 +299,9 @@ ORDER BY event_date;
 <br/><br/>
 그룹화를 하기 전 컬럼에 대한 조건이라면 WHERE, 그룹화를 한 후의 컬럼에 대한 조건은 HAVING을 사용하는 것입니다
 
+### 처음 SQL 접하시는 분들이 자주 하시는 질문
+- ```WHERE```과 ```HAVING```의 차이가 무엇인가요?
+	- WHERE은 Table에서 조건을 뽑아내는 것이고 HAVING은 그룹화한 후 결과에서 조건을 뽑는 것입니다. 동시에 사용하는 경우도 있으며, ```HAVING```은 주로 ```GROUP BY```와 함께 쓰입니다
 
 ### 정답
 
