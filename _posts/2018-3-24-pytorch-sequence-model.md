@@ -12,16 +12,18 @@ comments: true
 ### Statistical Machine Translation
 - Source Language(X)를 토대로 Target Language(Y)로 번역하는 Task
 - 예시 : 스페인어를 Input으로 넣고, Output을 영어!
-- 목적 함수
-	- $$argmax_yP(y|x)$$
-	- source 문장이 주어졌을 떄, 가장 좋은 Target 문장을 찾는 것
-	- $$argmax_yP(x|y)P(y)$$ 으로 식을 분해
-	- $$P(x|y)$$는 Translation Model : 어떻게 번역하는지 학습
-		- Parallel Corpus가 필요 (병렬 코퍼스)
-	- $$P(y)$$는 Language Model : 어순 및 문법 보정
+#### 목적 함수
 
-- $$P(x|y)$$를 $$P(x,a|y)$$로 변경  
-- 여기서 $$a$$는 Alignment로 Source language와 Target language의 **단어간 상호 관련성**을 의미  
+```$$argmax_yP(y|x)$$```  
+source 문장이 주어졌을 떄, 가장 좋은 Target 문장을 찾는 것
+$$argmax_yP(x|y)P(y)$$ 으로 식을 분해
+$$P(x|y)$$는 Translation Model : 어떻게 번역하는지 학습  
+
+Parallel Corpus가 필요 (병렬 코퍼스)  
+$$P(y)$$는 Language Model : 어순 및 문법 보정
+
+$$P(x|y)$$를 $$P(x,a|y)$$로 변경  
+여기서 $$a$$는 Alignment로 Source language와 Target language의 **단어간 상호 관련성**을 의미  
 one to one, one to many, many to many alignment가 필요
 
 
@@ -42,7 +44,7 @@ one to one, one to many, many to many alignment가 필요
 - Decoder는 Encoder의 Last Hidden state를 초기 Hidden state로 사용하여 Target 문장에 대한 
 Language model을 학습
 - \<START>, \<END> 토큰 : 문장의 시작과 끝을 알려주며, 디코더 입장에선 condition에 따라 디코딩을 시작하고, end 토큰이 나오면 디코딩을 멈춰라
-- NMT는 확률 $$P(y|x)$$을 바로 계산합니다(Statisctical에선 2개로 나눠서 계산했음)
+- NMT는 확률 $P(y|x)$을 바로 계산합니다(Statisctical에선 2개로 나눠서 계산했음)
 - Source 문장(x)과 이전(T-1)까지의 Target 문장이 주어졌을 때 step T에 $$y_T$$일 조건부 확률
 
 #### 학습
