@@ -111,3 +111,7 @@ The baseline is the cosine of binary sentence vectors with each dimension repres
 - Spanish-English 1등
 - cosine, negation of Bray-Curtis dissimilarity and vector correlation을 사용한 Paragraph로 Unsupervised 유사도 구함
 - $$L_1$$-$$L_2$$ PAIR를 단일 언어 $$L_1$$-$$L_1$$, $$L_2$$-$$L_2$$로 변경 
+
+
+
+<img src="https://pbs.twimg.com/media/C6dPTCZVUAAK7ol.jpg">
