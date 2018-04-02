@@ -49,17 +49,17 @@ English sentence pairs에 집중. 영어는 잘 연구된 문제라 인간의 �
 ## 2. Task Overview
 성능은 인간의 판단과 머신 점수의 Pearson상관 관계에 의해 0~5 점수로 측정. 중간 값은 의미상 해석할 수 없는 중첩 수준을 뜻합니다. 
 
-<img src="https://www.dropbox.com/s/i688pd7en4saipn/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-04-02%2000.19.52.png?raw=1", height="550">
+<img src="http://www.dropbox.com/s/i688pd7en4saipn/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-04-02%2000.19.52.png?raw=1">
 
 ## 3. Evaluation Data
 Stanford Natural Language Inference(SNLI) corpus (단, 교차 언어 중 하나는 WMT 데이터)
 
-<img src="https://www.dropbox.com/s/l98ogyfmctjdku0/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-04-02%2000.15.15.png", height=300 />
+<img src="http://www.dropbox.com/s/l98ogyfmctjdku0/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-04-02%2000.15.15.png?raw=1">
 
 
 Sentence Embedding 사용하며 meaning overlap은 cosine similarity 사용해 측정
 
-<img src="https://www.dropbox.com/s/9f4wbtdb1p8t4sp/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-04-02%2001.44.42.png?", height="800" />
+<img src="http://www.dropbox.com/s/9f4wbtdb1p8t4sp/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-04-02%2001.44.42.png?raw=1">
 
 
 ## 6. System Evaluation
