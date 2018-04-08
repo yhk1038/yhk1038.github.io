@@ -44,7 +44,7 @@ Learning Natural Language Inference using Bidirectional LSTM model and Inner Att
 - 이 메커니즘은 분류에 정확하고 집중 sentence representation을 생성에 도움이 됨
 - 또한 hypothesis와 premise에서 동일한 단어를 제거해 성능을 향상시킴
 
-## 4. Conclusion and Futre work
+## 4. Conclusion and Future work
 - RTE를 풀기 위해 Inner-Attention을 사용한 BiLSTM based model을 제안
 - Our future work
 	- QA, Para-phrase and Sentence Text Similarity 등에도 사용 시도
@@ -59,9 +59,9 @@ Learning Natural Language Inference using Bidirectional LSTM model and Inner Att
 	- 같은 문장에 attention 메카니즘 적용 + 이전 단계에서 생성된 representation을 사용 	
 - Inner-attention 아이디어는 사람이 한 문장을 읽을 때, 과거의 경험에 따라 문장의 어느 부분이 더 중요한지에 대한 직관을 형성할 수 있다는 생각으로 만들었습니다
 
-$$M = tanh(W^{y}Y+W^{h}R_{ave}\otimes e_L)$$
-$$\alpha = softmax(w^{T}M)$$
-$$R_{att}=Y\alpha^T$$
+$$M = tanh(W^{y}Y+W^{h}R_{ave}\otimes e_L)$$  
+$$\alpha = softmax(w^{T}M)$$  
+$$R_{att}=Y\alpha^T$$  
 
 - $$Y$$는 biLSTM의 output vector로 구성된 행렬
 - $$R_{ave}$$는 mean pooling layer의 output
