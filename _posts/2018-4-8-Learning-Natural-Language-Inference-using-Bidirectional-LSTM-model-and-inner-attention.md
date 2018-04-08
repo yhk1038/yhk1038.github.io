@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "Learning Natural Language Inference using Bidirectional LSTM model and inner attention 리뷰"
-subtitle: "Learning Natural Language Inference using Bidirectional LSTM model and inner attention 리뷰"
+title:  "Learning Natural Language Inference using Bidirectional LSTM model and Inner Attention 리뷰"
+subtitle: "Learning Natural Language Inference using Bidirectional LSTM model and Inner Attention 리뷰"
 categories: data
 tags: paper
 comments: true
 ---
 [
-Learning Natural Language Inference using Bidirectional LSTM model and Inner Attention 리뷰](https://arxiv.org/pdf/1605.09090v1.pdf)을 정리한 글입니다!
+Learning Natural Language Inference using Bidirectional LSTM model and Inner Attention](https://arxiv.org/pdf/1605.09090v1.pdf)을 정리한 글입니다!
 
 
 ## Abstract
