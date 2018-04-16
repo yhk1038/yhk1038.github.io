@@ -78,7 +78,7 @@ DNS Server는 IP 주소와 Domain 이름을 **기억**하는 기능과 Client가
 
 맨 뒤에는 사실 ```.```이 생략되어 있습니다.  
 각각의 부분들은 부분들을 담당하는 독자적인 Server Computer가 존재합니다.  
-Root는 Top-level을 담당하는 Server의 목록과 IP를 알고 있으며, Top-level은 Second-level, Second-level은 sub의 목록과 IP를 알고 있습니다(상위과 직속 하위를 알고 있음)
+Root는 Top-level을 담당하는 Server의 목록과 IP를 알고 있으며, Top-level은 Second-level, Second-level은 sub의 목록과 IP를 알고 있습니다(상위 목록이 직속 하위 목록을 알고 있음)
 
 최초 root 네임서버의 IP 주소에게 blog.example.com을 물어보면 .com을 담당하는 Top-level을 알려주고, Top-level은 example.com을 담당하는 Second-level을 알려주고, Second-level은 blog.example.com 담당하는 sub DNS Server에게 물어보고, sub가 해당 IP 주소를 알려줍니다! 계층적인 구조를 가지고 있습니다
 
@@ -159,5 +159,5 @@ freenom에선 add record에 CNAME을 설정할 수 있습니다
 ## Github pages에 도메인 연결하기
 내가 서버를 운영하지 않고 남이 사용하는 서버를 사용하는 경우 도메인을 연결하는 방법에 대해 알아보겠습니다!  
 
-settings - custom domain에 설정하면 됩니다!! Github 공식 문서에 잘 나와 있습니다. 
+Github의 경우 settings - custom domain에 설정하면 됩니다!! 추가적으로 http를 사용하는 경우, https를 사용하는 경우 등의 내용은 Github 공식 문서에 잘 나와 있습니다. 
 
