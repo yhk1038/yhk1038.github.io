@@ -257,7 +257,7 @@ hello-world:2도 올려줍니다!
 - [Docker에서 apt-get update가 실패할 때](http://interp.blog/docker%EC%97%90%EC%84%9C-apt-get-update%EA%B0%80-%EC%8B%A4%ED%8C%A8%ED%95%A0-%EB%95%8C/)
 - [Docker 컨테이너 이미지 생성](http://forum.falinux.com/zbxe/index.php?document_srl=806457&mid=lecture_tip)
 - [Image doe not contain 'sudo'](https://github.com/tianon/docker-brew-ubuntu-core/issues/48)
-- [developerWorks 밋업, 도커와 쿠버네티스, 두 마리 토끼를 잡자!](https://www.facebook.com/groups/developerWorksKRUG/permalink/2020459798166854/)
+- [IBM developerWorks 밋업, 도커와 쿠버네티스, 두 마리 토끼를 잡자!](https://www.facebook.com/groups/developerWorksKRUG/permalink/2020459798166854/)
 - [IBM Document](http://docker-dwmeetup.mybluemix.net/docker1.html)
 
 
