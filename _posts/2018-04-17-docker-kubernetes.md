@@ -85,7 +85,7 @@ COPY app.js
 - ```EXPOSE``` : 포트 노출
 - ```CMD``` : 컨테이너가 시작되었을 때 실행할 실행 파일 또는 쉘 스크립트
 - ```WORKDIR``` : CMD에서 설정한 실행 파일이 실행될 디렉터리 
-- ```COPYT``` : 말 그대로 복사
+- ```COPY``` : 말 그대로 복사
 
 ### Docker Container Stop
 - ```docker container rm <container ID/Name>``` : container 삭제! 돌아가고 있는 container는 삭제가 되지 않습니다. 먼저 중지한 후, 삭제해야 합니다! 그러나 ```-f``` 조건을 주면 바로 삭제할 수 있습니다
