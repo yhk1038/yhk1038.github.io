@@ -27,13 +27,11 @@ comments: true
 ### docker images 
 - 현재 사용 가능한 image 목록을 출력. ```-a``` 옵션을 주면 모든 것을 보여줌
 
-### docker rmi <아이디>/\<이미지 이름\>:<태그>
-- 이미지 삭제
-
 ### docker ps
 - 현재 사용 가능한 컨테이너 목록을 출력. ```-a``` 옵션을 주면 모든 것을 보여줌
 
-### docker pull <아이디>/\<이미지 이름\>:<태그>
+### dokcer pull
+- ```docker pull <아이디>/<이미지 이름>:<태그>```
 - [docker hub](https://hub.docker.com/)에 있는 이미지를 가지고 옴
 
 ### docker 이미지로 container 실행하고 싶은 경우
@@ -50,13 +48,16 @@ comments: true
 ### docker diff <container ID>
 - 컨테이너가 부모 이미지와 파일 변경 사항을 확인할 수 있는 명령어
 
-### docker commit <container ID> <아이디>/\<이미지 이름\>:<태그>
+### docker container commit
+- ```docker commit <container ID> <아이디>/<이미지 이름>:<태그>```
 - 새로운 도커 이미지 생성
 
-### docker push <아이디>/\<이미지 이름\>:<태그>
+### docker push image
+- ```docker push <아이디>/\<이미지 이름\>:<태그>```
 - docker hub에 이미지 업로드
 
-### docker build --tag <아이디>/\<이미지 이름\>:<태그>
+### docker build
+- ```docker build --tag <아이디>/\<이미지 이름\>:<태그> .```
 - ```Dockerfile```에 있는 곳에서 명령어를 치면 파일에 나온대로 이미지 생성
 
 ### Dockerfile 형식
