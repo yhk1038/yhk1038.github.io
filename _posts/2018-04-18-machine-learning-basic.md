@@ -44,7 +44,7 @@ $$\frac{d}{d\theta}(a_{H}ln\theta+a_{T}ln(1-\theta)) = 0$$
 
 $$\frac{a_{H}}{\theta} - \frac{a_{T}}{1-\theta} = 0$$  
 
-$$\text{따라서, } \hat\theta = \frac{a_{H}}{a_{H}+a_{T}}$$
+$$\hat\theta = \frac{a_{H}}{a_{H}+a_{T}}$$
 
 
 ### 추가 질문
