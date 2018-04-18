@@ -44,7 +44,7 @@ $$\frac{d}{d\theta}(a_{H}ln\theta+a_{T}ln(1-\theta)) = 0$$
 
 $$\frac{a_{H}}{\theta} - \frac{a_{T}}{1-\theta} = 0$$  
 
-$$따라서, \hat\theta = \frac{a_{H}}{a_{H}+a_{T}}$$
+따라서, $$ \hat\theta = \frac{a_{H}}{a_{H}+a_{T}}$$
 
 
 ### 추가 질문
@@ -81,6 +81,7 @@ $$P(\theta) = \dfrac{\theta^{\alpha-1}(1-\theta)^{\beta-1}}{B(\alpha, \beta)},  
 다시 $$ P(\theta\mid D) \propto P(D\mid\theta)P(\theta) $$를 정리하면,
 
 $$ P(\theta\mid D) \propto  \theta^{a_{h}}(1-\theta)^{a_{T}} \theta^{\alpha-1}(1-\theta)^{\beta-1} $$  
+
 $$=\theta^{a_{H}+\alpha-1}(1-\theta)^{a_{T}+\beta-1}$$
 
 MAE에서 나왔던 모양과 비슷한데, $$\alpha$$, $$\beta$$가 존재할 뿐! $$\alpha$$, $$\beta$$를 조절해(=사전 정보) $$\widehat\theta$$를 추출합니다
@@ -90,9 +91,11 @@ MAE에서 나왔던 모양과 비슷한데, $$\alpha$$, $$\beta$$가 존재할 �
 
 ## MLE와 MAP의 비교
 ### MLE
+
 $$\hat\theta = argmax_{\theta}P(D\mid\theta) \to \frac{a_{H}}{a_{H}+a_{T}}$$
 
 ### MAP
+
 $$\hat\theta = argmax_{\theta}P(\theta\mid D) \to \frac{a_{H}+\alpha-1}{a_{H}+\alpha+a_{T}+\beta-2}$$
 
 ## Probability(확률)
@@ -136,6 +139,7 @@ $$\text{Beta}(\theta; \alpha, \beta) = \dfrac{\theta^{\alpha-1}(1-\theta)^{\beta
 - Notation : $$\text{Bin}(N, \theta)$$
 - Mean : $$N \theta$$
 - Variance : $$N \theta(1-\theta)$$  
+
 $$ \text{Bin}(x;N,\theta) = \binom N x  \theta^x(1-\theta)^{N-x} $$  
 $$ \binom N x =\dfrac{N!}{x!(N-x)!} $$
 
