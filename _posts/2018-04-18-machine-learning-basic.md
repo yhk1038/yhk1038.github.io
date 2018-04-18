@@ -84,7 +84,7 @@ $$ P(\theta\mid D) \propto  \theta^{a_{h}}(1-\theta)^{a_{T}} \theta^{\alpha-1}(1
 
 $$=\theta^{a_{H}+\alpha-1}(1-\theta)^{a_{T}+\beta-1}$$
 
-MAE에서 나왔던 모양과 비슷한데, $$\alpha$$, $$\beta$$가 존재할 뿐! $$\alpha$$, $$\beta$$를 조절해(=사전 정보) $$\widehat\theta$$를 추출합니다
+MAE에서 나왔던 모양과 비슷한데, $$\alpha$$, $$\beta$$가 존재할 뿐! $$\alpha$$, $$\beta$$를 조절해(=사전 정보) $$\hat\theta$$를 추출합니다
 
 베이즈는 이것을 보고 $$a_{H}$$와 $$a_{T}$$가 점점 커지면, $$\alpha$$, $$\beta$$의 영향이 작아져서 결국 MLE와 MAP는 동일하게 될 것이라고 이야기했습니다
 
@@ -141,6 +141,7 @@ $$\text{Beta}(\theta; \alpha, \beta) = \dfrac{\theta^{\alpha-1}(1-\theta)^{\beta
 - Variance : $$N \theta(1-\theta)$$  
 
 $$ \text{Bin}(x;N,\theta) = \binom N x  \theta^x(1-\theta)^{N-x} $$  
+
 $$ \binom N x =\dfrac{N!}{x!(N-x)!} $$
 
 ### Multinomial Distribution
