@@ -60,12 +60,12 @@ $$x_{1}$$은 가설 $$h_{1}, h_{2}, h_{3}$$에 모두 맞지만, $$x_{2}$$는 �
 
 ```
 For instance x in D
-	if x is positive
-		for feature f in O
-			if f_{i} in h == f_{i} in x
-				Do nothing
-			Else
-				f_{i} in h = f_{i} in h U f_{i} in x
+  if x is positive
+    for feature f in O
+      if f_{i} in h == f_{i} in x
+        Do nothing
+      Else
+        f_{i} in h = f_{i} in h U f_{i} in x
 return h				
 ```
 조금 더 쉽게 설명하면, 첫 가설은 Null Hypotheses로 만듭니다.  
@@ -83,12 +83,12 @@ $$h_{2}$$ : \<Sunny, Warm, Normal, ?, Warm, Same\>
 
 ```
 For instance x in D
-	If y of x is positive
-		Generalize S as much as needed to cover o in x
-		Remove any h in G, for which h(o)!=y
-	If y of x is negative
-		Specialize G as much as needed to exclude o in x
-		Remove any h in S, for which h(o)=y 
+  If y of x is positive
+    Generalize S as much as needed to cover o in x
+    Remove any h in G, for which h(o)!=y
+  If y of x is negative
+    Specialize G as much as needed to exclude o in x
+    Remove any h in S, for which h(o)=y 
 ```
 
 - 위와 같은 방법은 Perfect World에선 사용 가능하지만, 현실에선 사용하기 어렵습니다
@@ -111,16 +111,20 @@ $$ H[X] = -\sum_{x}P(X=x) \log_{b} P(X=x) $$
 - 주어진 x에 대해 y의 entropy를 구하는 형태
 
 $$ H(Y\mid X) = -\sum_{x}P(X=x)H(Y\mid X=x)$$  
+
 $$ = -\sum_{x}P(X=x)\{-\sum_{y}P(Y=y\mid X=x)log_{b}P(Y=y\mid X=x)\}$$
 
 
 ### Information Gain
-|               | A1<br>(307+, 383-) |           |   | A9<br>(307+, 393-) |               |
+
+|      <-         | A1<br>(307+, 383-) |   ->        | <-  | A9<br>(307+, 393-) |      ->        |
 |---------------|-----------------|-----------|---|-----------------|---------------|
 | a<br>(98+, 112-) | b<br>(206+, 262-)  | ?<br>(3+,9-) |   | t<br>(284+,77-)    | f<br>(23+, 306-) |
 
 $$ H(Y) = -\sum_{y\in\{+,-\}}P(Y=y) \log_{2} P(Y=y)$$
+
 $$P(Y=t) =\frac{307}{307+383}$$  
+
 $$ H(Y\mid A1) = \sum_{X\in\{a,b,?\}}\sum_{Y\in\{+,-\}}P(A1 = x, Y=y)\log_{2}\frac{P(A9=X)}{P(A9=X, Y=Y)}$$  
 
 $$IG(Y,A_{i}) = H(Y) - H(Y\mid A_{i})$$
@@ -172,11 +176,15 @@ $$f(x; \theta) = \sum_{i=0}^{n}\theta_{i}x_{i}+e = y \to f=X\theta+e=Y$$
 이제 $$\theta$$를 추정하기 위해 식을 작성해보겠습니다
 
 $$\hat\theta=argmin_{\theta}(f-\hat f)^{2} = argmin_{\theta}(Y-X\theta)^2$$  
+
 $$argmin_{\theta}(Y-X\theta)^{T}(Y-X\theta) = argmin_{\theta}(Y-X\theta)^{T}(Y-X\theta)$$  
+
 $$argmin_{\theta}(\theta^{T}X^{T}X\theta-2\theta^{T}X^{T}Y+Y^{T}Y) = argmin_{\theta}(\theta^{T}X^{T}X\theta-2\theta^{T}X^{T}Y)$$
 
 $$\triangledown_{\theta}(\theta^{T}X^{T}X\theta-2\theta^{T}X^{T}Y) = 0$$  
+
 $$2X^{T}X\theta-2X^{T}Y=0$$  
+
 $$\theta = (X^{T}X)^{-1}X^{T}Y$$
 
 현재 함수는 linear하기 때문에, 데이터의 끝 부분을 제대로 표현하지 못하고 있습니다. 이를 위해 x를 $$\phi$$라는 함수를 거쳐 새로운 벡터를 만든 후, 이 벡터를 사용해 $$\theta$$를 구해볼 것입니다.
