@@ -32,7 +32,9 @@ $$P(D|\theta) = \theta^{a_{h}}(1-\theta)^{a_{T}}$$
 ### MLE	
 - 관측된 데이터들이 등장할 확률을 최대화하는 $$\theta$$를 찾기!
 - 수식  
-$$\widehat\theta = argmax_{\theta}P(D|\theta) = argmax_{\theta}\theta^{a_{h}}(1-\theta)^{a_{T}}$$  
+
+$$\hat\theta = argmax_{\theta}P(D|\theta) = argmax_{\theta}\theta^{a_{h}}(1-\theta)^{a_{T}}
+$$  
 
 $$ = argmax_{\theta}lnP(D|\theta) = argmax_{\theta}ln\{\theta^{a_{h}}(1-\theta)^{a_{T}}\}$$  
 
@@ -42,15 +44,15 @@ $$\frac{d}{d\theta}(a_{H}ln\theta+a_{T}ln(1-\theta)) = 0$$
 
 $$\frac{a_{H}}{\theta} - \frac{a_{T}}{1-\theta} = 0$$  
 
-$$\therefore \widehat\theta = \frac{a_{H}}{a_{H}+a_{T}}$$
+$$따라서, \hat\theta = \frac{a_{H}}{a_{H}+a_{T}}$$
 
 
 ### 추가 질문
 추가적으로 압정을 더 던져서 앞면이 30회 뒷면이 20번 나온 경우, 5번 던진 것과 확률상으론 같은데, 과연 5번 던진 것과 50번 던진 것과는 같을까요?
 
-그에 대한 답은 "여러 번 시도하면서 파라미터 $$\widehat\theta$$를 추론한 것이지, 확정된 값은 않았습니다. 계속 던져보며 error가 줄어든 것입니다!"
+그에 대한 답은 "여러 번 시도하면서 파라미터 $$\hat\theta$$를 추론한 것이지, 확정된 값은 않았습니다. 계속 던져보며 error가 줄어든 것입니다!"
 
-$$P(|\widehat\theta - \theta^*| \ge \epsilon) \le 2e^{-2N\epsilon^{2}}$$
+$$P(|\hat\theta - \theta^*| \ge \epsilon) \le 2e^{-2N\epsilon^{2}}$$
 
 좌측의 $$\epsilon$$(error bound)가 커질수록 우측의 확률은 작아집니다. 또한 우측의 $$N$$이 커질수록 우측 값이 작아집니다
 
@@ -63,21 +65,22 @@ ex) 0.01% case의 probably에 $$\epsilon$$=0.01의 Apporiximate?
 MAE는 관측값에 따라 값이 너무 민감하게 변한다는 단점이 있기 때문에, 다른 관점으로 바라보자는 사람들이 점점 생겼습니다. 그 중 한명은 베이즈로, 사전 정보를 가미한 $$\theta$$를 찾아보자고 했습니다
 
 
-$$ P(\theta|D) = \dfrac{P(D|\theta)P(\theta)}{P(D)} $$
+$$ P(\theta\mid D) = \dfrac{P(D\mid\theta)P(\theta)}{P(D)} $$
 
 좌측은 Posterior, 우측은 Likelihood * Prior knowledge / Normalizing constant  
-Normalizing constant는 이미 주어진 사실이라 컨트롤을 할 수 없습니다. $$\theta$$가 바뀌는 것에 영향을 줄 수 없기 때문에 수식에서 많이 생략하곤 합니다
+Normalizing constant는 이미 주어진 사실이라 컨트롤을 할 수 없습니다.  
+$$\theta$$가 바뀌는 것에 영향을 줄 수 없기 때문에 수식에서 많이 생략하곤 합니다
 
 따라서 우리도 이렇게 정리하겠습니다  
-$$ P(\theta|D) \propto P(D|\theta)P(\theta) $$
+$$ P(\theta\mid D) \propto P(D\mid\theta)P(\theta) $$
 
-$$P(D|\theta) = \theta^{a_{h}}(1-\theta)^{a_{T}}$$라는 것을 이미 MAE에서 알게 되었는데요, 그렇다면 $$P(\theta)$$는 무엇일까요? 이 값은 베타 분포를 따른다고 합니다!
+$$P(D\mid\theta) = \theta^{a_{h}}(1-\theta)^{a_{T}}$$라는 것을 이미 MAE에서 알게 되었는데요, 그렇다면 $$P(\theta)$$는 무엇일까요? 이 값은 베타 분포를 따른다고 합니다!
 
 $$P(\theta) = \dfrac{\theta^{\alpha-1}(1-\theta)^{\beta-1}}{B(\alpha, \beta)},  {B(\alpha, \beta)}=\frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)},  \Gamma(\alpha)=(\alpha-1)!$$
 
-다시 $$ P(\theta|D) \propto P(D|\theta)P(\theta) $$를 정리하면,
+다시 $$ P(\theta\mid D) \propto P(D\mid\theta)P(\theta) $$를 정리하면,
 
-$$ P(\theta|D) \propto  \theta^{a_{h}}(1-\theta)^{a_{T}} \theta^{\alpha-1}(1-\theta)^{\beta-1} $$  
+$$ P(\theta\mid D) \propto  \theta^{a_{h}}(1-\theta)^{a_{T}} \theta^{\alpha-1}(1-\theta)^{\beta-1} $$  
 $$=\theta^{a_{H}+\alpha-1}(1-\theta)^{a_{T}+\beta-1}$$
 
 MAE에서 나왔던 모양과 비슷한데, $$\alpha$$, $$\beta$$가 존재할 뿐! $$\alpha$$, $$\beta$$를 조절해(=사전 정보) $$\widehat\theta$$를 추출합니다
@@ -87,10 +90,10 @@ MAE에서 나왔던 모양과 비슷한데, $$\alpha$$, $$\beta$$가 존재할 �
 
 ## MLE와 MAP의 비교
 ### MLE
-$$\widehat\theta = argmax_{\theta}P(D|\theta) \to \frac{a_{H}}{a_{H}+a_{T}}$$
+$$\hat\theta = argmax_{\theta}P(D\mid\theta) \to \frac{a_{H}}{a_{H}+a_{T}}$$
 
 ### MAP
-$$\widehat\theta = argmax_{\theta}P(\theta|D) \to \frac{a_{H}+\alpha-1}{a_{H}+\alpha+a_{T}+\beta-2}$$
+$$\hat\theta = argmax_{\theta}P(\theta\mid D) \to \frac{a_{H}+\alpha-1}{a_{H}+\alpha+a_{T}+\beta-2}$$
 
 ## Probability(확률)
 $$P(E) \in R, P(E)\ge0, P(\Omega)=1$$  
@@ -126,6 +129,7 @@ $$ \mathcal{N}(x; \mu, \sigma^2) = \dfrac{1}{\sqrt{2\pi\sigma^2}} \exp \left(-\d
 - Notation : $$\text{Beta}(\alpha, \beta)$$
 - Mean : $$\frac{\alpha}{\alpha+\beta}$$
 - Variance : $$\frac{\alpha\beta}{(\alpha+\beta)^{2}(\alpha+\beta+1)}$$  
+
 $$\text{Beta}(\theta; \alpha, \beta) = \dfrac{\theta^{\alpha-1}(1-\theta)^{\beta-1}}{B(\alpha, \beta)},  {B(\alpha, \beta)}=\frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)},  \Gamma(\alpha)=(\alpha-1)!$$
 
 ### Binomial Distribution
