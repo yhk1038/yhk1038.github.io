@@ -22,7 +22,7 @@ comments: true
 $$P(HHTTT) = \theta\theta(1-\theta)\theta(1-\theta) = \theta^{3}(1-\theta)^{2}$$  
 
 $$n$$=5, $$k=a_{H}$$=3, $$p=\theta$$라고 할 경우,  $$\theta$$가 주어졌을 때, 데이터 $$D$$가 관측될 확률  
-$$P(D|\theta) = \theta^{a_{h}}(1-\theta)^{a_{T}}$$
+$$P(D|\theta) = \theta^{a_{H}}(1-\theta)^{a_{T}}$$
 
 - 가정 : 압정 게임의 결과는 $$\theta$$라는 확률 분포를 따른다
 - 가정을 강하게 하려면? 
@@ -33,10 +33,10 @@ $$P(D|\theta) = \theta^{a_{h}}(1-\theta)^{a_{T}}$$
 - 관측된 데이터들이 등장할 확률을 최대화하는 $$\theta$$를 찾기!
 - 수식  
 
-$$\hat\theta = argmax_{\theta}P(D|\theta) = argmax_{\theta}\theta^{a_{h}}(1-\theta)^{a_{T}}
+$$\hat\theta = argmax_{\theta}P(D|\theta) = argmax_{\theta}\theta^{a_{H}}(1-\theta)^{a_{T}}
 $$  
 
-$$ = argmax_{\theta}lnP(D|\theta) = argmax_{\theta}ln\{\theta^{a_{h}}(1-\theta)^{a_{T}}\}$$  
+$$ = argmax_{\theta}lnP(D|\theta) = argmax_{\theta}ln\{\theta^{a_{H}}(1-\theta)^{a_{T}}\}$$  
 
 $$ = argmax_{\theta}\{a_{H}ln\theta+a_{T}ln(1-\theta)\}$$  
 
@@ -74,13 +74,13 @@ $$\theta$$가 바뀌는 것에 영향을 줄 수 없기 때문에 수식에서 �
 따라서 우리도 이렇게 정리하겠습니다  
 $$ P(\theta\mid D) \propto P(D\mid\theta)P(\theta) $$
 
-$$P(D\mid\theta) = \theta^{a_{h}}(1-\theta)^{a_{T}}$$라는 것을 이미 MAE에서 알게 되었는데요, 그렇다면 $$P(\theta)$$는 무엇일까요? 이 값은 베타 분포를 따른다고 합니다!
+$$P(D\mid\theta) = \theta^{a_{H}}(1-\theta)^{a_{T}}$$라는 것을 이미 MAE에서 알게 되었는데요, 그렇다면 $$P(\theta)$$는 무엇일까요? 이 값은 베타 분포를 따른다고 합니다!
 
 $$P(\theta) = \dfrac{\theta^{\alpha-1}(1-\theta)^{\beta-1}}{B(\alpha, \beta)},  {B(\alpha, \beta)}=\frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)},  \Gamma(\alpha)=(\alpha-1)!$$
 
 다시 $$ P(\theta\mid D) \propto P(D\mid\theta)P(\theta) $$를 정리하면,
 
-$$ P(\theta\mid D) \propto  \theta^{a_{h}}(1-\theta)^{a_{T}} \theta^{\alpha-1}(1-\theta)^{\beta-1} $$  
+$$ P(\theta\mid D) \propto  \theta^{a_{H}}(1-\theta)^{a_{T}} \theta^{\alpha-1}(1-\theta)^{\beta-1} $$  
 
 $$=\theta^{a_{H}+\alpha-1}(1-\theta)^{a_{T}+\beta-1}$$
 
