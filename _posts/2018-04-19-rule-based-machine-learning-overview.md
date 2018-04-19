@@ -52,7 +52,7 @@ $$x_{3}$$ : \<Sunny, Warm, Normal, Strong, Warm, Change\>
 
 $$x_{1}$$은 가설 $$h_{1}, h_{2}, h_{3}$$에 모두 맞지만, $$x_{2}$$는 가설 $$h_{3}$$에 맞지 않습니다. $$h_{1}$$는 널널한 가설이며 $$h_{3}$$는 까다로운 가설입니다
 
-이것은 Generalization vs Specilization 문제와 연결됩니다
+이것은 Generalization vs Specialization 문제와 연결됩니다
 
 
 ### Find S 알고리즘
