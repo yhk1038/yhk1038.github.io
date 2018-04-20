@@ -21,9 +21,10 @@ comments: true
 
 여기서 Bayes Risk가 나타납니다. Error의 면적에 대한 함수를 뜻하며, $$R(f^{*})$$로 표기합니다. 결국 주어진 X값에 대해 Error가 낮은 분류기를 찾는 것이 Optimal Classification입니다. 선형 그래프는 Bayes Risk의 큰 차이를 갖지 않고, 실선 그래프는 상대적으로 큽니다. 따라서 실선으로 모델링하며, error도 실선이 낮습니다
 
-- Bayes Classifier
-	- $$f^{*}=argmin_{f}P(f(x)\not= Y)$$  
-	- 여기서 $$f(x)\to\hat{y}$$
+Bayes Classifier를 식으로 표현하면,
+
+$$f^{*}=argmin_{f}P(f(x)\not= Y)$$  
+여기서 $$f(x)\to\hat{y}$$
 
 error을 최소화하기 위해 function approximation을 합니다.  
 Y의 클래스가 2개라고 가정하면
@@ -76,6 +77,7 @@ A가 명령에 대해 모를 경우 B가 움직이는 것을 보고 A가 "Comman
 ### 다시 돌아와서 조건부 독립을 적용하면
 
 $$f^{*}(x)= argmax_{Y=y}P(X=x\mid Y=y)P(Y=y)$$
+
 $$\approx argmax_{Y=y}P(Y=y)\prod_{1\le i\le d}P(X_{i}=x_{i}\mid Y=y)$$
 
 $$P(X_{i}=x_{i}\mid Y=y)$$는 이제 $$(2-1)dk$$개의 파라미터가 필요합니다. (1개를 알면 조건부 독립에 의해 다른 1개를 유추할 수 있습니다)
