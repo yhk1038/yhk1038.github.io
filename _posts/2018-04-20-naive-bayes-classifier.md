@@ -23,7 +23,7 @@ comments: true
 
 Bayes Classifier를 식으로 표현하면,
 
-$$f^{*}=argmin_{f}P(f(x)\not= Y)$$  
+$$f^{*}=argmin_{f}P(f(x)\neq Y)$$  
 여기서 $$f(x)\to\hat{y}$$
 
 error을 최소화하기 위해 function approximation을 합니다.  
