@@ -9,10 +9,13 @@ comments: true
 Little Big Data #1 : 다양한 사람들의 데이터 사이언스 이야기 [세션](https://festa.io/events/21) 후기입니다!  
 (**발표자**가 쓰는 행사 후기^_^...)
 
-<img src="https://www.dropbox.com/s/xycjly9kl7bz3gd/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-04-21%20%EC%98%A4%ED%9B%84%2012.14.06.png?raw=1">
+
+<img src="https://www.dropbox.com/s/5l7fz21kmdrutnu/IMG_2424%20%281%29.JPG?raw=1">
 
 
 ## Intro
+<img src="https://www.dropbox.com/s/xycjly9kl7bz3gd/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-04-21%20%EC%98%A4%ED%9B%84%2012.14.06.png?raw=1">
+
 - Little Big Data : 다양한 사람들의 다양한 데이터 사이언스 이야기!
 - ```Apache Zeppelin```을 만드는 ```Zepl```에서 진행합니다!
 - LETS(Local Exchange Trading System)을 통해 네트워킹을 진행합니다!
@@ -107,7 +110,12 @@ Little Big Data #1 : 다양한 사람들의 데이터 사이언스 이야기 [�
 		- 기술적 뛰어난 모델 적용하는 것도 좋지만, 간단한 통계 혹은 count based 모델을 사용하는 것이 효과적일 수도 있다
 	- unlabeled data에 직접 label을 달아보자     
 		
-		
+## 피자 타임!!
+<img src="https://www.dropbox.com/s/4c80wxy8j5343qo/IMG_1230.jpg?raw=1">
+
+<img src="https://www.dropbox.com/s/5nqv46id5nq6eqh/IMG_2479%20%281%29.JPG?raw=1">
+
+- 피자와 BrewDog의 맥주를 즐겼습니다!	
 		
 ## 딥러닝에 필요한 로그 기깔나게 잘 디자인하는 법
 - 백정상님, 구글 클라우드 엔지니어
@@ -263,6 +271,8 @@ Little Big Data #1 : 다양한 사람들의 데이터 사이언스 이야기 [�
 
 
 ## 패널 토크
+<img src="https://www.dropbox.com/s/lnll7w28ifbao6n/IMG_2139.JPG?raw=1">
+
 윤진석님, 김진중님, 나해빈님, 이문수님과 발표자분들의 패널 토크 시간이었습니다  
 살다보니 제가 패널 토크도 해보네요.. 생각보다 1시간이 짧았습니다. 데이터 관련 이런 저런 이야기를 주고 받는 시간이었습니다!!!  
 
