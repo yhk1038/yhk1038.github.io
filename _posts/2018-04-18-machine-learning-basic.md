@@ -15,7 +15,7 @@ comments: true
 - discrete한(이산적인) 사건에 대한 확률 분포입니다. ex) (앞, 뒤)
 - 이것을 계속 실험해보는 것을 베르누이 실험이라고 합니다
 - iid(independent and identically distrubted)를 가정하고 있습니다 
-	- 각 이벤트를 독립적이며 동일한 분포를 가진다는 뜻
+	- 각 이벤트는 독립적이며 동일한 분포를 가진다는 뜻
 - $$P(H)=\theta$$,  $$P(T)=1-\theta$$ 
 	- 가지는 성질 : 항상 양수, 합하면 1 
 
@@ -28,9 +28,11 @@ $$P(D|\theta) = \theta^{a_{H}}(1-\theta)^{a_{T}}$$
 - 가정을 강하게 하려면? 
 	- binomial 분포보다 맞는 분포를 제시 -> 추후 강의
 	- $$\theta$$를 최적화(best candidate theta를 찾아 D를 설명) -> MLE
+		
 
 ### MLE	
 - 관측된 데이터들이 등장할 확률을 최대화하는 $$\theta$$를 찾기!
+- 어떤 모수가 주어졌을 때, 원하는 값들이 나올 Likelihood를 최대로 만드는 모수를 선택하는 방법입니다. 점추정 방식에 속합니다
 - 수식  
 
 $$\hat\theta = argmax_{\theta}P(D|\theta) = argmax_{\theta}\theta^{a_{H}}(1-\theta)^{a_{T}}
@@ -62,7 +64,7 @@ ex) 0.01% case의 probably에 $$\epsilon$$=0.01의 Apporiximate?
 
 
 ## MAP (Maximum a Posteriori Estimation)
-MAE는 관측값에 따라 값이 너무 민감하게 변한다는 단점이 있기 때문에, 다른 관점으로 바라보자는 사람들이 점점 생겼습니다. 그 중 한명은 베이즈로, 사전 정보를 가미한 $$\theta$$를 찾아보자고 했습니다
+MLE는 관측값에 따라 값이 너무 민감하게 변한다는 단점이 있기 때문에, 다른 관점으로 바라보자는 사람들이 점점 생겼습니다. 그 중 한명은 베이즈로, 사전 정보를 가미한 $$\theta$$를 찾아보자고 했습니다
 
 
 $$ P(\theta\mid D) = \dfrac{P(D\mid\theta)P(\theta)}{P(D)} $$
@@ -74,7 +76,7 @@ $$\theta$$가 바뀌는 것에 영향을 줄 수 없기 때문에 수식에서 �
 따라서 우리도 이렇게 정리하겠습니다  
 $$ P(\theta\mid D) \propto P(D\mid\theta)P(\theta) $$
 
-$$P(D\mid\theta) = \theta^{a_{H}}(1-\theta)^{a_{T}}$$라는 것을 이미 MAE에서 알게 되었는데요, 그렇다면 $$P(\theta)$$는 무엇일까요? 이 값은 베타 분포를 따른다고 합니다!
+$$P(D\mid\theta) = \theta^{a_{H}}(1-\theta)^{a_{T}}$$라는 것을 이미 MLE에서 알게 되었는데요, 그렇다면 $$P(\theta)$$는 무엇일까요? 이 값은 베타 분포를 따른다고 합니다!
 
 $$P(\theta) = \dfrac{\theta^{\alpha-1}(1-\theta)^{\beta-1}}{B(\alpha, \beta)},  {B(\alpha, \beta)}=\frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)},  \Gamma(\alpha)=(\alpha-1)!$$
 
@@ -84,7 +86,7 @@ $$ P(\theta\mid D) \propto  \theta^{a_{H}}(1-\theta)^{a_{T}} \theta^{\alpha-1}(1
 
 $$=\theta^{a_{H}+\alpha-1}(1-\theta)^{a_{T}+\beta-1}$$
 
-MAE에서 나왔던 모양과 비슷한데, $$\alpha$$, $$\beta$$가 존재할 뿐! $$\alpha$$, $$\beta$$를 조절해(=사전 정보) $$\hat\theta$$를 추출합니다
+MLE에서 나왔던 모양과 비슷한데, $$\alpha$$, $$\beta$$가 존재할 뿐! $$\alpha$$, $$\beta$$를 조절해(=사전 정보) $$\hat\theta$$를 추출합니다
 
 베이즈는 이것을 보고 $$a_{H}$$와 $$a_{T}$$가 점점 커지면, $$\alpha$$, $$\beta$$의 영향이 작아져서 결국 MLE와 MAP는 동일하게 될 것이라고 이야기했습니다
 

@@ -75,7 +75,7 @@ $$h_{1}$$ : \<Sunny, Warm, Normal, Strong, Warm, Same\>
 $$x_{2}$$ : \<Sunny, Warm, Normal, Light, Warm, Same\>가 들어오면 새로운 경험을 받습니다. Strong해도 나가 노는구나! Strong U Light => ?로 변환됩니다  
 $$h_{2}$$ : \<Sunny, Warm, Normal, ?, Warm, Same\>  
 
-이런 방법으로 가능한 범위(Version Space)를 찾아갑니다! General Boundary와 Specific boundary 이 사이에 있는 공간을 찾습니다
+이런 방법으로 가능한 범위(Version Space)를 찾아갑니다! General Boundary와 Specific Boundary 이 사이에 있는 공간을 찾습니다
 
 ### Candidate Elimination Algorithm
 - Version Space를 구하기 위해 위 알고리즘을 적용합니다
@@ -95,7 +95,7 @@ For instance x in D
 	- noise가 존재
 	- decision factor가 존재 가능
 - 룰베이스 기반으론 현실을 반영하기 어렵습니다 
-- 위 사항을 해결하기 위해 나온 것 중 하나가 의사결정 나무입니다!
+- 위 사항을 해결하기 위해 나온 것 중 하나가 ```의사결정 나무(Decision Tree)```입니다!
 
 ### Entropy
 - Entropy를 이해해야 Decision Tree를 더 잘 이해할 수 있습니다
