@@ -35,7 +35,7 @@ sbt publishLocal
 - 시간이 좀 많이 걸렸습니다(5분-10분 사이)
 
 ```
- ./jupyter-scala –id scala-develop –name “Scala (develop)” –force
+ ./jupyter-scala –id scala-develop –name "Scala (develop)" –force
 ```
 
 - 이건 5분 이내로 끝났습니다
