@@ -8,7 +8,7 @@ comments: true
 ---
 Jupyter Notebook에서 Scala를 사용하는 방법에 대해 포스팅 해보겠습니다! Zeppelin에서도 Scala를 사용할 순 있지만, 데이터 분석가는 Jupyter Notebook이 편하기 때문에..! Jupyter Notebook에 Scala 커널을 추가하고 싶었습니다(환경은 Mac OS입니다)
 
-만약 웹에서 그냥 Scala를 사용하고 싶으시면, [ScalaFiddle](https://scalafiddle.io/)을 사용하시면 될 것 같습니다
+만약 웹에서 Scala를 사용하고 싶으시면, [ScalaFiddle](https://scalafiddle.io/)을 사용하시면 될 것 같습니다
 
 
 ## Intro
@@ -59,7 +59,7 @@ Available kernels:
 <img src="https://www.dropbox.com/s/cd1rmab8zi9zh1t/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-04-25%2011.45.48.png?raw=1">
 
 - Scala로 이것저것 Test해봤습니다!!
-- 이제 추후 Spark를 Jupyter Notebook에서 해보겠습니다!!!!
+- 이제 다음 글에서 Spark를 Jupyter Notebook에서 해보겠습니다!!!!
 
 
 ## Reference
