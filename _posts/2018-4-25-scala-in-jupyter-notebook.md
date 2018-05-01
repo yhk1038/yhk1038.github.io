@@ -15,9 +15,8 @@ Jupyter Notebook에서 Scala를 사용하는 방법에 대해 포스팅 해보�
 - 찾아보니 Github에 [jupyter-scala](https://github.com/jupyter-scala/jupyter-scala)라는 repository가 있었습니다!
 - 대체할 수 있는 [Toree](https://github.com/apache/incubator-toree)나 [Zeppelin](https://github.com/apache/zeppelin)에 비해 다재다능하며, 큰 데이터 프레임워크에 즉각적으로 추가할 수 있는 장점이 있다고 합니다(사실 이 부분에 대해 명확한 차이는 보이지 않네요! 추후 찾아봐야 겠습니다)
 - Toree로 설치하고 싶으신 분들은 박준영님의 [포스팅](http://swalloow.github.io//jupyter-spark)을 참고하면 좋을 것 같습니다 :)
-- Windows는 해당 [issues](https://github.com/jupyter-scala/jupyter-scala/issues/108)를 참고해주세요!
 
-## Install Scala Kernel
+## Install Scala Kernel (Mac)
 ### Install sbt
 - 설치되어 있다면 생략
 
@@ -51,7 +50,29 @@ Available kernels:
 
 - 위와 같이 scala가 있으면 끝!
 
+## Install Scala Kernel (Windows 10)
+### Download Git Source
+```
+git clone https://github.com/jupyter-scala/jupyter-scala
+```
 
+또는 ```Download ZIP``` 클릭
+
+### Unzip
+- 압축 해제
+
+### Run Script
+- 압축 해제한 폴더로 간 후,
+```
+(bash) . jupyter-scala
+```
+
+- Jupyter Notebook 킨 후 커널 확인
+- 문제 생길 시 [issues](https://github.com/jupyter-scala/jupyter-scala/issues/108)를 참고!
+
+
+
+## After Install Scala Kernel
 <img src="https://www.dropbox.com/s/hvash2pjev17l4i/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-04-25%2011.43.39.png?raw=1">
 
 - 위와 같이 Scala가 생깁니다 :)
