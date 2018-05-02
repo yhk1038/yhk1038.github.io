@@ -29,6 +29,7 @@ order: 10
 
 | 프로젝트명 	| 기간 	|  역할 	| 설명 	|
 |-----------------------------------------|-------------|----------------------------|---------------------------------------------------	|
+| 네이버 AI 해커톤 | 2018.4 | 모델링<br>Feature Engineering | [네이버 AI 해커톤](https://github.com/naver/ai-hackathon-2018)<br>최종 등수 : **9등** / 40팀
 | Zillow's Home Value 예측 	| 2017.9 - 11 	|  모델링<br>데이터 엔지니어링 	| Kaggle 대회 <br>  최종 등수 : **81등** / 3779팀 	|
 | Santander Product 추천 	| 2016.12 	| 분석<br>모델링 	| Kaggle 대회 <br> 최종 등수 : **603등** / 1784팀 	|
 | Github 유저 추천 시스템 	| 2016.7 	| 분석<br>모델링 	| Word2Vec을 활용한<br>Github 유저 추천 시스템 	|
@@ -42,6 +43,7 @@ order: 10
 - 패스트캠퍼스 스쿨 홈커밍 데이(18.01.20)
 
 ## 작성 문서
+- [바닥부터 시작하는 데이터 인프라](https://www.slideshare.net/zzsza/little-big-data-1)
 - [2017년 회고, 2018년 계획](https://zzsza.github.io/diary/2017/12/30/2017-retrospect/)
 - [Data Science. Intro](https://www.slideshare.net/zzsza/data-science-intro)
 - [BigQuery Tutorial](https://github.com/zzsza/bigquery-tutorial)  
