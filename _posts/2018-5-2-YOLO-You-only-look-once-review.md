@@ -78,7 +78,7 @@ comments: true
 	- $$Pr(Class_{i}\mid Object) * Pr(Object) * IOU_{pred}^{truth} = Pr(Class_{i}) * IOU_{pred}^{truth}$$
 	- 각 상자마다 특정 클래스에 대한 확률을 알 수 있습니다
 	- 평가시 Pascal VOC를 사용, $$S=7, B=2, C=20$$
-	- 따라서 final prediction은 $$7 x 7 x 30$$ tensor
+	- 따라서 final prediction은 $$7 \times 7 \times 30$$ tensor
 
 ### 2.1 Network Design
 <img src="https://www.dropbox.com/s/fbzemhal9672ima/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-02%2014.42.00.JPG?raw=1">
