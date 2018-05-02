@@ -13,6 +13,7 @@ comments: true
 - YOLO 논문은 2015년에 나온 논문으로 (마지막 수정은 2016년 5월) 기존에 나왔던 R-CNN류의 문제점인 속도를 개선했습니다. 성능은 조금 줄이더라도 속도를 빠르게하는 것을 목표로 했으며, R-CNN류에서 1) Bounding Box Regression, 2) Detection Score를 찾는 2가지 Task를 YOLO에서는 1개의 Regression Task로 바꿔서 풀도록 재정의 했습니다. 
 
 - 논문 제목에서 볼 수 있듯, 전체 이미지를 1번만 보고(Yon only look once), 기존에 존재하던 좋은 것들을 합쳤고(Unified), 빠른 속도(Real-time object detection)를 가진다는 특징을 가지고 있습니다
+- YOLO는 v1~v5가 있는데 이 글은 v5 기반으로 작성되어 있습니다
 
 
 ## Abstract
@@ -45,6 +46,8 @@ comments: true
 - Generalizable representation
 	- object의 일반화된 표현을 학습
 	- 새로운 도메인이나 예상치 못한 input에 대해 세분화되지 않고 일반화 가능
+	- ex) 사진으로 학습하고 그림 이미지로 예측할 경우 잘 맞습니다
+	- Context 정보를 많이 사용합니다
 - training / testing code는 open source로 존재 
 
 
@@ -62,7 +65,7 @@ comments: true
 
 - System
 	- input image를 $$S \times S$$ grid로 나눕니다
-		- 물체의 중심이 grid cell에 속하면 gride cell이 물체를 탐지합니다 
+		- 물체의 중심이 grid cell에 속하면 grid cell이 물체를 탐지합니다 
 	- 각각의 grid cell이 B개의 Bounding box와 BB에 대한 confidence score를 예측합니다
 		- confidence score : box에 물체가 있는지, 상자가 예측한 정확도가 얼마나 정확한지를 나타내는 척도
 		- $$Pr(Object) * IOU_{pred}^{truth}$$
@@ -78,7 +81,10 @@ comments: true
 	- $$Pr(Class_{i}\mid Object) * Pr(Object) * IOU_{pred}^{truth} = Pr(Class_{i}) * IOU_{pred}^{truth}$$
 	- 각 상자마다 특정 클래스에 대한 확률을 알 수 있습니다
 	- 평가시 Pascal VOC를 사용, $$S=7, B=2, C=20$$
-	- 따라서 final prediction은 $$7 \times 7 \times 30$$ tensor
+	- 따라서 final prediction은 $$7 \times 7 \times 30$$ tensor (v5)
+	- v1은 Bounding box를 1개와 $$7 \times 7 \times 24$$ tensor를 final prediction에서 return합니다!
+
+
 
 ### 2.1 Network Design
 <img src="https://www.dropbox.com/s/fbzemhal9672ima/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-02%2014.42.00.JPG?raw=1">
@@ -99,12 +105,9 @@ comments: true
 
 <img src="https://www.dropbox.com/s/c1bfbn6ghkto7x8/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-02%2015.08.02.png?raw=1">
 
-- MSE보다 쉽게 최적화할 수 있는 SSE(Sum-Squared Error)를 최적화
+- MSE보다 쉽게 최적화할 수 있는 SSE(Sum-Squared Error)를 최적화 합니다
 
-```
-It weights localization error equally with classification error which may not be ideal.Also, in every image many grid cells do not contain any object. This pushes the “confidence” scores of those cellstowards zero, often overpowering the gradient from cells that do contain objects. This can lead to model instability, causing training to diverge early on.
-```
-
+- 대부분이 object가 존재하지 않기 때문에 0으로 많이 차게 됩니다. 이런 상황이라면 해당 셀의 confidence score가 0으로 수렴하며 object가 포함된 셀의 gradient를 압도할 수 있습니다. 이로 인해 학습이 불안해질 수 있습니다
 - 위 문제를 해결하기 위해 bounding box coordinate predictions의 loss를 증가시키고 confidence predictions for boxes that don’t contain objects의 loss를 감소시킵니다 
 - 이 때 사용하는 2개의 파라미터가 $$\lambda_{coord}$$와 $$\lambda_{noobj}$$! 
 	- $$\lambda_{coord}=5$$ $$\lambda_{noobj}=.5$$
@@ -127,10 +130,19 @@ It weights localization error equally with classification error which may not be
 - 참고 슬라이드 : [Deep System's YOLO](https://docs.google.com/presentation/d/1aeRvtKG21KHdD5lg6Hgyhx5rPq_ZOsGjG5rJ1HP7BbA/pub?start=false&loop=false&delayms=3000&slide=id.g137784ab86_4_969)
 
 ### 2.4 Limitations of YOLO
+- 큰 object와 작은 object의 중심이 비슷할 경우, 둘 중 1개도 인식하지 못하는 경우가 있으며, loss function에서 큰 box에 제곱근을 취하지만 여전히 작은 물체에게 불리한 구조입니다
 - grid cell이 1개의 클래스만 예측하기 때문에 작은 object가 여러 개 있는 경우 제대로 구분하지 못합니다
 - 학습시 사용한 bounding box의 형태가 아닐 경우(=새로운 bounding box) 예측할 때 어려움이 생깁니다
 - 작은 BB와 큰 BB의 error를 동일하게 처리하므로 잘못된 localization을 발생합니다
+	- fully connected layer를 2번 태워서 $$x,y,w,h$$를 맞추려고 하는데 이 값은 애초에 맞추기 힘든 값입니다.  
 
+## 4. Experiment
+<img src="https://www.dropbox.com/s/sny745golyk7ox9/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-02%2023.45.18.png?raw=1">
+
+- 특이한 것은 Fast R-CNN + YOLO의 앙상블이 가장 점수가 높은 것
+	- YOLO는 배경에 대해 판단하지 않으며, Localization이 되지 않습니다
+	- 동시에 나온 것은 Fast R-CNN을 사용하고
+	- Fast R-CNN만 나오면 지워버리는 식으로(false-positive)  앙상블
 
 ## Reference
 - [PR12: 전태균님의 PR-016](https://www.youtube.com/watch?v=eTDcoeqj1_w)
