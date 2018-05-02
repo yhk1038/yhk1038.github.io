@@ -61,7 +61,7 @@ comments: true
 <img src="https://www.dropbox.com/s/qf4vrq8udy8mcwe/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-02%2014.33.00.png?raw=1">
 
 - System
-	- input image를 $$S x S$$ grid로 나눕니다
+	- input image를 $$S \times S$$ grid로 나눕니다
 		- 물체의 중심이 grid cell에 속하면 gride cell이 물체를 탐지합니다 
 	- 각각의 grid cell이 B개의 Bounding box와 BB에 대한 confidence score를 예측합니다
 		- confidence score : box에 물체가 있는지, 상자가 예측한 정확도가 얼마나 정확한지를 나타내는 척도
@@ -106,7 +106,8 @@ It weights localization error equally with classification error which may not be
 ```
 
 - 위 문제를 해결하기 위해 bounding box coordinate predictions의 loss를 증가시키고 confidence predictions for boxes that don’t contain objects의 loss를 감소시킵니다 
-- 이 때 사용하는 2개의 파라미터가 $$\lambda_{coord}$$와 $$\lambda_{noobj}$$! $$\lambda_{coord}=5$$ $$\lambda_{noobj}=.5$$
+- 이 때 사용하는 2개의 파라미터가 $$\lambda_{coord}$$와 $$\lambda_{noobj}$$! 
+	- $$\lambda_{coord}=5$$ $$\lambda_{noobj}=.5$$
 	- $$\lambda_{coord}$$ : coordinates(x,y,w,h)에 대한 loss와 다른 loss들과의 균형을 위한 balancing parameter
 	- $$\lambda_{noobj}$$ : obj가 있는 box와 없는 box간에 균형을 위한 balancing parameter. (일반적으로 image내에는 obj가 있는 cell보다는 obj가 없는 cell이 훨씬 많으므로)
 - SSE는 큰 BB와 작은 BB의 error를 동일하게 평가합니다. 큰 BB가 중요하다는 것을 반영하기 위해 bounding box의 width와 height sqaure root를 사용합니다
