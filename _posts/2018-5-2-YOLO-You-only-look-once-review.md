@@ -10,7 +10,7 @@ comments: true
 
 
 ## Intro
-- YOLO 논문은 2015년에 나온 논문으로 (마지막 수정은 2016년 5월) 기존에 나왔던 R-CNN류의 문제점인 속도를 개선했습니다. 성능은 조금 줄이더라고 속도를 빠르게하는 것을 목표로 했으며, R-CNN류에서 1) Bounding Box Regression, 2) Detection Score를 찾는 2가지 task를 YOLO에서는 1개의 Regression Task로 바꿔서 풀도록 재정의했습니다. 
+- YOLO 논문은 2015년에 나온 논문으로 (마지막 수정은 2016년 5월) 기존에 나왔던 R-CNN류의 문제점인 속도를 개선했습니다. 성능은 조금 줄이더라도 속도를 빠르게하는 것을 목표로 했으며, R-CNN류에서 1) Bounding Box Regression, 2) Detection Score를 찾는 2가지 Task를 YOLO에서는 1개의 Regression Task로 바꿔서 풀도록 재정의 했습니다. 
 
 - 논문 제목에서 볼 수 있듯, 전체 이미지를 1번만 보고(Yon only look once), 기존에 존재하던 좋은 것들을 합쳤고(Unified), 빠른 속도(Real-time object detection)를 가진다는 특징을 가지고 있습니다
 
@@ -45,7 +45,7 @@ comments: true
 - Generalizable representation
 	- object의 일반화된 표현을 학습
 	- 새로운 도메인이나 예상치 못한 input에 대해 세분화되지 않고 일반화 가능
-- trainiing / testing code는 open source로 존재 
+- training / testing code는 open source로 존재 
 
 
 ## 6. Conclusion
@@ -68,10 +68,10 @@ comments: true
 		- $$Pr(Object) * IOU_{pred}^{truth}$$
 		- 물체가 없다면 0
 		- confidence score가 IOU와 동일하길 원함
-	- Bounding box는 5 predicion으로 구성
+	- Bounding box는 5 prediction으로 구성
 		- $$(x, y)$$ : center of the box
 		- $$w, h$$ : whole image에 대비한 예측값
-		- $$confidence$$ : 예측된 box와 다른 ground truch box간의 IOU
+		- $$confidence$$ : 예측된 box와 다른 ground truth box간의 IOU
 	- grid cell은 또한 C개의 conditional class probability를 예측
 		- $$Pr(Class_{i}\mid Object)$$ : object가 있을 grid cell의 확률 
 	- test시에 conditional class probability와 individual box confidence prediction을 곱합니다
