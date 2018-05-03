@@ -111,12 +111,17 @@ likelihood라서 argmax! Gradiend Ascent를 적용하며 X가 주어진 조건�
 	- 특징 : 베이지안, 사전 확률, 결합 확률(Joint Probability)
 	- 나이브 베이즈 분류기
 		- 속도가 빠름 
+		- 파라미터 수 : $$4d+1$$
 - Discriminative Model
 	- $$P(Y\mid X)
 	- 특징 : 조건부 확률
 	- 로지스틱 회귀   
 		- Bias가 적음
+		- 파라미터 수 : $$d+1$$
 
+
+## 결론
+로지스틱 회귀가 일반적으로 성능이 좋지만 나이브 베이즈는 prior 정보를 추가가능한 장점이 있습니다. 따라서 주어진 Data Set과 사전 정보에 따라, 문제 상황에 따라 알고리즘을 취사선택하면 될 것 같습니다
 
 ## Reference
 - [인공지능 및 기계학습 개론1](http://www.edwith.org/machinelearning1_17) 
