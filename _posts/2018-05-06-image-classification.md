@@ -46,16 +46,16 @@ Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7L
 - L1(Manhattan) distance
 - L2(Euclidean) distance
 
-### Hypter Paramter
+### Hyper Paramter
 - What is the best value of k to use?
 - Whate is the best distinct to use?
 - Choices about the algorithm that we set rather than learn
 - Setting Hyper Paramters
-	- Idea 1. Choose hypter paramters that work best on your data 
+	- Idea 1. Choose hyper paramters that work best on your data 
 		- Bad : $$K=1$$ always work perfectly on training data
 	- Idea 2. Split data into **train** and **test**, choose hyper parameters that work best on test data
 		- Bad : No idea how algorithm will perform on new data
-	- Idea 3. Split data into **train**, **val**, and **test**; choose hypter parameters on val and evaluate on test
+	- Idea 3. Split data into **train**, **val**, and **test**; choose hyper parameters on val and evaluate on test
 		- Better! 
 		- validation set : check accuracy, check how well algorithm is doing
 	- idea 4. **Cross-Validation**: Split data into folds, try each fold as validation and average the results

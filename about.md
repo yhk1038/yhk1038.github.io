@@ -30,12 +30,13 @@ order: 10
 | 프로젝트명 	| 기간 	|  역할 	| 설명 	|
 |-----------------------------------------|-------------|----------------------------|---------------------------------------------------	|
 | [네이버 AI 해커톤 2018](https://github.com/naver/ai-hackathon-2018) | 2018.4 | 모델링<br>Feature Engineering | 네이버 지식iN 질문 유사도 예측<br>최종 등수 : **9등** / 40팀
-| Zillow's Home Value 예측 	| 2017.9 - 11 	|  모델링<br>데이터 엔지니어링 	| Kaggle 대회 <br>  최종 등수 : **81등** / 3779팀 	|
-| Santander Product 추천 	| 2016.12 	| 분석<br>모델링 	| Kaggle 대회 <br> 최종 등수 : **603등** / 1784팀 	|
+| [Zillow's Home Value 예측](https://www.kaggle.com/c/zillow-prize-1) 	| 2017.9 - 11 	|  모델링<br>데이터 엔지니어링 	| Kaggle 대회 <br>  최종 등수 : **81등** / 3779팀 	|
+| [Santander Product 추천](https://www.kaggle.com/c/santander-product-recommendation) 	| 2016.12 	| 분석<br>모델링 	| Kaggle 대회 <br> 최종 등수 : **603등** / 1784팀 	|
 | Github 유저 추천 시스템 	| 2016.7 	| 분석<br>모델링 	| Word2Vec을 활용한<br>Github 유저 추천 시스템 	|
 | 맥주 추천 시스템 	| 2015.6 - 12 	| 기획/디자인<br>데이터 크롤링 	| Collaborative Filtering을 <br>활용한 맥주 추천 시스템 	|
 
 ## 발표
+- 인하대 Data Science 특강(18.05.03)
 - [Little Big Data #1 : 다양한 사람들의 데이터 사이언스 이야기](https://festa.io/events/21)(18.04.21)
 - [OKKY 4월 세미나 : Data Science. Intro](https://okky.kr/article/455576)(18.04.05)
 - 중앙대 IT 취업특강(18.03.13)
@@ -43,9 +44,9 @@ order: 10
 - 패스트캠퍼스 스쿨 홈커밍 데이(18.01.20)
 
 ## 작성 문서
+- [Data Science. Intro](https://www.slideshare.net/zzsza/data-science-intro)
 - [바닥부터 시작하는 데이터 인프라](https://www.slideshare.net/zzsza/little-big-data-1)
 - [2017년 회고, 2018년 계획](https://zzsza.github.io/diary/2017/12/30/2017-retrospect/)
-- [Data Science. Intro](https://www.slideshare.net/zzsza/data-science-intro)
 - [BigQuery Tutorial](https://github.com/zzsza/bigquery-tutorial)  
 - [Datascience Interview Questions](https://github.com/zzsza/Datascience-Interview-Questions)
 - [구름 이야기(GCP 사례)](https://www.slideshare.net/zzsza/feat-gcp-gcp-86347239)  
