@@ -99,6 +99,7 @@ comments: true
 - Weidght decay : 0.0005
 
 ## Results
+
 |                                     | R-CNN | Fast R-CNN | Faster R-CNN |
 |-------------------------------------|-------|------------|--------------|
 | Test time per Image (with proposal) | 50s   | 2s         | 0.2s         |
