@@ -56,15 +56,15 @@ comments: true
 		- foreground는 positive anchor
 		- background는 non-positive anchor
 		
-<img src="https://www.dropbox.com/s/j153zidy9yzwheb/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-09%2017.30.01.png?raw=1">
+<img src="https://www.dropbox.com/s/j153zidy9yzwheb/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-09%2017.30.01.png?raw=1" width="300" height="100">
 
-<img src="https://www.dropbox.com/s/ptkiwnt1qnb9dec/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-09%2017.30.04.png?raw=1">
+<img src="https://www.dropbox.com/s/ptkiwnt1qnb9dec/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-09%2017.30.04.png?raw=1" width="300" height="100">
 
 - Regression layer
 	- Bounding box regression 
 	- $$t$$는 4개의 좌표값을 가지고 있으며 ground-truth $$t^*$$도 4개의 좌표값을 가지고 있습니다
   
-<img src="https://www.dropbox.com/s/2xoyrni0vjf9yfg/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-09%2017.37.54.png?raw=1">
+<img src="https://www.dropbox.com/s/2xoyrni0vjf9yfg/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-09%2017.37.54.png?raw=1" width="300" height="150">
   
 ### Region of Interest Pooling
 - RPN을 지나면 서로 다른 크기의 proposed region이 나옵니다. 서로 다른 크기의 region을 동일한 크기로 맞추기 위해 RoI Pooling을 사용합니다
@@ -74,7 +74,7 @@ comments: true
 
 ## Training
 ### Loss Function
-<img src="https://www.dropbox.com/s/gc7x357egci6euw/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-09%2017.50.58.png?raw=1">
+<img src="https://www.dropbox.com/s/gc7x357egci6euw/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-09%2017.50.58.png?raw=1" width="400" height="150">
 
 - $$i$$ : anchor의 index
 - $$p_{i}$$ : anchor $$i$$가 객체인지 배경인지 예측값
