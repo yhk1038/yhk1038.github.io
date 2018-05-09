@@ -121,6 +121,10 @@ comments: true
 ## Conclusion
 - Our methodenables a unified, deep-learning-based object detectionsystem to run at **near real-time frame rates**
 
+## 각종 방법론
+<img src="https://github.com/zzsza/Deep_Learning_starting_with_the_latest_papers/raw/master/Lecture_Note/images/imagedetection011.png">
+
 ## Reference
 - [PR12: 이진원님의 PR-012](https://www.youtube.com/watch?v=kcPAGIgBGRs&list=PLlMkM4tgfjnJhhd4wn5aj8fVTYJwIpWkS&index=13&t=0s)
 - [박진우님 블로그](https://curt-park.github.io/2017-03-17/faster-rcnn/)
+- [논문으로 시작하는 딥러닝 Edwith](http://www.edwith.org/deeplearningchoi)
