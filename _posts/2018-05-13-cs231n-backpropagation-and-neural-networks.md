@@ -12,7 +12,7 @@ Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7L
 - 이번 강의는 복잡한 함수의 Analytics Gradient를 계산하는 방법에 대해 이야기할 예정입니다
 	- Numerical gradient : slow, approximate, easy to write
 	- Analytics gradient : fast, exact, error-prone(오류가 생기기 쉬움) 	
-	- Analytics 계산 후, Nu~
+	- Analytics 계산 후, Numerical gradient로 Check!
 
 	
 ## Computational Graphs
@@ -118,7 +118,7 @@ Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7L
 	
 <img src="https://www.dropbox.com/s/plvseat9vqrzgf6/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-13%2011.26.15.png?raw=1">
 
-- ~왜 Transpose를 해주나 이해가 안되서 찾아본 [링크](https://math.stackexchange.com/questions/44945/divergence-as-transpose-of-gradient?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa) 링크를 보고 다시 생각해보니 납득~
+- ~~~왜 Transpose를 해주나 이해가 안되서 찾아본 [링크](https://math.stackexchange.com/questions/44945/divergence-as-transpose-of-gradient?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa) 링크를 보고 다시 생각해보니 납득~~~
 - 원하는 식을 얻기 위해 식을 변형 $$W_{k,i}$$ (Transpose)
 
 
