@@ -12,7 +12,9 @@ Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7L
 - 이번 강의는 복잡한 함수의 Analytics Gradient를 계산하는 방법에 대해 이야기할 예정입니다
 	- Numerical gradient : slow, approximate, easy to write
 	- Analytics gradient : fast, exact, error-prone(오류가 생기기 쉬움) 	
+	- Analytics 계산 후, Nu~
 
+	
 ## Computational Graphs
 <img src="https://www.dropbox.com/s/fp7rrq0b21qekj1/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-12%2019.24.57.png?raw=1">
 
@@ -40,8 +42,8 @@ Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7L
 <img src="https://www.dropbox.com/s/cz8jh60q0n83aoz/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-12%2019.55.34.png?raw=1">
 
 - 구성
-	- Local Gradient
-	- Gradients
+	- Local Gradient : 우리가 구하려던 것은 아님
+	- Gradients : loss 대비 우리가 구하려던 것
 - 각각의 노드는 주변 환경을 알고 있습니다(immediate surronding)
 - 국소적 계산(Local Computation)
 	- 전체에서 어떤 일이 벌어지든 상관없이, 자신과 관계된 정보만으로 결과를 출력 가능
@@ -53,6 +55,10 @@ Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7L
 - local gradient를 구하면
 
 <img src="https://www.dropbox.com/s/fs6kexmhyje7lut/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-13%2009.30.27.png?raw=1">
+
+- **x = 1.37** 
+- **0.37\*-0.53**
+- **웅원님의 이야기 : 손으로 꼭 해보세요~!**
 
 <img src="https://www.dropbox.com/s/g1cll1l533scezy/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-13%2009.31.06.png?raw=1">
 
@@ -69,6 +75,7 @@ Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7L
 
 - max gate : gradient router
 - mul gate : gradient switcher
+	- 바꿔준다의 swith 
 
 
 ## Gradients for vertorized code
@@ -107,11 +114,12 @@ Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7L
 <img src="https://www.dropbox.com/s/794sboa8ynbkpz4/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-13%2011.16.33.png?raw=1">
 
 - Always check 
-	- The gradient with respect to a variable shoudl have the same shape as the variable
+	- The gradient with respect to a variable should have the same shape as the variable
 	
 <img src="https://www.dropbox.com/s/plvseat9vqrzgf6/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-13%2011.26.15.png?raw=1">
 
-- 왜 Transpose를 해주나 이해가 안되서 찾아본 [링크](https://math.stackexchange.com/questions/44945/divergence-as-transpose-of-gradient?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa) 링크를 보고 다시 생각해보니 납득
+- ~왜 Transpose를 해주나 이해가 안되서 찾아본 [링크](https://math.stackexchange.com/questions/44945/divergence-as-transpose-of-gradient?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa) 링크를 보고 다시 생각해보니 납득~
+- 원하는 식을 얻기 위해 식을 변형 $$W_{k,i}$$ (Transpose)
 
 
 ## Backpropagation Summary
@@ -147,7 +155,7 @@ N, D_in, H, D_out = 64, 1000, 100, 10
 x, y = randn(N, D_in), randn(N, D_out)
 w1, w2 = randn(D_in, H), randn(H, D_out)
 
-for t in range(2000:
+for t in range(2000):
   h = 1/(1+np.exp(-x.dot(w1)))
   y_pred = h.dot(w2)
   loss = np.square(y_pred - y).sum()
@@ -182,7 +190,7 @@ for t in range(2000:
 
 ## Neural networks Summary
 - We arrange neurons into fully-connected layers
-- The abstraction of a layer has the nice property that is allows us to use efficient vectorized code(ex. matrix multiplies)
+- The abstraction of a layer has the nice property that is allows us to use efficient vectorized code(ex. matrix multiplies) (check)
 - Neural networks are not really neural
 - Next time : Convolutional Neural Networks
 
