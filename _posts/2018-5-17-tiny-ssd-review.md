@@ -11,9 +11,9 @@ comments: true
 - 2018.2월에 나온 논문
 
 ## Abstract
-- 최근 embdded 기기에 적합한 object detection architecture에 대해 관심이 많아졌습니다
+- 최근 embeded 기기에 적합한 object detection architecture에 대해 관심이 많아졌습니다
 	- Tiny YOLO, SqueezeDet
-- SqueezeNet에서 나온 Fire microarchitecture + SSD에서 나온 single-shot detection marcroarchitecture 
+- SqueezeNet에서 나온 Fire microarchitecture + SSD에서 나온 single-shot detection macroarchitecture 
 - model size : 2.3MB (~26X smaller than Tiny YOLO)
 - maP : 61.3% on VOC 2007 (~4.2% higher than Tiny YOLO)
 
