@@ -19,7 +19,7 @@ comments: true
 
 ## 1. Introduction
 - Object Detecion은 combination of object classi-fication과 object localization 문제를 동시에 고려하는 문제입니다
-- Small Depp Neural Network에 대한 관심 증가
+- Small Deep Neural Network에 대한 관심 증가
 	- YOLO, YOLOv2
 		- (1) 모델 사이즈는 753MB, 193MB
 		- (2) 임베디드 칩에서 실행될 때 object detection 속도가 급격히 떨어짐
@@ -27,7 +27,7 @@ comments: true
 		- 네트워크 구조를 축소해 모델 크기를 줄임(60MB)
 		- 부동 소수점 연산수를 대폭 줄이고 객체 감지 정확도를 희생
 	- SqueezeDet
-		- SqueezeNet의Fire microarchitecture를 활용한 Fully Convolutional neural network  ( ?? )
+		- SqueezeNet의 Fire microarchitecture를 활용한 Fully Convolutional neural network
 		- 성능이 좋고 자율 주행에 들어갈만큼 작은 사이즈로 만듬
 		- 그러나 object categories를 3개만 탐지 가능
 	- 실시간 Object Detection(on embeded)에 적합하며, 다양한 카테고리에서 높은 정확도를 달성하는 네트워크를 계속 만드려고 도전중
@@ -75,7 +75,7 @@ in SSD
 			- 1) a confidence score for a object category
 			- 2) shape offset relative to default bounding box coordinates 
 	
-<img src="https://www.dropbox.com/s/2t6ct7ch4cvrp5m/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-17%2017.46.47.png?raw=1">
+<img src="https://www.dropbox.com/s/2t6ct7ch4cvrp5m/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-17%2017.46.47.png?raw=1" width="500" height="400">
 
 - Key Challenge : auxiliary convolution feature layer와 convolutional predictor를 결정하는 것
 - Key Design parameter : the number of filters
