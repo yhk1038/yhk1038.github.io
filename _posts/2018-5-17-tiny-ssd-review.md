@@ -18,7 +18,7 @@ comments: true
 - maP : 61.3% on VOC 2007 (~4.2% higher than Tiny YOLO)
 
 ## 1. Introduction
-- Object Detecion은 combination of object classi-fication과 object localization 문제를 동시에 고려하는 문제입니다
+- Object Detection은 combination of object classi-fication과 object localization 문제를 동시에 고려하는 문제입니다
 - Small Deep Neural Network에 대한 관심 증가
 	- YOLO, YOLOv2
 		- (1) 모델 사이즈는 753MB, 193MB
