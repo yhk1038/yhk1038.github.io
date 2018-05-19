@@ -3,7 +3,7 @@ layout: post
 title: "Stanford CS231n Lecture 2. Image Classification"
 subtitle: "Stanford CS231n Lecture 2. Image Classification"
 categories: data
-tags: dl
+tags: cs231
 comments: true
 ---
 Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv&index=0)를 요약한 포스팅입니다. 정보 전달보다 자신을 위한 정리 목적이 강한 글입니다! :)
