@@ -3,7 +3,7 @@ layout: post
 title: "Pytorch를 활용한 자연어 처리(NLP)"
 subtitle: "Pytorch를 활용한 자연어 처리(NLP)"
 categories: data
-tags: dl
+tags: pytorch
 comments: true
 ---
 [김성동](https://github.com/dsksd)님의 Pytorch를 활용한 딥러닝 입문 중 자연어처리 파트 정리 파일입니다.

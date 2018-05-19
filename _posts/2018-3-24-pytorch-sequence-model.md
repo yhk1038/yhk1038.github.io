@@ -3,7 +3,7 @@ layout: post
 title: "Pytorch를 활용한 Advanced Sequence models"
 subtitle: "Pytorch를 활용한 Advanced Sequence models"
 categories: data
-tags: dl
+tags: pytorch
 comments: true
 ---
 [김성동](https://github.com/dsksd)님의 Pytorch를 활용한 딥러닝 입문 중 Advanced Sequence Model 파트 정리입니다.
