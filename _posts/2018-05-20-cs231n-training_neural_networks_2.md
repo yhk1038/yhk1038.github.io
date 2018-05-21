@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Stanford CS231n 6강. Training Neural Networks 2"
+title: "Stanford CS231n 7강. Training Neural Networks 2"
 subtitle: "Stanford CS231n Lecture 7. Training Neural Networks 2"
 categories: data
 tags: cs231
