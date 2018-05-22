@@ -92,7 +92,7 @@ nonlinearity
 - 장점
 	- Generalizes ReLU and Leaky ReLU
 	- Linear Regime! Does not saturate! Does not die!
-- $$max(w_{1}^{T}x+b_{1}, x_{2}^{T}x+b_{2})$$
+- $$max(w_{1}^{T}x+b_{1}, w_{2}^{T}x+b_{2})$$
 - 문제점
 	- doubles the number of parameters/neuron 
 
