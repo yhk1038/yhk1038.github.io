@@ -50,13 +50,14 @@ Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7L
 - Computes  $$f(x) = max(0, x)$$
 - Does not saturate (in +region)
 - Very computationally efficient(exp이 없어서)
-- Converges(모여들다) much faster than sigmoid/tanh in practice(eg 6x)
+- Converges(수렴하다) much faster than sigmoid/tanh in practice(eg 6x)
 - Actually more biologically plausible than sigmoid(sigmoid보다 뉴런의 작용을 잘 반영)
 - 2012, AlexNet에서 처음 사용
 - 문제점
 	- Not zero-centered output
 	- An annoyance(0보다 작은 부분의 gradient는 0이 됨. 10~20%가 dead ReLU)
 - people like to initialize ReLU neurons with slightly positive biases(e.g. 0.01)
+- 0일때 그라디언트 체크
 
 ### Leaky ReLU
 - $$f(x) = max(0.01x, x)$$
@@ -85,9 +86,15 @@ x, & \text{if } x > 0 \\
 - 단점
 	- exp() 연산 사용  
 
+### SeLU
+- 강의에선 다루지 않았으나, 일단 적어둠
+- 추후 내용 추가하기
+
 ### Maxout "Neuron"
 - Does not have the basic form of dot product ->
 nonlinearity
+- nonlinearity : $$f(x+y) = f(x) + f(y), cf(x), f(cx)$$ 만족
+	- 선형을 쓰면 레이어를 쌓는 의미가 없음(단지 이동일 뿐임) 
 - 연결된 두 개의 뉴런 값 중 큰 값을 취하고 비선형성을 확보. 단, 활성화 함수를 적용하기 위해 필요한 연산량이 많음
 - 장점
 	- Generalizes ReLU and Leaky ReLU
@@ -149,13 +156,13 @@ nonlinearity
 <img src="https://www.dropbox.com/s/2ad9o826rb13j6q/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-18%2013.27.18.png?raw=1">
 
 - Reasonable initialization. (Mathematical derivation assumes linear activations)
-- input : fan\_in, output : fan\_out
+- input : fan\_in, output : fan\_out ( 차원의 수 )
 - (Xavier) W = np.random.randn(fan\_in,fan\_out) / np.sqrt(fan\_in)
 - (He) W = np.random.randn(fan\_in,fan\_out) / np.sqrt(fan\_in/2)
 - 레이어의 출력값들이 적절한 분포를 보임
 - 그러나 ReLU를 사용하면 nonlinearity가 깨짐
 	- 출력값들이 점점 0이 되어버림 
-	- He는 tanh과 잘 맞음
+	- He는 ReLU과 잘 맞음
 
 ## Batch Normalization(2015)
 - keep activations in a gaussian range that we want
@@ -169,6 +176,8 @@ nonlinearity
 - N : training examples in current batch
 - D : Each batch's dimension
 
+- CNN에서는 activation map마다 하나씩 BN
+
 - 1) dimension마다 mean, variance를 구해서 계산
 - 2) Normalize
 
@@ -179,8 +188,8 @@ nonlinearity
 <img src="https://www.dropbox.com/s/qmiy8du0fqzjshh/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-18%2018.42.16.png?raw=1">
 
 - 장점
-	- 네트워크의 Gradient flow를 향상시킴
-	- 높은 Learning rate를 사용해도 안정적인 학습 초기화의 의존성을 줄임
+	- 네트워크의 Gradient flow를 향상시킴(가우시안 유닛 벡터가 0 근처라서 vanishing이 일어나지 않음. flow 유지)
+	- 높은 Learning rate를 사용해도 안정적인 학습. weight 초기화의 의존성을 줄임
 	- Regularization 기능도 하기 때문에 dropout의 필요성을 감소시킴 (dropout을 사용하면 학습속도가 느려짐)
 - Test할 땐 미니배치의 평균과 표준편차를 구할 수 없으니 Training하면서 구한 평균의 이동평균을 이용해 고정된 Mean과 Std를 사용
 	
@@ -230,3 +239,4 @@ nonlinearity
 - [Stanfoard CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv&index=0)
 - [딥러닝 학습 기술들](https://ratsgo.github.io/deep%20learning/2017/04/22/NNtricks/)
 - [Batch Normalization 설명 및 구현](https://shuuki4.wordpress.com/2016/01/13/batch-normalization-%EC%84%A4%EB%AA%85-%EB%B0%8F-%EA%B5%AC%ED%98%84/) 
+- [Gradient Descent Optimization Algorithms 정리](http://shuuki4.github.io/deep%20learning/2016/05/20/Gradient-Descent-Algorithm-Overview.html)

@@ -18,7 +18,7 @@ Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7L
 ```
 while True:
   dx = compute_gradient(x)
-  x += learning_rate * dx
+  x -= learning_rate * dx
 ```	
 	
 ## Optimization
@@ -52,22 +52,24 @@ vx = 0
 while True:
   dx = compute_gradient(x)
   vx = rho * vx + dx
-  x += learning_Rate * vx
+  x -= learning_rate * vx
 ```
 
 - 1) SGD + Momentum
 	- <img src="https://www.dropbox.com/s/h4yahgx7msev9xg/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-21%2000.14.25.png?raw=1"> 
+	- 위 코드에서는 x +=로 되어있는데 x -=가 맞지 않을까 생각됨
 	- maintain velocity
 	- add our gradient estimates to the velocity
 	- 원래 가던 방향으로 가고자하는 관성을 이용하는 방법
 	- saddle point에서 gradient가 0이어도 velocity가 유지되서 saddle point를 지나갈 수 있음
 	- minima로 가는데 필요한 step이 줄어듬
 	- friction을 보통 0.9 또는 0.99로 줌
+	- velocity = running mean of gradients
 	- <img src="https://www.dropbox.com/s/3odzqhxa68nfwvg/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-21%2000.43.33.png?raw=1">
 	- (1) Momentum update 
 		- overcome some noise in our gradient estimate
 		- 현재 위치에서 gradient를 구한 후, 그 값에서 Velocity만큼 옮김
-	- (2) Nesterov Momentum
+	- (2) Nesterov Momentum (NAG, Nesterov Accelerated Gradient)
 		- <img src="https://www.dropbox.com/s/0o47eejp2rpfxs5/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-21%2014.13.24.png?raw=1"> 
 		- Velocity로 옮긴 후 gradient를 구함
 		- convex optimization 관점에서 유용
@@ -100,8 +102,9 @@ while True:
   x -= learning_rate * dx / (np.sqrt(grad_squared) + 1e-7)
 ```
 
-- sqaured_gradient를 축적만 하지 않고 decay rate를 도입
+- sqaured gradient를 축적만 하지 않고 decay rate를 도입
 - decay rate = 0.9 or 0.99
+- 강화학습에선 RMSProp을 많이 사용
 
 
 ### Adam
@@ -118,12 +121,13 @@ while True:
 
 - almost use
 - velocity와 squared_gradient를 모두 사용
-- first_moment : Momentum
-- second_moment : AdaGrad/RMSProp(RMSProp에 더 근접한 듯! decay_rate가 있음)
+- first moment : Momentum
+- second moment : AdaGrad/RMSProp(RMSProp에 더 근접한 듯! decay rate가 있음)
 - <img src="https://www.dropbox.com/s/feiwe1pugbttyt3/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-21%2014.47.47.png?raw=1">
 - 첫 second_moment는 0!(beta2는 0.9 또는 0.99)
 - 첫 timestep은 very very large step
 - 위 문제를 해결하기 위해 Bias correction을 추가
+- (면접 질문) Adam이 왜 잘될까요? 2가지 이유는?
 
 ```
 # full from
@@ -149,18 +153,35 @@ while True:
 - 처음엔 no decay로 시도해보고 직접 눈으로 보길!
 - decay 방법은 exponential decay, 1/t decay 등이 있음
 
-## First-Order optimization
+
+### 비교
+<img src="http://2.bp.blogspot.com/-q6l20Vs4P_w/VPmIC7sEhnI/AAAAAAAACC4/g3UOUX2r_yA/s400/s25RsOr%2B-%2BImgur.gif">
+
+- 밑 그림을 보면 SGD가 Converge가 가장 느림
+- 왜 Adam은 없지..
+
+<img src="https://i.imgur.com/2dKCQHh.gif?1">
+
+- Adadelta가 제일 좋아보이지만 문제 상황에 따라 다름. 문제 상황에 맞게 선택
+
+<img src="https://i.imgur.com/2dKCQHh.gif?1">
+
+- Rmsprop과 Adagrad가 좋아 보임. saddle point 문제를 극복할 수 있기에 이 옵티마이저들이 좋음
+
+## First-Order(1차) optimization
 - 위에서 말한 것들이 모두 First-Order optimization
-- <img src="https://www.dropbox.com/s/pb0znetxelgbtgb/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-21%2015.05.52.png?raw=1"?
+- <img src="https://www.dropbox.com/s/pb0znetxelgbtgb/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-21%2015.05.52.png?raw=1">
 - (1) Use gradient form linear approximation
 - (2) Step to minimize the approximation
 
 
-## Second-Order optimization
+## Second-Order(2차) optimization
 - <img src="https://www.dropbox.com/s/4vlmjhigdkhspsx/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-21%2015.07.01.png?raw=1">
+- 함수로 근사
 - (1) Use gradient and **Hessian** to form **quadratic** approximation
 - (2) Step to the **minima** of the approximation
 - <img src="https://www.dropbox.com/s/5f5pt0z8wuordik/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-21%2015.10.51.png?raw=1">
+- 뉴턴 = 내츄럴
 - learning rate가 없음
 - <img src="https://www.dropbox.com/s/h6wk89vvu5uke40/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-21%2015.30.36.png?raw=1">
 - 딥러닝에 사용하기엔 계산량이 너무 많음(Hessian은 $$O(N^2)$$, inverting은 $$O(N^3)$$)
@@ -246,3 +267,8 @@ make this work even better
 - [다크 프로그래머님 글(local minima, saddle point)](http://darkpgmr.tistory.com/148)
 - [cs231 정리](http://aikorea.org/cs231n/neural-networks-3/#sgd)
 - [최적화(Optimization) 기초와 포트폴리오 선택](http://www.irealism.org/xe/quantfinance/1628)
+
+
+
+
+
