@@ -9,11 +9,11 @@ comments: true
 Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv&index=0)를 요약한 포스팅입니다. 정보 전달보다 자신을 위한 정리 목적이 강한 글입니다! :)
 
 # Today Overview
-- 1. One time setup
-	- activation functions, preprocessing, weight initialization, regularization, gradent checking
-- 2. Training dynamics
+- 1) One time setup
+	- activation functions, preprocessing, weight initialization, regularization, gradient checking
+- 2) Training dynamics
 	- babysitting the learning process, parameter updates, hyperparameter optimization 
-- 3. Evaluations
+- 3) Evaluations
 	- model ensembles 
 
 
@@ -23,22 +23,21 @@ Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7L
 ### Sigmoid
 - $$\sigma (x) = 1/(1+e^{-x})$$
 - Squashes numbers to range [0, 1]
-- Historically popular since they have nice  nterpretation(해석) as a saturating “firing rate” of a neuron
+- Historically popular since they have nice  interpretation(해석) as a saturating "firing rate" of a neuron
 	- saturated : activation value가 극단적 값만 가지게 되는 경우
 - 3가지 문제점
-	- 1. Saturated neurons "kill" the gradients(Vanish Gradient)
+	- 1) Saturated neurons "kill" the gradients(Vanish Gradient)
 		- <img src="https://www.dropbox.com/s/v7axdjlbf1wu4x3/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-17%2021.27.09.png?raw=1">
 		- x가 -10, 10일 경우엔 gradients가 0
 		- Chain Rule에 의해 gradient를 구할 때 "곱" 연산을 지속적으로 하면 gradient는 점점 0이 됩니다
-	- 2. Sigmoid outputs are not zero-centered
+	- 2) Sigmoid outputs are not zero-centered
 		- <img src="https://www.dropbox.com/s/vpn70gyepj1g1ef/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-17%2021.29.03.png?raw=1">
 		- input은 항상 positive(x>0)
 		- output도 positive. 이 경우 w의 gradients는?
-			- local gradient 생각해보기
 			- Q) If all of X is positive?
 			- A) Always all positive or all negative
 		- w에 대한 gradient를 좌표평면에 표현하면 gradient 벡터는 1,3사분면으로 나옵니다. 이상적인 움직임은 파란색이지만, 원하는 곳으로 가기 위해선 지그재그로(빨간색) 움직여야 합니다. 이 경우 수렴속도가 늦어지는 비효율을 낳게 됩니다
-	- 3. exp() is a bit compute expensive
+	- 3) exp() is a bit compute expensive
 
 
 ### Tanh
@@ -52,7 +51,7 @@ Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7L
 - Does not saturate (in +region)
 - Very computationally efficient(exp이 없어서)
 - Converges(모여들다) much faster than sigmoid/tanh in practice(eg 6x)
-- Actually more bilogically plausible than sigmoid(sigmoid보다 뉴런의 작용을 잘 반영)
+- Actually more biologically plausible than sigmoid(sigmoid보다 뉴런의 작용을 잘 반영)
 - 2012, AlexNet에서 처음 사용
 - 문제점
 	- Not zero-centered output
@@ -62,7 +61,6 @@ Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7L
 ### Leaky ReLU
 - $$f(x) = max(0.01x, x)$$
 - x가 음수면 gradient가 무조건 0이 되는 단점을 극복하기 위해 고안
-- 
 - 장점
 	- Does not saturate (in +region)
 	- Very computationally efficient(exp이 없어서)
@@ -83,7 +81,7 @@ x, & \text{if } x > 0 \\
 - 장점
 	- ReLU의 모든 장점
 	- Closer to zero mean outputs
-	- Negativve saturation regime compared with Leaky ReLU adds some robustness to noise
+	- Negative saturation regime compared with Leaky ReLU adds some robustness to noise
 - 단점
 	- exp() 연산 사용  
 
@@ -157,12 +155,13 @@ nonlinearity
 - 레이어의 출력값들이 적절한 분포를 보임
 - 그러나 ReLU를 사용하면 nonlinearity가 깨짐
 	- 출력값들이 점점 0이 되어버림 
+	- He는 tanh과 잘 맞음
 
 ## Batch Normalization(2015)
 - keep activations in a gaussian range that we want
 - consider a batch of activations at some layer. To make each dimension unit gaussian, apply (각 layer의 출력값을 비슷한 분포로 생성(Unit Gaussian))
 - instead of with weight initialization
-- 기본적으로 Gradient Vanishing 이 일어나지 않도록 하는 아이디어 중 하나입니다. 여태는 이 문제를 Activation 함수의 변화, Careful Initialization, small learning rate 등으로 해결했지만, 이런 간접적인 방법도나 training하는 과정 자체를 안정화해서 학습 속도를 가손시킬 근본적인 방법을 찾았습니다
+- 기본적으로 Gradient Vanishing 이 일어나지 않도록 하는 아이디어 중 하나입니다. 여태는 이 문제를 Activation 함수의 변화, Careful Initialization, small learning rate 등으로 해결했지만, 이런 간접적인 방법보다 training하는 과정 자체를 안정화해서 학습 속도를 가속시킬 근본적인 방법을 찾았습니다
 - 각 layer에 들어가는 input을 normalize해서 layer의 학습 속도를 가속, 각 mini-batch의 mean, variance를 구해 normalize
 
 <img src="https://www.dropbox.com/s/5niaholljkib13e/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-18%2018.28.41.png?raw=1">
