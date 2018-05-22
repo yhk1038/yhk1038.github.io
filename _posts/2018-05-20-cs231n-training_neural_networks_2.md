@@ -235,7 +235,7 @@ make this work even better
 	- Random crops and scales
 	- Training : sample ranom crops / scales 
 	- Testing : average a fixed set of crops
-	- Colot Jitter
+	- Color Jitter
 		- <img src="https://www.dropbox.com/s/ac7hxsx4ntun6bm/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-21%2016.10.55.png?raw=1"> 
 		- Apply PCA to all RGB
 	- <img src="https://www.dropbox.com/s/mllau8qwul6syg4/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-21%2016.11.48.png?raw=1">
