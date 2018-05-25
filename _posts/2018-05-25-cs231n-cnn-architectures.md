@@ -75,7 +75,7 @@ Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7L
 	- A1) 3x3 conv(stride 1) layer는 7x7 conv layer와 같은 effective receptive field를 가짐
 	- Q2) What is the effective receptive field of three 3x3 conv (stride 1) layers?
 	- 작은 필터를 사용하면 파라미터수를 줄일 수가 있고, 여러번 겹쳐서 사용하면 더 큰 필터가 표현하는 영역(Receptive Field)을 표현할 수 있게 됩니다
-	- <img src="https://www.dropbox.com/s/ita7pdy3u7twioe/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-25%2000.44.04.png?raw=1">
+	- <img src="https://www.dropbox.com/s/ita7pdy3u7twioe/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-25%2000.44.04.png?raw=1" width="300" height="300">
 	- 3x3 2번을 겹치면 5x5 영역에 대한 특징을 뽑을 수 있고, 3번 겹쳐서 사용하면 7x7 영역에 대한 특징을 뽑아낼 수 있음
 		- 3x(3x3xC(인풋의 채널 수)) = 27C
 		- 7x7xC=49C
