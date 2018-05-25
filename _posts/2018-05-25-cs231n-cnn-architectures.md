@@ -173,7 +173,7 @@ Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7L
 
 ### Deep Networks with Stochastic Depth
 - Improving ResNets
-- <img src=https://www.dropbox.com/s/a7iq4hfz1xncjy8/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-25%2014.50.52.png?raw=1">
+- <img src="https://www.dropbox.com/s/a7iq4hfz1xncjy8/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-25%2014.50.52.png?raw=1">
 
 ### FractalNet: Ultra-Deep Neural Networks without Residuals
 - Beyond ResNet
