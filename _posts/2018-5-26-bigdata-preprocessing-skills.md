@@ -79,7 +79,7 @@ comments: true
 	- Facebook이 리드
 	- HIVE와 유사하지만 압도적 성능
 	- 다른 DB의 데이터를 가지고와서 Join해서 사용 가능 
-- Elastis Search
+- Elastic Search
 	- 스케일 가능한 검색, 인덱스 엔진
 	- ELK Stack으로 유명 	
 
