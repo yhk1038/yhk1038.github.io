@@ -51,6 +51,11 @@ comments: true
 - HBase, Cassandra, MongoDB, Couchbase, Redis
 - Apache HBase
 	- 구글의 BigTable 구현
+	- 빠른 속도 / 편리한 사용성 / 높은 내구성
+	- 컬럼 기반 데이터베이스 (Column Oriented)
+	- SQL은 Row 기반! 컬럼을 정해두고 Row를 추가하는 방식(=자유롭지 않음)인 반면 컬럼 기반은 스키마가 자유롭고 Sparse한 거대한 테이이블에 적합
+	- Master와 Slave가 존재
+	- <img src="http://saphanatutorial.com/wp-content/uploads/2013/09/Difference-between-Column-based-and-Row-based-Tables.png">
  
 ## Apache Spark
 - 메모리에서 처리해서 효율이 좋음
@@ -70,12 +75,19 @@ comments: true
 - 여러 로그를 취합해서 로그를 남김
 - 크롤링할 경우, 소셜 데이터를 모을 경우에도 유사한 구조
 - Flume, Kafka, Logstash, 아마존 Kinesis 등
+- Flume
+	- 단순한 구조, 몇가지 설정만으로 구동 가능 
+	- push 방식
+	- collector를 제공
 - Kafka
 	- 고성능 메세징 큐 
 	- 다양한 입력과 출력을 복잡하게 라우팅
+	- pub/sub 방식
+	- 메세지를 디스크에 저장해 유실없이 처리 가능
+	- Flume으로 collect하고 Kafka에서 불러오는 구조도 있음
 
 ## 기타
-- Presto
+- Presto(추후 Check)
 	- Facebook이 리드
 	- HIVE와 유사하지만 압도적 성능
 	- 다른 DB의 데이터를 가지고와서 Join해서 사용 가능 
@@ -89,3 +101,5 @@ comments: true
 Kafka - HDFS - Spark/Spark SQL - Zeppelin - Spark MLLib
 ```
 
+## Reference
+- [빅데이터를 위한 플랫폼들](https://d2.naver.com/helloworld/29533)
