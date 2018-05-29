@@ -7,7 +7,7 @@ tags: engineering
 comments: true
 ---
 
-<img src="https://spark.apache.org/images/spark-logo-trademark.png">
+아파치 스파크에 대한 입문 내용입니다 (주로 RDD)
 
 ## Apache Spark
 - RDD, Dataframe 2개의 개념을 알아야 함
