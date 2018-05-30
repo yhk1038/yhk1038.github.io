@@ -90,15 +90,15 @@ val file = spark.textFile("hdfs://...")val counts = file.flatMap(line => line.s
 	- 3) Function : 부모 RDD에서 어떻게 파생되었는지를 계산하는 함수
 	- 4) Metadata : 데이터 위치, 파티션 정보 보유 
 
-### Dependency
+### Narrow & Wide Dependency
 - map, filter 등을 할 때 RDD의 종속 관계(화살표 관계)를 Dependency라고 함
 - <img src="https://www.dropbox.com/s/ttb54bm5glqnqnz/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-29%2022.10.37.png?raw=1">
-- Narrow
+- Narrow Dependency
 	- 효율적
 	- 하나의 파티션이 하나의 파티션에서만 사용
 	- map같은 연산은 데이터를 교환할 필요가 없음. 그냥 슝슝
 	- co-partition이 되어있는 join은 빠름(파티션을 나눔)
-- Wide
+- Wide Dependency
 	- 비효율적  
 	- 하나의 파티션이 여러 파티션에서 쓰임
 	- groupByKey나 join하면 서로를 참고해야 함. 따라서 1의 데이터가 2로 전송되어야 하고, 2의 데이터가 1로 되어야 함
