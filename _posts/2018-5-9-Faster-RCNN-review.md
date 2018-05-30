@@ -17,7 +17,7 @@ comments: true
 	- RPN은 각 위치의 object bounds와 objectness score를 동시에 예측하는 fully convolutional network입니다
 
 ## Architecture
-<img src="https://img-blog.csdn.net/20171230100745112">
+<img src="https://www.dropbox.com/s/qmnhgdsp39y15ig/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-30%2021.55.05.png?raw=1">
 
 <img src="https://www.dropbox.com/s/db46mw6e5gg63m1/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-09%2016.38.34.png?raw=1"  width="400" height="300">
 

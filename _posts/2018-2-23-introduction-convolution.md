@@ -76,12 +76,13 @@ transposed convolution은 위와 같은 방법을 사용하지 않습니다. dec
 
 
 
-> 역자 : Transposed Convolution는 일반적인 convolution을 반대로 수행하고 싶은 경우에 사용합니다.  
+> 역자 : Transposed Convolution는 일반적인 convolution을 반대로 수행하고 싶은 경우에 사용하며, 입력값 사이에 0을 추가합니다 
 > <img src="https://nrupatunga.github.io/assets/convolution/deconvolution-unroll.jpg">  
 > 위 그림은 일반적인 convolution 연산을 행렬로 표현한 것입니다   
 > <img src="https://nrupatunga.github.io/assets/convolution/deconvolution.jpg">  
 > transposed convolution 연산을 행렬로 표현한 것입니다. 첫 이미지의 sparse 매트릭스 C를 inverse해서 우변(Y output)에 곱해줍니다. 그러면 Input의 값을 구할 수 있습니다.  
 > 정리하면 전치(transpose)하여 우변에 곱해주기 때문에 transposed convolution이라 부릅니다. 
+> [Up-sampling with Transposed Convolution](https://towardsdatascience.com/up-sampling-with-transposed-convolution-9ae4f2df52d0) 글을 참고하시면 더 이해가 될 것 같습니다
 
 
 ## Separable Convolutions
