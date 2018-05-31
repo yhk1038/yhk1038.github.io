@@ -3,7 +3,7 @@ layout: post
 title: "Pytorch를 활용한 RNN"
 subtitle: "Pytorch를 활용한 RNN(Recurrent Neural Network)"
 categories: data
-tags: pytorch
+tags: pytorch, dl
 comments: true
 ---
 [김성동](https://github.com/dsksd)님의 Pytorch를 활용한 딥러닝 입문 중 RNN 파트 정리입니다.
