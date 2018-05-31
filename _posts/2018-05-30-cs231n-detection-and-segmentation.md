@@ -36,7 +36,7 @@ Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7L
 ### Upsampling
 - 1) Unpooling 
 	- <img src="https://www.dropbox.com/s/221p7tcs63yx13z/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-30%2020.02.38.png?raw=1"> 
-	- pooling의 반대 작업으로, unpooling 지역의 receptive filed의 값을 복제
+	- pooling의 반대 작업으로, unpooling 지역의 receptive field의 값을 복제
 	- we duplicate receptive filed of unpooling region 
 	- 하지만 우측처럼 나머지 값이 0일 경우는 Bed of Nails(무척 괴롭다)
 	- <img src="https://www.dropbox.com/s/zalecyet3u20mlt/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-30%2020.05.42.png?raw=1">
