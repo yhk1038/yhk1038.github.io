@@ -30,6 +30,27 @@ Apache Spark RDD API(Scala)에 대한 설명 및 예제 코드입니다. [원본
 	- PairRDDFunctions처럼 Tuple 구조 필요
 	- Tuple을 쓰기 가능한 유형으로 변환할 수 있도록 추가 요구사항 존재
 
+### Working with Key-Value Pairs
+- [공식 문서](https://spark.apache.org/docs/latest/rdd-programming-guide.html#working-with-key-value-pairs)
+- [PairRDDFunction](https://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.rdd.PairRDDFunctions)에서 Source로 가면 만들 때 (self: RDD[(K, V)])로 되어있음!! 제네릭 타입
+- Transformations
+	- mapPartitions : 엔지니어링시 필요할 수도..!
+	- distinct : unique한 set
+	- repartition 
+		- MySQL에 넣을 때 파티션이 너무 작게 나뉘어져 있어서 적당한 사이즈로 올려야겠다고 생각할 때 사용! 
+		- RDD 파티션이 1000개라면 파일이 1000개로 생성됨. 이럴 경우에도 리파티션으로 10개로 줄임
+		- but 비싼 연산
+- Actions
+	- reduce 
+		- reduceByKey는 Transformation! 
+	- collect : to array, 작을 때만 사용!
+	- count
+	- take(n)
+	- takeOrdered
+	- saveAsTextFile
+		- SequenceFile, ObjectFile은 사실 몰라도.. 될 듯
+	- countByKey
+	- foreach : RDD에서 foreach(println) 하면 워커 로그에 남음! 
  
 ### WordCount 예제
 ```
