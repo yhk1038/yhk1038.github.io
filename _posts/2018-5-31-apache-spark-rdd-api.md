@@ -8,12 +8,14 @@ comments: true
 ---
 
 Apache Spark RDD API(Scala)에 대한 설명 및 예제 코드입니다. [원본 글](http://homepage.cs.latrobe.edu.au/zhe/ZhenHeSparkRDDAPIExamples.html)  
-이 글은 완성되지 않았습니다! 계속 업데이트할 예정입니다
+이 글은 완성되지 않았습니다! 계속 업데이트할 예정입니다  
+참고 자료 : [RDD Programming guide](https://spark.apache.org/docs/latest/rdd-programming-guide.html)
 
 ## RDD
 - Resilient Distributed Dataset의 약자
 - 클러스터에서 구동시 여러 데이터 파티션은 여러 노드에 위치할 수 있습니다. RDD를 사용하면 모든 파티션의 데이터에 접근해 Computation 및 transformation을 수행할 수 있습니다
 - RDD의 일부가 손실되면 lineage information을 사용해 손실된 파티션의 데이터를 재구성할 수 있습니다
+- Dataframe에 더 관심이 증가하고 있는 중!
 
 ### 4개의 Extensions
 - DoubleRDDFunctions
@@ -29,7 +31,50 @@ Apache Spark RDD API(Scala)에 대한 설명 및 예제 코드입니다. [원본
 	- Tuple을 쓰기 가능한 유형으로 변환할 수 있도록 추가 요구사항 존재
 
  
- 
+### WordCount 예제
+```
+// RDD 복습 : wordCount
+// 제플린 실행 후,
+sc.textFile("../README.md").take(10)
+// take(10) : 10줄
+
+val text = sc.textFile("../README.md")
+text.take(10).foreach(println)
+
+// WordCount
+val split = text.map(s => s.split(" "))
+split.take(10).foreach(println)
+// 이상하게 java.lang.String 이렇게 나옴
+
+val split = text.map(s => s.split(" ").mkString("//"))
+// mkString을 활용해 잘 나오는지 봅시다
+split.take(10).foreach(println)
+>>> #//Apache//Zeppelin ... 처럼 나옴
+
+
+// flat하게 하려고 flatMap사용
+val split = text.flatMap(s => s.split(" "))
+split.take(10).foreach(println)
+
+// 이제 같은 단어끼리 묶어서 Count하면 됨
+// RDD가 groupby할 수 있도록 Tuple로 만듬
+split.map(w => (w, 1)).take(10).foreach(println)
+
+// reduceByKey로 슝!
+// reduce는 키 기반으로 합침
+split.map(w => (w, 1)).reduceByKey(_+_).take(10).foreach(println)
+
+// 이해 안될까봐 위 코드를 풀어보면
+split.map(w => (w, 1)).reduceByKey((a,b) => a+b).take(10).foreach(println)
+
+// 갯수가 많이 나오는 것으로 내림차순을 하고싶다면
+val wordCount = split.map(w => (w, 1)).reduceByKey(_+_)
+
+wordCount.sortBy(_._2, false).take(10).foreach(println)
+// false : 역순정렬
+``` 
+
+## API 소개
 ### aggregate
 - 2개의 다른 reduce 함수를 aggregate
 - RDD 데이터 타입과 action 결과 타입이 다를 경우 사용
