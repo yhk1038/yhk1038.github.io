@@ -67,6 +67,4 @@ comments: true
 <img src="https://www.dropbox.com/s/ea7afuwlkv0ansr/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-06-03%2014.23.54.png?raw=1">
 
 - Checkbox form은 ```${checkbox:formName=defaultValue1|defaultValue2...,option1|option2...}``` 이런 방식으로 생성
-- Text input도 있습니다! [Zeppelin 공식문서](https://zeppelin.apache.org/docs/0.7.3/manual/dynamicform.html)에 자세한 내용이 준비되어 있습니다
-
-
+- Text input도 있습니다! [Zeppelin 공식문서](https://zeppelin.apache.org/docs/0.7.3/manual/dynamicform.html) 참고해주세요!
