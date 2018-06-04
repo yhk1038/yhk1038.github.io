@@ -9,9 +9,11 @@ comments: true
 Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv&index=0) 11강을 요약한 글입니다. Object Detection, Segmentation, Localization, Classification 등의 개념에 대해 나옵니다
 
 ## Computer Vision Tasks
+---
 <img src="https://www.dropbox.com/s/4i6bkbxgrczmoa4/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-30%2017.48.38.png?raw=1">
 
 ## Semantic Segmentation
+---
 - No objects, just pixels
 - Input : Image
 - Output : decision of a category for every pixel(픽셀별로 어떤 카테고리에 속하는지 알려줌)
@@ -46,6 +48,11 @@ Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7L
 	- <img src="https://www.dropbox.com/s/xmngk1icaeewfn5/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-30%2020.44.12.png?raw=1"> 
 	- [딥러닝에서 사용되는 여러 유형의 Convolution 소개](https://zzsza.github.io/data/2018/02/23/introduction-convolution/) 참고
 	- [Up-sampling with Transposed Convolution](https://towardsdatascience.com/up-sampling-with-transposed-convolution-9ae4f2df52d0) 이 글도 좋습니다 
+	- <img src="https://www.dropbox.com/s/ksuhdbpji514bqm/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-06-04%2021.46.09.png?raw=1">
+	- Convolution Operation은 input values와 output values 사이에 공간 연결성을 가지고 있습니다. 3x3 kernel을 사용한다면, 9개의 values가(kernel) 1개의 value(output, 문지른 후의 결과물)와 연결됩니다. 따라서 many to one 관계라고 볼 수 있습니다
+	- Transposed Convolution은 1개의 value를 9개의 values로 변경합니다. 이것은 one to many 관계라고 볼 수 있습니다
+	- 필터의 값 사이에 0을 넣은 매트릭스를 Transpose한 후, 곱해줍니다
+	- <img src="https://www.dropbox.com/s/bp3752jefh3afh0/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-06-04%2021.45.07.png?raw=1"> 
 	- Others names
 		- Deconvolution (bad)
 		- Upconvolution
@@ -56,6 +63,7 @@ Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7L
 	- <img src="https://www.dropbox.com/s/1k0cadcrwnyd6gs/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-30%2020.50.28.png?raw=1">
 	
 ## Classification + Localization
+---
 - Single Object
 - what the category is, where is that object in the image?
 - Output : Bounding Box(around the region of label), label
@@ -70,6 +78,7 @@ Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7L
 
 
 ## Object Detection
+---
 - Computer Vision의 핵심 Task
 - Multiple Object
 - Output : Bounding Box(around the region of label), label
@@ -106,7 +115,7 @@ Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7L
 ### Faster R-CNN
 <img src="https://www.dropbox.com/s/pltqmq00jhhxyg9/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-30%2021.51.26.png?raw=1">
 
-- RPN(Region Proposal Network)을 추가해서 성능 개선	
+- RPN(Region Proposal Network)을 추가해서 성능 개선
 	- Output : Object 유무, Object Proposal
 - <img src="https://www.dropbox.com/s/kz6ymlidnuuiwca/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-30%2022.00.29.png?raw=1">
 
@@ -126,9 +135,16 @@ Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7L
 ### Aside: Object Detection + Captioning = Dense Captioning
 <img src="https://www.dropbox.com/s/mmybjh7mgr2d62u/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-30%2022.08.23.png?raw=1">
 
+- region에 대한 예측보다 region에 대한 캡션을 작성하려고 함
+- Faster R-CNN처럼 보임(region proposal stage, bounding box, processing per region)
+- 그러나 실제론 각각의 region에 대한 캡션을 예측하는 RNN 모델
+
 <img src="https://www.dropbox.com/s/6pzj07r7dgpuivz/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-05-30%2022.08.34.png?raw=1">
 
+- 특정 문제로부터 배운 것을 다른 Task에 적용할 수 있음(Multi Task) 
+
 ## Instance Segmentation
+---
 - Object Detection에서 Bounding Box 대신 Segmentation
 
 ### Mask R-CNN
