@@ -77,15 +77,15 @@ transposed convolution은 위와 같은 방법을 사용하지 않습니다. dec
 
 
 > 역자 : Transposed Convolution는 일반적인 convolution을 반대로 수행하고 싶은 경우에 사용하며, 커널 사이에 0을 추가합니다 
-> <img src="https://www.dropbox.com/s/ksuhdbpji514bqm/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-06-04%2021.46.09.png?dl=0">  
+> <img src="https://www.dropbox.com/s/ksuhdbpji514bqm/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-06-04%2021.46.09.png?dl=1">  
 > 위 그림은 일반적인 convolution 연산을 행렬로 표현한 것입니다   
-> <img src="https://www.dropbox.com/s/bp3752jefh3afh0/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-06-04%2021.45.07.png?dl=0">  
+> <img src="https://www.dropbox.com/s/bp3752jefh3afh0/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-06-04%2021.45.07.png?dl=1">  
 > transposed convolution 연산을 행렬로 표현한 것입니다. 첫 이미지의 sparse 매트릭스 C를 inverse해서 우변(Y output)에 곱해줍니다. 그러면 Input의 값을 구할 수 있습니다.  
-> 정리하면 전치(transpose)하여 우변에 곱해주기 때문에 transposed convolution이라 부릅니다. 
-> [Up-sampling with Transposed Convolution](https://towardsdatascience.com/up-sampling-with-transposed-convolution-9ae4f2df52d0) 글을 참고하시면 더 이해가 될 것 같습니다
-> Convolution Operation은 input values와 output values 사이에 공간 연결성을 가지고 있습니다. 3x3 kernel을 사용한다면, 9개의 values가(kernel) 1개의 value(output, 문지른 후의 결과물)와 연결됩니다. 따라서 many to one 관계라고 볼 수 있습니다
-> Transposed Convolution은 1개의 value를 9개의 values로 변경합니다. 이것은 one to many 관계라고 볼 수 있습니다. 
-> one to many를 해결하기 위해 필터의 값을 Transpose한 후, 곱해줍니다
+> 정리하면 전치(transpose)하여 우변에 곱해주기 때문에 transposed convolution이라 부릅니다.  
+> [Up-sampling with Transposed Convolution](https://towardsdatascience.com/up-sampling-with-transposed-convolution-9ae4f2df52d0) 글을 참고하시면 명쾌하게 이해가 됩니다!!    
+> Convolution Operation은 input values와 output values 사이에 공간 연결성을 가지고 있습니다. 3x3 kernel을 사용한다면, 9개의 values가(kernel) 1개의 value(output, 문지른 후의 결과물)와 연결됩니다. 따라서 many to one 관계라고 볼 수 있습니다  
+> Transposed Convolution은 1개의 value를 9개의 values로 변경합니다. 이것은 one to many 관계라고 볼 수 있습니다.   
+> 필터의 값 사이에 0을 넣은 매트릭스를 Transpose한 후, 곱해줍니다
 
 
 ## Separable Convolutions
