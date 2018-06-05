@@ -197,7 +197,8 @@ Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7L
 	- 선택된 레이어에서 Activation 값과 같은 Gradient를 설정
 	- Backward
 	- Update Image
-- 한마리로 하면 Neural Networks의 Feature를 시각화하고 이를 Input 이미지와 결합해 환각적인 이미지를 만들어내는 알고리즘
+- 한마디로 하면 Neural Networks의 Feature를 시각화하고 이를 Input 이미지와 결합해 환각적인 이미지를 만들어내는 알고리즘
+- 하나의 뉴런이 아니라 레이어로 확장 
 
 <img src="https://www.dropbox.com/s/fm27c1q42f37xyr/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-06-05%2001.47.22.png?raw=1">
 
