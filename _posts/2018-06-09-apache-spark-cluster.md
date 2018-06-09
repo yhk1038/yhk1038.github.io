@@ -8,7 +8,8 @@ comments: true
 ---
 
 구글 클라우드 플랫폼(Google Cloud Platform, GCP)을 사용해 Apache Spark Cluster를 띄우는 방법을 작성한 글입니다.  
-1) Compute Engine에서 클러스터를 띄우는 방법과 2) Dataproc을 사용하는 방법에 대해 작성했습니다
+1) Compute Engine에서 클러스터를 띄우는 방법과 2) Dataproc을 사용하는 방법 2가지를 설명합니다.  
+[Spark 공식 문서](https://spark.apache.org/docs/latest/cluster-overview.html) 참고
 
 
 ## 1) Compute Engine Instance에서 직접 설치
@@ -18,10 +19,10 @@ comments: true
 - Gcloud 로컬에 설치 : [포스팅](https://zzsza.github.io/gcp/2018/01/11/config-gcloud-account/)
 - Compute Engine 클릭한 후, Create Instance
 	- CPU 1개, 메모리 3.75 선택, Ubuntu 18.04
-- ```gcloud compute --project "<프로젝트 value>" ssh --zone "<지역>" "<인스턴스 이름>"```로 접속
+- ```gcloud compute --project "<프로젝트 ID>" ssh --zone "<지역>" "<인스턴스 이름>"```로 접속 
+- 참고) 프로젝트 ID는 my-sample-project-191923 이런식으로 작성되어 있습니다
 
-
-- ssh-localhost
+- ```ssh localhost``` 입력
 	- 에러 발생시 키젠 등록
 
 ```
@@ -35,8 +36,8 @@ chmod og-wx ~/.ssh/authorized_keys
 ```
 wget http://mirror.navercorp.com/apache/spark/spark-2.3.0/spark-2.3.0-bin-hadoop2.7.tgz
 tar -xvf spark-2.3.0-bin-hadoop2.7.tgz
-cd spark-2.3.0-bin-hadoop2.7/bin/
-./spark-shell // Spark Local mode
+cd spark-2.3.0-bin-hadoop2.7/
+./bin/spark-shell
 ```
 
 - ```./bin/spark-shell```을 사용할 경우는 Spark Local Mode로 띄운 것 
@@ -50,6 +51,7 @@ apt-get update
 apt-get install oracle-java8-installer
 // "Configuring oracle-java8-installer" --- [Ok] --- [Yes]
 java -version
+// 1.8.0
 ```
 
 ## Spark Cluster
@@ -57,12 +59,14 @@ java -version
 <img src="https://www.dropbox.com/s/ei60vlis4b1y12u/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-06-09%2015.58.59.png?raw=1">
 
 - Cluster Manager
-- Driver 노드 ( Master, ```./bin/spark-shell``` )
+- Driver 노드 ( Master, 8080 port, ```./bin/spark-shell``` )
 	- SparkContext(APP)이 구동 
 	- 로컬의 Spark Shell, 제플린
-- Workder 노드 ( Slave,```./sbin/start-slaves.sh``` )
+- Worker 노드 ( Slave, 808n port,```./sbin/start-slave(s).sh``` )
 	- 컴퓨터, 실제적인 일을 수행, Executor 구동
 	- 1개의 Executor가 여러 Task를 수행
+	- 1) Slave가 될 컴퓨터에 접속해서 Slave에서 설정 : ```./sbin/start-slave.sh```  
+	- 2) Master에서 Slave에 접속해 띄우기 : ```./sbin/start-slaves.sh```
 
 
 ## Spark Cluster 실습 1
@@ -77,20 +81,31 @@ java -version
 ```
 ./sbin/start-master.sh
 >>> logging to /home/byeon/spark-2.3.0-bin-hadoop2.7/logs/spark-byeon-org.apache.spark.deploy.master.Master-1-spark-cluster.out
-
-vim /home/byeon/spark-2.3.0-bin-hadoop2.7/logs/spark-byeon-org.apache.spark.deploy.master.Master-1-spark-cluster.out
-
-// Master:54 - Starting Spark master at spark://spark-cluster.어쩌구저쩌구.internal:7077 : 스파크 마스터 주소!!!
-
-./bin/spark-shell --master=<스파크 마스터 주소>
-
-sc.makeRDD(List(1,2,3)).count
-// 에러 발생!! 지금은 Master만 켰음. Cluster도 띄워야 함!
 ```
 
+- Spark Master를 실행한 후, Log를 확인해보겠습니다
+
+```
+vi /home/byeon/spark-2.3.0-bin-hadoop2.7/logs/spark-byeon-org.apache.spark.deploy.master.Master-1-spark-cluster.out
+```
+
+- 확인해보면, 아래와 같은 메세지를 발견할 수 있습니다
+- Master:54 - Starting Spark master at spark://spark-cluster.어쩌구저쩌구.internal:7077 : 스파크 마스터 주소!!!
+- ```spark://spark-cluster.어쩌구저쩌구.internal:7077```를 복사해주세요!
+- 이제 master를 지정해서 실행하겠습니다
+
+```
+./bin/spark-shell --master=<스파크 마스터 주소>
+sc.makeRDD(List(1,2,3)).count
+```
+
+- 마지막 sc.makeRDD에서 에러 발생
+- 이유는 현재 Master만 켰기 때문! Cluster도 띄워야 합니다
+
 ### 방화벽 설정
+- Cluster를 띄우기 전에, 방화벽 설정을 하겠습니다
 - [방화벽 규칙](https://console.cloud.google.com/networking/firewalls)을 클릭한 후, 방화벽 규칙 만들기
-	- ssh 터널링을 사용해서 특정 포트만 열어주는 것을 추천하지만 이번엔 실습을 위해서 전체를 열어둠(반드시 다시 설정!!!!!!!!!!!)
+	- ssh 터널링을 사용해서 특정 포트만 열어주는 것을 추천하지만 이번엔 실습을 위해서 전체를 열어두겠습니다(반드시 다시 설정해주세요!!!!)
 	- 소스 IP 범위 : ```0.0.0.0/0``` 입력
 	- 프로토콜 및 포트 : 모두 허용
 - <IP>:8080 접속 되는지 확인!
