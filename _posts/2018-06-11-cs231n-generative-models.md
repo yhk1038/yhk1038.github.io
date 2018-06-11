@@ -6,7 +6,7 @@ categories: data
 tags: cs231
 comments: true
 ---
-Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv&index=0) 13강을 요약한 글입니다. 나머지 14강~16강은 작성하지 않을 예정입니다!
+Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv&index=0) 13강을 요약한 글입니다. 정리 목적이라 자세하게 작성하지 않은 부분도 있습니다. CS231n의 나머지 14강~16강은 작성하지 않을 예정입니다!
 
 
 ## Overview
@@ -81,7 +81,7 @@ Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7L
 
 
 ### PixelRNN
-<img src="https://www.dropbox.com/s/brrhj1ag50znpkp/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-06-10%2010.48.40.png?raw=1" width="200" height="200">
+<img src="https://www.dropbox.com/s/brrhj1ag50znpkp/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-06-10%2010.48.40.png?raw=1" width="220" height="200">
 
 - corner부터 시작해 이미지 픽셀 생성
 - RNN/LSTM을 사용해 이전 픽셀에 dependency
@@ -266,3 +266,4 @@ Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7L
 - [GAN tutorial 2016 정리(1)](https://kakalabblog.wordpress.com/2017/07/27/gan-tutorial-2016/)
 - [알기쉬운 Variational AutoEncoder](https://www.slideshare.net/ssuser06e0c5/variational-autoencoder-76552518)
 - [What is variational autoencoder?](http://nolsigan.com/blog/what-is-variational-autoencoder/)
+- [GAN(Generative Adversarial Network) 기초](https://zzsza.github.io/data/2017/12/27/gan/)
