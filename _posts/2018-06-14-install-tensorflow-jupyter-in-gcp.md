@@ -13,16 +13,16 @@ comments: true
 ---
 
 1. [Google Cloud Platform 가입하기](#google-cloud-platform-가입하기)
-2. [Quota 요청](#2.-quota-요청)
-3. [Instance 생성](#3.-instance-생성)
-4. [Instance 접속](#4.-instance-접속)
-5. [CUDA 설치](#5.-cuda-설치)
-6. [cuDNN 설치](#6.-cudnn-설치)
-7. [Tensorflow, Pytorch, Keras 설치](#7.-tensorflow,-pytorch,-keras-설치)
-8. [Jupyter 및 기타 라이브러리 설치](#8.-jupyter-및-기타-라이브러리-설치)
-9. [방화벽 Port 열기](#9.-방화벽-port-열기)
-10. [Jupyter notebook 띄우기](#10.-jupyter-notebook-띄우기)
-11. [startup-script](#11.-startup-script)
+2. [Quota 요청](#quota-요청)
+3. [Instance 생성](#instance-생성)
+4. [Instance 접속](#instance-접속)
+5. [CUDA 설치](#cuda-설치)
+6. [cuDNN 설치](#cudnn-설치)
+7. [Tensorflow, Pytorch, Keras 설치](#tensorflow,-pytorch,-keras-설치)
+8. [Jupyter 및 기타 라이브러리 설치](#jupyter-및-기타-라이브러리-설치)
+9. [방화벽 Port 열기](#방화벽-port-열기)
+10. [Jupyter notebook 띄우기](#jupyter-notebook-띄우기)
+11. [startup-script](#startup-script)
 
 ---
 
