@@ -232,7 +232,7 @@ cd /home/byeon/workspace
 nohup jupyter notebook --config /home/byeon/.jupyter/jupyter_notebook_config.py --allow-root >> ./logs.txt &
 ```
 
-startup-script는 root 권한으로 실행되기 때문에 ```-allow-root```를 추가했고, nohup으로 노트북을 실행했습니다
+startup-script는 root 권한으로 실행되기 때문에 ```--allow-root```를 추가했고, nohup으로 노트북을 실행했습니다
 
 저장을 눌러주시고 인스턴스를 실행해주세요!
 
