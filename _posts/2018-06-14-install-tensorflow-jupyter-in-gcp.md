@@ -12,7 +12,7 @@ comments: true
 ## 목차
 ---
 
-1. [Google Cloud Platform 가입하기](#1.-google-cloud-platform-가입하기)
+1. [Google Cloud Platform 가입하기](#google-cloud-platform-가입하기)
 2. [Quota 요청](#2.-quota-요청)
 3. [Instance 생성](#3.-instance-생성)
 4. [Instance 접속](#4.-instance-접속)
@@ -26,10 +26,14 @@ comments: true
 
 ---
 
-## 1. Google Cloud Platform 가입하기
+## Google Cloud Platform 가입하기
+---
+
 - [[링크](https://zzsza.github.io/gcp/2018/01/01/gcp-intro/)] 참고
 
-## 2. Quota 요청
+## Quota 요청
+---
+
 이제 막 GCP에 가입했으면 GPU Quota(할당량)가 없습니다. 별도로 신청한 후, 승인받아야 GPU를 사용할 수 있습니다  
   
 GCP 콘솔([https://console.cloud.google.com/](https://console.cloud.google.com/))에서 IAM 및 관리자 - 할당량을 선택해주세요
@@ -53,7 +57,9 @@ K80 GPU 왼쪽 체크박스에 체크한 후, 할당량 수정을 눌러주세�
 
 24시간 이내로 메일로 할당량 증가 요청이 허가되었다는 메일이 옵니다!
 
-## 3. Instance 생성
+## Instance 생성
+---
+
 Compute Engine - VM 인스턴스 - 인스턴스 만들기 클릭
 
 <img src="https://www.dropbox.com/s/z3zdhi0n1cx3sp6/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-06-14%2001.08.06.png?raw=1" width="400" height="600">
@@ -63,7 +69,9 @@ Compute Engine - VM 인스턴스 - 인스턴스 만들기 클릭
 - 부팅 디스크 : Ubuntu 16.04 LTS
 - 방화벽에 HTTP/HTTPS 트래픽 허용 체크
 
-### 4. Instance 접속
+## Instance 접속
+---
+
 ssh를 이용해도 되지만 여기선 gcloud를 사용해보겠습니다(편한 기능이 많습니다!!)  
 gcloud가 설치되어 있다면, 터미널에서 아래와 같은 명령어를 입력해주세요!
 
@@ -75,7 +83,8 @@ gcloud compute --project <project_name> ssh --zone <region> <instance name>
 gcloud compute --project "project_101" ssh --zone "asia-east1-a" "gpu"
 ```
 
-### 5. CUDA 설치
+## CUDA 설치
+---
 
 ```
 curl -O http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
@@ -88,7 +97,9 @@ sudo apt-get install cuda-9-0
 
 ```cat /usr/local/cuda/version.txt```하면 cuda의 version이 출력됩니다
 
-### 6. cuDNN 설치
+## cuDNN 설치
+---
+
 cuDNN을 [링크](https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v7.0.5/prod/9.1_20171129/Ubuntu16_04-x64/libcudnn7_7.0.5.15-1+cuda9.1_amd64)로 다운받았습니다
 
 그 후 scp를 통해 로컬에 있는 cudnn 파일을 인스턴스로 보내줘야 합니다
@@ -106,7 +117,9 @@ sudo dpkg -i libcudnn7-dev_7.0.5.15-1+cuda9.0_amd64.deb
 sudo dpkg -i libcudnn7-doc_7.0.5.15-1+cuda9.0_amd64.deb
 ```
 
-### 7. Tensorflow, Pytorch, Keras 설치
+## Tensorflow, Pytorch, Keras 설치
+---
+
 - Tensorflow
 
 	```
@@ -125,7 +138,9 @@ sudo dpkg -i libcudnn7-doc_7.0.5.15-1+cuda9.0_amd64.deb
 	pip3 install keras
 	```
 
-### 8. Jupyter 및 기타 라이브러리 설치	
+## Jupyter 및 기타 라이브러리 설치
+--- 
+	
 아래와 같은 라이브러리를 설치합니다!
 
 ```
@@ -160,7 +175,9 @@ c.NotebookApp.open_browser = False
 c.NotebookApp.password = '<해시값>'
 ```
 
-### 9. 방화벽 Port 열기
+## 방화벽 Port 열기
+---
+
 메뉴 - VPC 네트워크 - 방화벽 규칙 - 방화벽 규칙 만들기 선택
 
 <img src="https://www.dropbox.com/s/emboyqppnrhwuw6/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-06-14%2002.59.52.png?raw=1" width="400" height="600">
@@ -170,7 +187,9 @@ c.NotebookApp.password = '<해시값>'
 
 (인스턴스가 켜있으면 종료하신 후) 인스턴스 수정 - 네트워크 태그에 gpu를 추가해주세요!
 
-### 10. Jupyter notebook 띄우기
+## Jupyter notebook 띄우기
+---
+
 - nohup
 	```
 	mkdir notebooks
@@ -186,7 +205,9 @@ c.NotebookApp.password = '<해시값>'
 	// CTRL+A,D
 	``` 
 
-### 11. startup-script
+## startup-script
+---
+
 저는 원래 screen으로 띄우는 방식을 선호했는데, ```인스턴스 시작 -> 인스턴스 접속 -> jupyter notebook```을 매번 입력하는 것이 귀찮네요. 인스턴스가 시작될 때마다 특정 스크립트가 실행되도록 하겠습니다
 
 [Service](https://gist.github.com/whophil/5a2eab328d2f8c16bb31c9ceaf23164f)로 실행하는 방법, cron을 사용하는 방법 등 다양하게 있지만, GCP에서 제공하는 [startup-script](https://cloud.google.com/compute/docs/startupscript)를 사용해보겠습니다  
