@@ -12,24 +12,24 @@ comments: true
 ## 목차
 ---
 
-1. [Google Cloud Platform 가입하기](##1.-google-cloud-platform-가입하기)
-2. [Quota 요청](##2.-quota-요청)
-3. [Instance 생성](##3.-instance-생성)
-4. [Instance 접속](##4.-instance-접속)
-5. [CUDA 설치](##5.-cuda-설치)
-6. [cuDNN 설치](##6.-cudnn-설치)
-7. [Tensorflow, Pytorch, Keras 설치](##7.-tensorflow,-pytorch,-keras-설치)
-8. [Jupyter 및 기타 라이브러리 설치](##8.-jupyter-및-기타-라이브러리-설치)
-9. [방화벽 Port 열기](##9.-방화벽-port-열기)
-10. [Jupyter notebook 띄우기](##10.-jupyter-notebook-띄우기)
-11. [startup-script](##11.-startup-script)
+1. [Google Cloud Platform 가입하기](#1.-google-cloud-platform-가입하기)
+2. [Quota 요청](#2.-quota-요청)
+3. [Instance 생성](#3.-instance-생성)
+4. [Instance 접속](#4.-instance-접속)
+5. [CUDA 설치](#5.-cuda-설치)
+6. [cuDNN 설치](#6.-cudnn-설치)
+7. [Tensorflow, Pytorch, Keras 설치](#7.-tensorflow,-pytorch,-keras-설치)
+8. [Jupyter 및 기타 라이브러리 설치](#8.-jupyter-및-기타-라이브러리-설치)
+9. [방화벽 Port 열기](#9.-방화벽-port-열기)
+10. [Jupyter notebook 띄우기](#10.-jupyter-notebook-띄우기)
+11. [startup-script](#11.-startup-script)
 
 ---
 
-### 1. Google Cloud Platform 가입하기
+## 1. Google Cloud Platform 가입하기
 - [[링크](https://zzsza.github.io/gcp/2018/01/01/gcp-intro/)] 참고
 
-### 2. Quota 요청
+## 2. Quota 요청
 이제 막 GCP에 가입했으면 GPU Quota(할당량)가 없습니다. 별도로 신청한 후, 승인받아야 GPU를 사용할 수 있습니다  
   
 GCP 콘솔([https://console.cloud.google.com/](https://console.cloud.google.com/))에서 IAM 및 관리자 - 할당량을 선택해주세요
@@ -53,7 +53,7 @@ K80 GPU 왼쪽 체크박스에 체크한 후, 할당량 수정을 눌러주세�
 
 24시간 이내로 메일로 할당량 증가 요청이 허가되었다는 메일이 옵니다!
 
-### 3. Instance 생성
+## 3. Instance 생성
 Compute Engine - VM 인스턴스 - 인스턴스 만들기 클릭
 
 <img src="https://www.dropbox.com/s/z3zdhi0n1cx3sp6/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-06-14%2001.08.06.png?raw=1" width="400" height="600">
