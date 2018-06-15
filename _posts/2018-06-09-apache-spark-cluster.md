@@ -227,5 +227,6 @@ bigDf.count
 - 클러스터 만들기 클릭
 - 각종 설정한 후 만들기
 - 생성된 클러스터 이름을 클릭 - vm 인스턴스 클릭하면 마스터와 워커가 보입니다
-- 마스터를 ssh로 접속한 후, ```spark-shell``` 입력하면 스파크가 실행됨
-- [박종운님 글](https://jungwoon.github.io/google%20cloud/2018/05/27/GCP-Dataproc/) 읽어보기!
+- 마스터를 ssh로 접속한 후, ```spark-shell``` 입력하면 스파크가 실행됩니다
+- 추후 Dataproc을 사용해 데이터를 처리하는 내용을 포스팅할 예정입니다
+- [박정운님 글](https://jungwoon.github.io/google%20cloud/2018/05/27/GCP-Dataproc/) 읽어보기!
