@@ -123,14 +123,14 @@ sudo dpkg -i libcudnn7-doc_7.0.5.15-1+cuda9.0_amd64.deb
 - Tensorflow
 
 	```
-	pip3 install tensorflow-gpu
+	sudo pip3 install tensorflow-gpu
 	```
 
 - Pytorch
 
 	```
-	pip3 install http://download.pytorch.org/whl/cu90/torch-0.4.0-cp35-cp35m-linux_x86_64.whl 
-	pip3 install torchvision
+	sudo pip3 install http://download.pytorch.org/whl/cu90/torch-0.4.0-cp35-cp35m-linux_x86_64.whl 
+	sudo pip3 install torchvision
 	```
 - Keras
 
@@ -144,7 +144,7 @@ sudo dpkg -i libcudnn7-doc_7.0.5.15-1+cuda9.0_amd64.deb
 아래와 같은 라이브러리를 설치합니다!
 
 ```
-pip3 install jupyter sklearn matplotlib seaborn pandas
+sudo pip3 install jupyter sklearn matplotlib seaborn pandas
 ```
 
 jupyter config를 생성합니다
@@ -234,7 +234,7 @@ nohup jupyter notebook --config /home/byeon/.jupyter/jupyter_notebook_config.py 
 
 startup-script는 root 권한으로 실행되기 때문에 ```--allow-root```를 추가했고, nohup으로 노트북을 실행했습니다
 
-저장을 눌러주시고 인스턴스를 실행해주세요!
+저장을 눌러주시고 인스턴스를 실행해주세요! (startup-script가 root로 실행되서 이런 방식을 사용했습니다. 위에서 sudo pip3 install library를 한 이유도 root로 실행되기 때문입니다. 유저 이름으로 스크립트를 실행하는 방법을 아는 분은 댓글 부탁드립니다!)
 
 만약 인스턴스 실행한 후, 노트북으로 연결이 안된다면 아래와 같은 방법으로 디버깅할 수 있습니다
 
