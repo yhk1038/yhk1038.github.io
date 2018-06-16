@@ -135,7 +135,7 @@ sudo dpkg -i libcudnn7-doc_7.0.5.15-1+cuda9.0_amd64.deb
 - Keras
 
 	```
-	pip3 install keras
+	sudo pip3 install keras
 	```
 
 ## Jupyter 및 기타 라이브러리 설치
@@ -234,7 +234,9 @@ nohup jupyter notebook --config /home/byeon/.jupyter/jupyter_notebook_config.py 
 
 startup-script는 root 권한으로 실행되기 때문에 ```--allow-root```를 추가했고, nohup으로 노트북을 실행했습니다
 
-저장을 눌러주시고 인스턴스를 실행해주세요! (startup-script가 root로 실행되서 이런 방식을 사용했습니다. 위에서 sudo pip3 install library를 한 이유도 root로 실행되기 때문입니다. 유저 이름으로 스크립트를 실행하는 방법을 아는 분은 댓글 부탁드립니다!)
+저장을 눌러주시고 인스턴스를 실행해주세요!
+
+(startup-script가 root로 실행되서 이런 방식을 사용했습니다. 위에서 sudo pip3 install library를 한 이유도 root로 실행되기 때문입니다. 유저 이름으로 스크립트를 실행하는 방법을 아는 분은 댓글 부탁드립니다! 추후 이 부분은 업데이트할 예정입니다!)
 
 만약 인스턴스 실행한 후, 노트북으로 연결이 안된다면 아래와 같은 방법으로 디버깅할 수 있습니다
 
