@@ -125,7 +125,7 @@ Stanfoard [CS231n 2017](https://www.youtube.com/watch?v=vT1JzLTH4G4&list=PL3FW7L
 - How to learn this feature representation?
 	- original data를 재설계할 수 있는 feature를 학습
 	- Autoencoding은 encoding 그 자체!
-- Docoder도 Encoder처럼 계속 변하고 있음
+- Decoder도 Encoder처럼 계속 변하고 있음
 
 <img src="https://www.dropbox.com/s/npg2xnhb81t645u/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-06-10%2011.25.52.png?raw=1">
 
