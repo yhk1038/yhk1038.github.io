@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Apache Spark Cluster on Google Cloud Platform"
+title: "Apache Spark Cluster on Google Cloud Platform"
 subtitle: "Apache Spark Cluster on GCP"
 categories: data
 tags: engineering
@@ -186,7 +186,7 @@ cp slaves.template slaves
 - spark-shell에서
 
 ```
-def df = spark.sparkContext.makeRDD(1 to 1000000000)
+def df = spark.sparkContext.makeRDD(1 to 1000000000)
 val bigDf = (0 to 10).map(_ => df).reduce(_ union _)
 bigDf.count
 ```
@@ -208,7 +208,7 @@ vi <spark 주소>/conf/slaves
 - spark-shell에서
 
 ```
-def df = spark.sparkContext.makeRDD(1 to 1000000000)
+def df = spark.sparkContext.makeRDD(1 to 1000000000)
 val bigDf = (0 to 10).map(_ => df).reduce(_ union _)
 bigDf.count
 ```
