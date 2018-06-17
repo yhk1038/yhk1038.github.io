@@ -1,15 +1,15 @@
 ---
 layout: post
-title:  "Google Cloud Platform에서 Tensorflow, Jupyter Notebook 설치 및 startup-script 설정"
-subtitle:  "Google Cloud Platform에서 Tensorflow, Pytorch, Keras, Jupyter Notebook 설치하기(startup-script)"
+title:  "Google Cloud Platform에서 Tensorflow, Jupyter Notebook 설치 및 startup script 설정"
+subtitle:  "Google Cloud Platform에서 Tensorflow,  설치하기"
 categories: gcp
 tags: basic
 comments: true
 ---
 
-이 글은 Google Cloud Platform의 Compute Engine에서 Tensorflow, Pytorch, Keras, Jupyter Notebook를 설치하는 내용을 다룹니다. 그리고 인스턴스 시작할 때마다 jupyter notebook을 자동으로 켜주는 startup-script을 사용하는 방법도 포함되어 있습니다.
+이 글은 Google Cloud Platform의 Compute Engine에서 Tensorflow, Pytorch, Keras, Jupyter Notebook를 설치하는 내용을 다룹니다. 그리고 인스턴스 시작할 때마다 jupyter notebook을 자동으로 켜주는 startup script을 사용하는 방법도 포함되어 있습니다.
 
----
+
 
 ## 목차
 ---

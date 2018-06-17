@@ -9,7 +9,6 @@ comments: true
 
 [카프카, 데이터 플랫폼의 최강자](http://www.yes24.com/24/goods/59789254?scode=032&OzSrank=1)를 읽고 Apache Kafka에 대해 정리한 글입니다!
 
----
 
 
 ## Kafka Intro
