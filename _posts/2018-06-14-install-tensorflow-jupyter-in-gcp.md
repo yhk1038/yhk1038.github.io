@@ -9,6 +9,8 @@ comments: true
 
 이 글은 Google Cloud Platform의 Compute Engine에서 Tensorflow, Pytorch, Keras, Jupyter Notebook를 설치하는 내용을 다룹니다. 그리고 인스턴스 시작할 때마다 jupyter notebook을 자동으로 켜주는 startup-script을 사용하는 방법도 포함되어 있습니다.
 
+---
+
 ## 목차
 ---
 
