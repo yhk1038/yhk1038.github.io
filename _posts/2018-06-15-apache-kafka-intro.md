@@ -7,7 +7,7 @@ tags: engineering
 comments: true
 ---
 
-[카프카, 데이터 플랫폼의 최강자](http://www.yes24.com/24/goods/59789254?scode=032&OzSrank=1)를 읽고 Apache Kafka에 대해 정리한 글입니다!
+"카프카, 데이터 플랫폼의 최강자"를 읽고 Apache Kafka에 대해 정리한 글입니다!
 
 
 
@@ -100,7 +100,7 @@ comments: true
 
 
 ## Reference
-- [카프카, 데이터 플랫폼의 최강자](http://www.yes24.com/24/goods/59789254?scode=032&OzSrank=1)
+- [카프카, 데이터 플랫폼의 최강자](http://www.yes24.com/24/goods/59789254?scode=032)
 - [Putting Apache Kafka To Use: A Practical Guide to Building a Streaming Platform (Part 1)](https://www.confluent.io/blog/stream-data-platform-1/)
 - [Apache Kafka - Cluster Architecture](https://www.tutorialspoint.com/apache_kafka/apache_kafka_cluster_architecture.htm)
 - [Evolution of the Netflix Data Pipeline](https://medium.com/netflix-techblog/evolution-of-the-netflix-data-pipeline-da246ca369050)
