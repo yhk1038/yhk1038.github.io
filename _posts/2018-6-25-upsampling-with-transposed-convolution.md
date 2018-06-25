@@ -121,7 +121,7 @@ Convolution matrix입니다. 각 row는 1개의 convolution 연산을 뜻합니�
 
 output 4x1 matrix는 전과 같은 결과를 가지는 2x2 matrix로 reshape할 수 있습니다
 
-<img src="https://www.dropbox.com/s/1chqyx92ski9wr6/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-06-25%2016.00.46.png?raw=1">
+<img src="https://www.dropbox.com/s/1chqyx92ski9wr6/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-06-25%2016.00.46.png?raw=1" width="300" height="240">
 
 > 역자 : [Convolution 연산](#convolution-연산)의 이미지를 비교해보면 쉽게 이해될 거에요 :)
 
