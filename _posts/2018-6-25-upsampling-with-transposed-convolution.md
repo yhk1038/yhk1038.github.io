@@ -41,14 +41,14 @@ up-sampling 연산을 수행하는 다양한 방법이 있습니다
 - Bi-linear interpolation
 - Bi-cubic interpolation
 
-> 역자 : [CS231 2017 11강](https://zzsza.github.io/data/2018/05/30/cs231n-detection-and-segmentation/)에선 Upsampling하는 방법으로 Unpooling, Transpose convolution를 말합니다
+> 역자 : [CS231 2017 11강](https://zzsza.github.io/data/2018/05/30/cs231n-detection-and-segmentation/)에선 Upsampling하는 방법으로 Unpooling, Transpose convolution을 말합니다
 
 이런 방법들은 네트워크 아키텍처를 결정할 때 보간 방법을 필요로 합니다. 이것은 수동적인 feature engineering이며 network가 알 수 없습니다.
 
 ## 왜 Transposed Convolution인가?
 ---
 
-up-sampling을 최적으로 하려면 [Transposed convolution](https://arxiv.org/abs/1603.07285)를 사용하면 됩니다. Transposed convolution은 미리 정의된 보간 방법을 사용하지 않으며 학습 가능한 parameter들이 있습니다.  
+Up-sampling을 최적으로 하려면 [Transposed convolution](https://arxiv.org/abs/1603.07285)를 사용하면 됩니다. Transposed convolution은 미리 정의된 보간 방법을 사용하지 않으며 학습 가능한 parameter들이 있습니다.  
 
 다음과 같은 중요한 논문 및 프로젝트에서 사용되는 Transposed convolution을 이해하면 유용합니다
 
@@ -67,16 +67,16 @@ up-sampling을 최적으로 하려면 [Transposed convolution](https://arxiv.org
 ## Convolution 연산
 ---
 
-convolution 연산이 어떻게 진행되는지 설명하기 위해 간단한 예시를 들겠습니다.  
+Convolution 연산이 어떻게 진행되는지 설명하기 위해 간단한 예시를 들겠습니다.  
 4x4 matrix와 convolution 연산(3x3 kernel, no padding, stride 1)이 있다고 가정하겠습니다. 아래 이미지에서 볼 수 있듯, output은 2x2 matrix입니다.
 
 <img src="https://www.dropbox.com/s/c4l6cgmaih3n3s6/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-06-10%2021.13.17.png?raw=1">
 
-convolution 연산은 input matrix와 kernel matrix간 element-wise 곱의 합으로 계산합니다. 패딩이 없고 stride가 1이라서 4번의 연산만 할 수 있습니다. 따라서 output matrix는 2x2입니다.  
+Convolution 연산은 input matrix와 kernel matrix간 element-wise 곱의 합으로 계산합니다. 패딩이 없고 stride가 1이라 4번의 연산만 할 수 있습니다. 따라서 output matrix는 2x2입니다.  
 
 <img src="https://www.dropbox.com/s/j0pr994htyhke87/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-06-10%2021.19.54.png?raw=1">
 
-이런 convolution 연산의 한 가지 중요한 점은 input matrix와 output matrix 사이에 위치 연결성(positional connectivity)가 존재하는 것입니다
+이런 convolution 연산의 한 가지 중요한 점은 input matrix와 output matrix 사이에 위치 연결성(positional connectivity)이 존재하는 것입니다
 
 예를 들어, input matrix의 상단 왼쪽의 값은 output matrix의 상단 왼쪽값에 영향을 줍니다 
  
@@ -98,7 +98,7 @@ convolution 연산은 input matrix와 kernel matrix간 element-wise 곱의 합�
 ## Convolution matrix
 ---
 
-matrix를 사용해 convolution 연산을 표현할 수 있습니다. convolution 연산을 수행하고 matrix 곱을  위해 kernel matrix를 재배치합니다
+Matrix를 사용해 convolution 연산을 표현할 수 있습니다. convolution 연산을 수행하고 matrix 곱을  위해 kernel matrix를 재배치합니다
 
 <img src="https://www.dropbox.com/s/juw4z76hghpcb0w/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-06-10%2022.12.31.png?raw=1" width="300" height="300">
 
@@ -106,13 +106,13 @@ matrix를 사용해 convolution 연산을 표현할 수 있습니다. convolutio
 
 <img src="https://www.dropbox.com/s/t5e6crl9cba98bc/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-06-10%2022.14.53.png?raw=1">
 
-convolution matrix입니다. 각 row는 1개의 convolution 연산을 뜻합니다. 이것을 처음 본다면 아래 다이어그램이 도움이 될 수 있습니다. convolution matrix는 그냥 zero padding을 포함해 재배치한 kernel matrix라고 생각하면 됩니디
+Convolution matrix입니다. 각 row는 1개의 convolution 연산을 뜻합니다. 이것을 처음 본다면 아래 다이어그램이 도움이 될 수 있습니다. convolution matrix는 그냥 zero padding을 포함해 재배치한 kernel matrix라고 생각하면 됩니디
 
 <img src="https://www.dropbox.com/s/p1ol30wf8njno7f/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-06-25%2015.56.13.png?raw=1">
 
 이 개념을 사용해, input matrix(4x4)를 column vector(16x1)로 펴보겠습니다(flatten)
 
-<img src="https://www.dropbox.com/s/snfpyznhdhwaql3/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-06-25%2015.57.06.png?raw=1">
+<img src="https://www.dropbox.com/s/td7a57rwavco38p/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-06-25%2017.25.13.png?raw=1" weight="400" height="670">
 
 
 4x16 convolution matrix와 1x16 input matrix를 곱할 수 있습니다 (16 차원의 column vector)
@@ -145,7 +145,7 @@ Convolution matrix C(4x16)를 C.T(16x4)로 Transpose 했다고 가정하겠습�
 
 output은 4x4로 reshape할 수 있습니다
 
-<img src="https://www.dropbox.com/s/m8lvvaka50gbx58/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-06-25%2016.21.03.png?raw=1">
+<img src="https://www.dropbox.com/s/m8lvvaka50gbx58/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-06-25%2016.21.03.png?raw=1" width="250" height="250">
 
 
 작은 matrix(2x2)를 더 큰 matrix(4x4)로 up-sampling했습니다. Transposed Convolution은 가중치를 배치하는 방식 때문에 1-9 관계를 유지합니다
@@ -155,7 +155,7 @@ output은 4x4로 reshape할 수 있습니다
 ## Summary
 Transposed convolution 연산은 일반적인 convolution 연산과 동일한 연결성을 형성하지만 반대 방향으로 연결됩니다.
 
-Transposed convolution을 up-sampling시 사용할 수 있습니다. 또한 Transposed convolution의 가중치들은 학습 가능합니다. 따라서 미리 정의된 보간 방법이 필요하지 않습니다.
+Transposed convolution을 up-sampling시 사용할 수 있습니다. 또한 Transposed convolution의 가중치들은 학습 가능하기 때문에 미리 정의된 보간 방법이 필요하지 않습니다.
 
 Transposed convolution이라고 부르지만, 기존에 있던 convolution matrix를 Transpose해서 사용하는 것을 의미하진 않습니다. 핵심은 input과 output간의 연관성이 일반 convolution matrix와 비교할 때 역방향으로 처리되는 것입니다(many-to-one이 일반 convolution matrix, one-to-many가 transposed convolution)
 
@@ -163,7 +163,7 @@ Transposed convolution이라고 부르지만, 기존에 있던 convolution matri
 
 Transposed convolution과 동일한 효과를 내는 직접적인 convolution을 만들기 위해 input matrix에 0을 추가해 input을 up-sampling합니다. 이런 방식으로 Transposed convolution를 설명하는 글을 볼 수 있습니다. 그러나 Convolution 연산 전에, up-sampling을 위해 input matrix에 0을 추가하는 작업은 효율성이 떨어집니다
 
-1가지 주의점 : Transposed convolution는 이미지 생성시 checkerboard artifacts를 만듭니다. [이 글](https://distill.pub/2016/deconv-checkerboard/)에선 이런 문제를 줄이기 위해 convolution 연산을 따르는 up-sampling(즉, 보간법)을 권장합니다. 주된 목적이 그런 artifacts이 없는 이미지를 생성하는 것이라면 해당 글을 읽을 가치가 있습니다
+- 1가지 주의점 : Transposed convolution는 이미지 생성시 checkerboard artifacts를 만듭니다. [이 글](https://distill.pub/2016/deconv-checkerboard/)에선 이런 문제를 줄이기 위해 convolution 연산을 뒤따르는 up-sampling(즉, 보간법)을 권장합니다. 주된 목적이 그런 artifacts이 없는 이미지를 생성하는 것이라면 해당 글을 읽을 가치가 있습니다
 
 > 역자 : Transposed convolution 과정에서 네모 모양이 남습니다. 그걸 checkerboard artifacts라고 부릅니다
 
