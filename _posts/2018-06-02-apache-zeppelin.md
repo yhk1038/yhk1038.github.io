@@ -18,8 +18,9 @@ comments: true
 - ```cd /folder``` : 압축을 푼 폴더로 들어가기
 - 빌드 : ```./bin/zeppelin.sh```
 - 빌드 후 실행 : ```./bin/zeppelin-daemon.sh start```
-- 종료 : ```./bin/zeepelin-daemon.sh stop```
+- 종료 : ```./bin/zeppelin-daemon.sh stop```
 - ```localhost:8080```로 접속
+- 종료해도 죽지 않는다면(2번 이상 실행해서) ```ps -al```로 Zepplin PID를 찾은 후, ```kill -9 <PID>```로 죽이기
 
 ## Apache Zeppelin
 <img src="https://www.dropbox.com/s/h7sh5zm5djtgz4w/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-06-02%2015.00.09.png?raw=1">
