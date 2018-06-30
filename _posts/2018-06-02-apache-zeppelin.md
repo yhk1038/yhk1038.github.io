@@ -27,7 +27,7 @@ comments: true
 
 <img src="https://www.dropbox.com/s/w5vwxcqcs57se0w/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-06-02%2016.17.08.png?raw=1">
 
-- 자동완성 기능 : ```control + .```
+- 자동완성 기능 : ```control + .``` 또는 ```tab```(0.8.0 version에서 추가됨!)
 - 각종 설정을 변경하고 싶을 경우
 	- ```/$ZEPPELIN_FOLDER/conf/```에 있는 *.template 파일의 이름에서 .template를 제거한 후 설정하면 됩니다
 	- ex) 기본 포트인 8080을 변경하고 싶은 경우 ```/conf/zeppelin-site.xml.template```을 ```/conf/zeppelin-site.xml``` 로 수정한 후, zeppelin.server.port라고 작성된 곳의 value에 포트를 변경해주면 됩니다
