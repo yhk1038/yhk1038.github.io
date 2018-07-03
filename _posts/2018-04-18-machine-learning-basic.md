@@ -14,7 +14,7 @@ comments: true
 ### Binomial Distribution(이항 분포)
 - discrete한(이산적인) 사건에 대한 확률 분포입니다. ex) (앞, 뒤)
 - 이것을 계속 실험해보는 것을 베르누이 실험이라고 합니다
-- iid(independent and identically distrubted)를 가정하고 있습니다 
+- iid(independent and identically distributed)를 가정하고 있습니다 
 	- 각 이벤트는 독립적이며 동일한 분포를 가진다는 뜻
 - $$P(H)=\theta$$,  $$P(T)=1-\theta$$ 
 	- 가지는 성질 : 항상 양수, 합하면 1 
