@@ -290,6 +290,18 @@ cat /usr/local/kafka/logs/server.log
 /usr/local/kafka/bin/kafka-topics.sh --zookeeper localhost:2181/zzsza-kafka --replication-factor 1 --partitions 1 --topic hi-topic --create
 ```
 
+### 메세지 생성
+```
+/usr/local/kafka/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic hi-topic
+> This is a message
+> This is anotehr message
+// ctrl + C
+```
+
+## 메세지 가져오기
+```
+/usr/local/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic hi-topic --from-beginning
+```
 
 ## Reference
 - [카프카, 데이터 플랫폼의 최강자](http://www.yes24.com/24/goods/59789254?scode=032)
