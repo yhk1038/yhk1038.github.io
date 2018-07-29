@@ -16,8 +16,7 @@ CPU Scheduling, Process에 대해 작성한 글입니다
 	- Memory management
 	- File System
 	- IO
-	- ...
----
+	- etc
 ## CPU 스케쥴링
 ---
 - Preemptive vs Non-preemptive (선점 (先占) : 비선점(非先占))
@@ -94,13 +93,13 @@ CPU Scheduling, Process에 대해 작성한 글입니다
 	- 해당 프로세스가 가졌던 모든 자원은 O/S에게 반환 (메모리, 파일, 입출력장치 등)
 
 ## 쓰레드(Thread)- 프로그램 내부의 흐름, 맥
-```class Test {public static void main(String[] args) {int n = 0;int m = 6;System.out.println(n+m);while (n < m)n++;System.out.println("Bye");}}
+```class Test {	public static void main(String[] args) {	int n = 0;	int m = 6;	System.out.println(n+m);	while (n < m)		n++;	System.out.println("Bye");}}
 ```
 - 다중 쓰레드 (Multithreads)	- 한 프로그램에 2개 이상의 맥	- 맥이 빠른 시간 간격으로 스위칭 된다 ⇒ 여러 맥이 동시에 실행되는 것처럼 보인다	- concurrent(공존하는) vs simultaneous(동시에)- 예: Web browser	- 화면 출력하는 쓰레드 + 데이터 읽어오는 쓰레드- 예: Word processor	- 화면 출력하는 쓰레드 + 키보드 입력 받는 쓰레드 + 철자/문법 오류 확인 쓰레드- 예: 음악 연주기, 동영상 플레이어, Eclipse IDE, 요즘 사용하는 대부분의 프로그램들
 - 요즘 프로그램들은 Context 변화하는 단위가 프로세스가 아닌 쓰레드- Thread vs Process	- 한 프로세스에는 기본 1개의 쓰레드		- 단일 쓰레드 (single thread) 프로그램	- 한 프로세스에 여러 개의 쓰레드		- 다중 쓰레드 (multi-thread) 프로그램	- 쓰레드 구조		- 프로세스의 메모리 공간 공유 (code, data)		- 프로세스의 자원 공유 (file, i/o, …)		- 비공유: 개별적인 PC, SP, registers, stack	- 프로세스의 스위칭 vs 쓰레드의 스위칭- 예제: 자바 쓰레드	- java.lang.Thread
-	- 주요 메소드		- public void run() // 새로운 맥이 흐르는 곳 (치환)		- void start() // 쓰레드 시작 요청		- void join() // 쓰레드가 마치기를 기다림		- static void sleep() // 쓰레드 잠자기		- Thread.run()			- 쓰레드가 시작되면 run() 메소드가 실행된다			- ⇒ run() 메소드를 치환한다		```class MyThread extends Thread {public void run() { // 치환 (override)// 코드}}
+	- 주요 메소드		- public void run() // 새로운 맥이 흐르는 곳 (치환)		- void start() // 쓰레드 시작 요청		- void join() // 쓰레드가 마치기를 기다림		- static void sleep() // 쓰레드 잠자기		- Thread.run()			- 쓰레드가 시작되면 run() 메소드가 실행된다			- ⇒ run() 메소드를 치환한다		```class MyThread extends Thread {	public void run() { // 치환 (override)	// 코드	}}
 ```
-- 예제: 글자 A 와 B 를 동시에 화면에 출력하기	- 모든 프로그램은 처음부터 1개의 쓰레드는 갖고 있다 (main)	- 2개의 쓰레드: main + MyThread	```class Test {public static void main(String[] arg) {MyThread th = new MyThread();th.start();for (int i=0; i<1000; i++)System.out.print("A");}}class MyThread extends Thread {public void run() {for (int i=0; i<1000; i++)System.out.print("B");}
+- 예제: 글자 A 와 B 를 동시에 화면에 출력하기	- 모든 프로그램은 처음부터 1개의 쓰레드는 갖고 있다 (main)	- 2개의 쓰레드: main + MyThread	```class Test {	public static void main(String[] arg) {	MyThread th = new MyThread();	th.start();	for (int i=0; i<1000; i++)		System.out.print("A");	}}class MyThread extends Thread {	public void run() {	for (int i=0; i<1000; i++)		System.out.print("B");}
 ```
 
 
