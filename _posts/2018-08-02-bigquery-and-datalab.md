@@ -12,7 +12,7 @@ Google Cloud Platform 제품인 BigQuery와 Datalab을 사용해 Structed Data�
 
 
 ## 대용량 데이터 다루기
-- 캐글이나 공모전에서 약간 큰(~~~사실은 절대 크진 않은~~~) 데이터를 가지고 작업할 경우
+- 캐글이나 공모전에서 약간 큰(~~사실은 절대 크진 않은~~) 데이터를 가지고 작업할 경우
 	- Python Pandas에서 ```pd.read_csv```시 dtype을 np.int32 등으로 설정해 최대한 메모리를 절약하고 ```gc.collect()```로 할당된 메모리를 해지
 	- 또는 Spark를 사용해 분산으로 작업을 진행
 	- 또는 좋은 컴퓨터(CPU, RAM이 좋은)를 구입
@@ -107,7 +107,7 @@ chmod 755 load-data-bigquery.sh
 - <img src="https://www.dropbox.com/s/cxpn6zdxlzngou4/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-07-31%2023.55.31.png?raw=1">
 
 - 이제 다시 BigQuery Console로 돌아가 테이블이 생성되었나 확인
-- <img src="https://www.dropbox.com/s/eh9bug7bkinzk3v/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-07-31%2023.57.33.png?raw=1" widht="700" height="500">
+- <img src="https://www.dropbox.com/s/eh9bug7bkinzk3v/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-07-31%2023.57.33.png?raw=1">
 - Details를 선택하면 테이블 정보를 볼 수 있고, Preview를 누르면 데이터를 볼 수 있음
 
 ## Datalab 생성
@@ -130,67 +130,27 @@ datalab create --machine-type n1-standard-8 datalab-instance
 
 ## Datalab에서 BigQuery 연동
 - docs-BigQuery에 가면 예제 파일이 있음
-- BigQuery에서 쿼리로 데이터를 EDA
-- Table Join 후 Feature Engineering
+- BigQuery에 대해 궁금하면 [BigQuery Tutorial](https://github.com/zzsza/bigquery-tutorial) 참고(Star해주시면 좋아합니다)
+- BigQuery에서 쿼리로 EDA
+- Feature Engineering를 빅쿼리에서 진행하고 Join 
 - 등의 작업을 BigQuery에서 진행한 후, Datalab에서 모델링 진행 추천
 
 ### Feature Engineering
+- 이제 가설을 잡고 모델링
 - 가설
 	- 1) 결제한 유저들은 게임을 더 오래할 것이다
 	    - 생성 feature : payment\_cnt, payment\_total
-	    
-	    ```
-	    select acc_id, count(acc_id) as payment_cnt, sum(payment_amount) as payment_total
-        from `nc_new.train_payment` 
-        group by acc_id
-	    ```
 	- 2) 문파에 가입한 유저들은 게임을 더 오래할 것이다(단, 길드의 멤버수도 영향을 끼칠 것이다)
 	    - 생성 feature : guild\_tf, guild\_member\_cnt
 	    - guild는 9963개.. 우선은 guild 가입 유무 변수만 추가
-	    
-	    ```
-	    select guild_member, "True" as guild_tf, guild_member_cnt
-        from(
-        select string_field_0 as guild, guild_member, array_length(split(string_field_1)) as guild_member_cnt
-        from `nc_new.train_guild`, UNNEST(split(string_field_1)) as guild_member
-        )
-	    ```
-	    
 	- 3) 접속하는 빈도를 통해 속도를 측정할 수 있을 것이다(소수점 둘째자리에서 round)
 	    - 생성 feature : login_speed : sum(cnt\_dt)/count(wk)\*7, last\_week : max(wk)
 	    - 1주차 7일, 2주차 7일, 3주차 7일 => feature 1. 접속 속도 1, max(접속주차) => feature2. 마지막 주차
 	    - 1주차 7일, 2주차 5일 = 12/14 = 0.85
 	    - 1주차 7일, 3주차 3일 = 10/21 = 0.47
 	    - sum(cnt_dt)/count(wk)\*7
-	- 4) Baseline에는 activity에서 다음만 사용 : wk, cnt\_dt, play\_time, normal\_chat, cnt_use_buffitem
-	
-	```
-		select acc_id, ROUND(sum(cnt_dt)/(count(wk)*7), 2) as login_speed, max(wk) as last_week,
-        count(wk) as wk_cnt, sum(cnt_dt) total_dt, sum(play_time) as total_play_time, sum(normal_chat) as total_normal_chat, MAX(cnt_use_buffitem) as use_buffitem
-        from `nc_new.train_activity` 
-        group by acc_id
-		```
-	
-- 위 Feature들을 Join하는 쿼리
-
-
-```
-#standardSQL
-        select a.acc_id, a.login_speed, a.last_week, a.wk_cnt, a.total_dt, a.total_play_time, a.total_normal_chat, a.use_buffitem,
-              b.label, c.payment_cnt, c.payment_total, max(d.guild_tf) as guild_tf, max(d.guild_member_cnt) as guild_member_cnt
-        from 
-          (select acc_id, ROUND(sum(cnt_dt)/(count(wk)*7), 2) as login_speed, max(wk) as last_week, count(wk) as wk_cnt, 
-          sum(cnt_dt) total_dt, sum(play_time) as total_play_time, sum(normal_chat) as total_normal_chat, MAX(cnt_use_buffitem) as use_buffitem
-          from `nc_new.train_activity` 
-          group by acc_id) as a
-        left join 
-          (select string_field_0 as id, string_field_1 as label from `nc_new.train_label`) as b on a.acc_id = b.id
-        left join 
-          (select acc_id, count(acc_id) as payment_cnt, sum(payment_amount) as payment_total from `nc_new.train_payment`  group by acc_id) as c USING(acc_id)
-        left join 
-          (select guild_member, 1 as guild_tf, guild_member_cnt 
-          from
-            (select string_field_0 as guild, guild_member, array_length(split(string_field_1)) as guild_member_cnt
-              from `nc_new.train_guild`, UNNEST(split(string_field_1)) as guild_member)) as d on a.acc_id = d.guild_member
-        group by 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11
-```
+	- 4) Baseline에는 activity에서 다음만 사용 : wk, cnt\_dt, play\_time, normal\_chat, cnt\_use\_buffitem
+- 위 Feature들을 Join하는 쿼리 작성 후 진행
+- 이후 xgboost로 거의 default 옵션가지고 모델링하고 제출해보니 0.65점 나옴 
+- Feature 추가하고 이것저것 해보면 더 올라가지 않을까요!
+- 예전에 하던 일이 이런 일들이라 이제 대회 참여는 안할 예정입니다
