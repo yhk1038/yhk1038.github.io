@@ -151,6 +151,7 @@ datalab create --machine-type n1-standard-8 datalab-instance
 	    - sum(cnt_dt)/count(wk)\*7
 	- 4) Baseline에는 activity에서 다음만 사용 : wk, cnt\_dt, play\_time, normal\_chat, cnt\_use\_buffitem
 - 위 Feature들을 Join하는 쿼리 작성 후 진행
+- 쿼리문은 [Github](https://github.com/zzsza/2018-bigcontest-nc)에 올려둘 예정
 - 이후 xgboost로 거의 default 옵션가지고 모델링하고 제출해보니 0.65점 나옴 
-- Feature 추가하고 이것저것 해보면 더 올라가지 않을까요!
-- 예전에 하던 일이 이런 일들이라 이제 대회 참여는 안할 예정입니다
+- Feature 추가하고 이것저것 해보면 더 올라가지 않을까 생각됨
+- 예전에 하던 일이 이런 일들이라 이제 대회를 참여하지 않을 예정
