@@ -3,7 +3,7 @@ layout: post
 title:  "BigQuery와 Datalab을 사용해 데이터 분석하기"
 subtitle:   "BigQuery와 Datalab을 사용해 대용량 데이터 분석하기"
 categories: gcp
-tags: basic
+tags: bigquery
 comments: true
 ---
 
