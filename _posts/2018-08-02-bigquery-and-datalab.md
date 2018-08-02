@@ -8,7 +8,9 @@ comments: true
 ---
 
 Google Cloud Platform 제품인 BigQuery와 Datalab을 사용해 Structed Data를 분석하는 방법에 대해 설명한 글입니다.  
-데이터는 빅콘테스트의 NC 데이터를 예시로 들었습니다. 혹시 문제가 있다고 생각하면 제게 연락주세요!
+데이터는 빅콘테스트의 NC 데이터를 예시로 들었습니다. 혹시 문제가 있다고 생각하면 제게 연락주세요!  
+
+- 쉘 스크립트와 쿼리 코드는 [2018-bigcontest-nc Repository](https://github.com/zzsza/2018-bigcontest-nc)에 있습니다 :)
 
 
 ## 대용량 데이터 다루기
