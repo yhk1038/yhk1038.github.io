@@ -23,6 +23,7 @@ comments: true
 
 ### 제공하는 모델
 - 현재(18.8월) 베타 기준으로 2가지 모델이 제공됩니다
+- 다음 달에 classification, recommendation 등이 지원될 예정이라 합니다
 - Linear regression 
 	- numerical value를 예측할 때 사용
 - Binary Logistic regression 
