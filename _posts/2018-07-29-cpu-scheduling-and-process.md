@@ -92,7 +92,8 @@ CPU Scheduling, Process에 대해 작성한 글입니다
 	- 제일 첫 프로세스는? 부팅하고 OS가 첫 프로세스(init)를 생성	- cf. Sibling processes : 부모가 같은 형제 프로세스	- 프로세스 트리 (process tree)- Process Identifier (PID)	- Typically an integer number	- cf. PPID : Parent PID- 프로세스 생성 (creation)	- fork() system call = 부모 프로세스 복사	- exec() = 실행파일을 메모리로 가져오기- 예제: Windows 7 프로세스 나열 : ctrl + alt + delete- 예제: Ubuntu Linux 프로세스 나열 : ps- 프로세스 종료 (termination)	- exit() system call
 	- 해당 프로세스가 가졌던 모든 자원은 O/S에게 반환 (메모리, 파일, 입출력장치 등)
 
-## 쓰레드(Thread)- 프로그램 내부의 흐름, 맥
+## 쓰레드(Thread)
+- 프로세스 내에서 실행되는 세부 작업의 단위- 프로세스 내부의 흐름, 맥
 ```class Test {	public static void main(String[] args) {	int n = 0;	int m = 6;	System.out.println(n+m);	while (n < m)		n++;	System.out.println("Bye");}}
 ```
 - 다중 쓰레드 (Multithreads)	- 한 프로그램에 2개 이상의 맥	- 맥이 빠른 시간 간격으로 스위칭 된다 ⇒ 여러 맥이 동시에 실행되는 것처럼 보인다	- concurrent(공존하는) vs simultaneous(동시에)- 예: Web browser	- 화면 출력하는 쓰레드 + 데이터 읽어오는 쓰레드- 예: Word processor	- 화면 출력하는 쓰레드 + 키보드 입력 받는 쓰레드 + 철자/문법 오류 확인 쓰레드- 예: 음악 연주기, 동영상 플레이어, Eclipse IDE, 요즘 사용하는 대부분의 프로그램들
@@ -107,7 +108,7 @@ CPU Scheduling, Process에 대해 작성한 글입니다
 ## Reference
 - [양희재 교수님 운영체제 강의](http://kocw.net/home/search/kemView.do?kemId=978503)
 - [introduction to Operating System](https://www.slideshare.net/LukaXavi/introduction-to-operating-system-10938506)
-
+- [위키백과](https://ko.wikipedia.org/wiki/%EC%8A%A4%EB%A0%88%EB%93%9C_(%EC%BB%B4%ED%93%A8%ED%8C%85))
 
 
 
