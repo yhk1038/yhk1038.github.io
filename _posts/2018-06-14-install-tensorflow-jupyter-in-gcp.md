@@ -85,6 +85,20 @@ gcloud compute --project <project_name> ssh --zone <region> <instance name>
 gcloud compute --project "project_101" ssh --zone "asia-east1-a" "gpu"
 ```
 
+접속 후 locale 설정
+
+```
+sudo apt-get install language-pack-ko
+sudo locale-gen ko_KR.UTF-8
+```
+
+pip3 설치
+
+```
+sudo apt-get update
+sudo apt-get install python3-pip -y
+```
+
 ## CUDA 설치
 ---
 
@@ -102,21 +116,14 @@ sudo apt-get install cuda-9-0
 ## cuDNN 설치
 ---
 
-cuDNN을 [링크](https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v7.0.5/prod/9.1_20171129/Ubuntu16_04-x64/libcudnn7_7.0.5.15-1+cuda9.1_amd64)로 다운받았습니다
-
-그 후 scp를 통해 로컬에 있는 cudnn 파일을 인스턴스로 보내줘야 합니다
-
 ```
-gcloud compute scp ~/Downloads/libcudnn7_7.0.5.15-1+cuda9.1_amd64.deb <user_name>@<instance_name>:~/
-// <user_name>@<instance_name> 이 부분은 gcloud로 인스턴스에 접속한 후 왼쪽에 뜨는 것을 넣으면 됩니다
-```
+sudo sh -c 'echo "deb http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1604/x86_64 /" >> /etc/apt/sources.list.d/cuda.list'
+cat /etc/apt/sources.list.d/cuda.list
+>>> deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64 /
+>>> deb http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1604/x86_64 /
+sudo apt-get update
 
-- cuDNN 설치
-
-```
-sudo dpkg -i libcudnn7_7.0.5.15-1+cuda9.0_amd64.deb
-sudo dpkg -i libcudnn7-dev_7.0.5.15-1+cuda9.0_amd64.deb
-sudo dpkg -i libcudnn7-doc_7.0.5.15-1+cuda9.0_amd64.deb
+sudo apt-get install libcudnn7-dev
 ```
 
 ## Tensorflow, Pytorch, Keras 설치
@@ -189,6 +196,8 @@ c.NotebookApp.password = '<해시값>'
 
 (인스턴스가 켜있으면 종료하신 후) 인스턴스 수정 - 네트워크 태그에 gpu를 추가해주세요!
 
+\+ VPC 네트워크 - 외부 IP 주소 - 임시를 고정으로 설정
+
 ## Jupyter notebook 띄우기
 ---
 
@@ -258,3 +267,4 @@ sudo journalctl -u google-startup-scripts.service
 - [Using a GPU & TensorFlow on Google Cloud Platform](https://medium.com/google-cloud/using-a-gpu-tensorflow-on-google-cloud-platform-1a2458f42b0) 
 - [Set up Anaconda + IPython + Tensorflow + Julia on a Google Compute Engine VM](https://haroldsoh.com/2016/04/28/set-up-anaconda-ipython-tensorflow-julia-on-a-google-compute-engine-vm/)
 - [Google Document : startup-script](https://cloud.google.com/compute/docs/startupscript)
+- [CUDA 설치 우분투 환경](https://hiseon.me/2018/03/11/cuda-install/)
