@@ -16,7 +16,7 @@ module Jekyll
     end
 
     def convert(content)
-      `jupyter nbconvert --to html --template basic --stdout --TemplateExporter.exclude_input_prompt=True --HTMLExporter.anchor_link_text=' ' \`pwd\`/_ipynbs/#{content}`
+      `ipynb nbconvert --to html --template basic --stdout --TemplateExporter.exclude_input_prompt=True --HTMLExporter.anchor_link_text=' ' \`pwd\`/_ipynbs/#{content}`
     end
   end
 end
