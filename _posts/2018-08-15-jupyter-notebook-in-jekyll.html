@@ -1,16 +1,13 @@
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-<p>layout: post
+---
+layout: post
 title:  "jupyter notebook(ipynb)로 jekyll 글쓰기"
 subtitle: "jupyter notebook(ipynb)로 jekyll 글쓰기"
 categories: development
-tags: web</p>
-<h2 id="comments:-true">comments: true<a class="anchor-link" href="#comments:-true"> </a></h2>
-</div>
-</div>
-</div>
+tags: web
+comments: true
+---
+
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
@@ -83,7 +80,11 @@ pip(3) install nbconveter</code></pre>
 <h2 id="2)-ipynb-&#54028;&#51068;-&#51089;&#49457;">2) ipynb &#54028;&#51068; &#51089;&#49457;<a class="anchor-link" href="#2)-ipynb-&#54028;&#51068;-&#51089;&#49457;"> </a></h2><ul>
 <li><code>_ipynbs</code> 폴더를 만든 후, 쥬피터 노트북 파일을 작성해주세요</li>
 <li>저는 <code>2018-08-15-jupyter-notebook-in-jekyll.ipynb</code>로 만들었습니다!</li>
-<li>ipynb이지만 header에 글 정보를 문서 최상단에 포함해주세요!</li>
+<li><code>_posts</code> 폴더에 <code>2018-08-15-jupyter-notebook-in-jekyll.html</code> 생성<ul>
+<li>아래와 같은 정보 추가</li>
+<li>이 부분은 어떻게 자동화할지 고민해보기(jupyter notebook에서 아래 정보를 넣고 변환하면 깨짐)</li>
+</ul>
+</li>
 </ul>
 
 <pre><code>---
@@ -105,6 +106,7 @@ comments: true
 <li>사용 방법 :  <code>bash ipython_to_html.sh {file_name}</code><ul>
 <li>file_name은 2018-08-15-jupyter-notebook-in-jekyll 이런식으로! </li>
 <li>지금은 아래와 같은 방식을 사용하시만 추후 ipynb 상관없이 대응하도록 수정할 예정</li>
+<li>현재는 &gt;&gt; (append)</li>
 </ul>
 </li>
 </ul>
@@ -114,7 +116,7 @@ comments: true
 file_name=$1
 echo ${file_name}
 function converter() {
-    jupyter nbconvert --to html --template basic --stdout --TemplateExporter.exclude_input_prompt=True --HTMLExporter.anchor_link_text=' ' `pwd`/_ipynbs/${file_name}.ipynb &gt; `pwd`/_posts/${file_name}.html
+    jupyter nbconvert --to html --template basic --stdout --TemplateExporter.exclude_input_prompt=True --HTMLExporter.anchor_link_text=' ' `pwd`/_ipynbs/${file_name}.ipynb &gt;&gt; `pwd`/_posts/${file_name}.html
     echo "Success"
 }
 converter</code></pre>
