@@ -64,7 +64,7 @@ Coursera 강의인 How to Win a Data Science Competition: Learn from Top Kaggler
 	- spare high dimensional data일 때 좋음
 	- 비선형 문제는 풀지 못함
 - Tree-based
-	- <img src="https://www.dropbox.com/s/ne29224gt7uc4fd/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-08-16%2015.08.25.png?raw=1" height="300" width="200"> 
+	- <img src="https://www.dropbox.com/s/ne29224gt7uc4fd/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-08-16%2015.08.25.png?raw=1" height="200" width="200"> 
 	- 공간을 2부분으로 나누는 선 (1개의 class와 그 나머지) 찾기
 	- 그 후 나머지를 또 2부분으로 나누는 선 찾기
 	- tabular 데이터(표 형태의)에서 좋은 default 방법
