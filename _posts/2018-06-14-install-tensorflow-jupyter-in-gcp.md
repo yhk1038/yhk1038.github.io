@@ -79,7 +79,7 @@ gcloud가 설치되어 있다면, 터미널에서 아래와 같은 명령어를 
 
 
 ```
-gcloud compute --project <project_name> ssh --zone <region> <instance name>
+gcloud compute --project <project_id> ssh --zone <region> <instance name>
 
 // 예시
 gcloud compute --project "project_101" ssh --zone "asia-east1-a" "gpu"
