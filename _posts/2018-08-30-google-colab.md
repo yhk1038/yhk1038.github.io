@@ -18,7 +18,7 @@ comments: true
 	- [Github 코드를 Colab에서 사용하기](#github-코드를-colab에서-사용하기)
 	- [BigQuery 사용하기](#bigquery-사용하기)
 	- [Matplotlib에서 한글 사용하기](#matplotlib에서-한글-사용하기)
-	- [Tensorboard 사용하기](#tensorboard-사용하기)
+	- [TensorBoard 사용하기](#tensorboard-사용하기)
 
 ## Google Colab
 ---
@@ -178,13 +178,13 @@ print('Device:', torch.device('cuda:0'))
 ```
 
 ### KoNLPy 설치
-- 공식 문서엔 openjdk-7-jdk가 작성되어 있으나, 우분투 17.04에선 ppa를 추가해야 7 버전을 설치 가능
+- 공식 문서엔 openjdk-7-jdk로 작성되어 있으나, 우분투 17.04에선 ppa를 추가해야 설치 가능
 - ppa를 추가하지 않고 8 버전을 설치
 
 ```
 !apt-get update
 !apt-get install g++ openjdk-8-jdk 
-!apt-get install python3-dev; pip3 install konlpy
+!pip3 install konlpy
 ```
 
 - 예제 코드
@@ -305,7 +305,7 @@ print('Device:', torch.device('cuda:0'))
 	    "import sys, json; print(json.load(sys.stdin)['tunnels'][0]['public_url'])"
 	```	
 
-- 아래 예제 코드 실행 후, Epoch 지나고 위 코드에서 나온 URL 클릭하면 Tensorboard로 이동
+- 아래 예제 코드 실행 후, Epoch 지나고 위 코드에서 나온 URL 클릭하면 TensorBoard로 이동
 
 	```
 	from __future__ import print_function
