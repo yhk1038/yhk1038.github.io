@@ -14,6 +14,7 @@ comments: true
 	- [구글 드라이브와 Colab 연동](#구글-드라이브와-colab-연동)
 	- [구글 드라이브와 로컬 연동](#구글-드라이브와-로컬-연동)
 	- [PyTorch 설치](#pytorch-설치)
+	- [KoNLPy 설치](#konlpy-설치)
 	- [Github 코드를 Colab에서 사용하기](#github-코드를-colab에서-사용하기)
 	- [BigQuery 사용하기](#bigquery-사용하기)
 	- [Matplotlib에서 한글 사용하기](#matplotlib에서-한글-사용하기)
@@ -176,6 +177,25 @@ print('Torch', torch.__version__, 'CUDA', torch.version.cuda)
 print('Device:', torch.device('cuda:0'))
 ```
 
+### KoNLPy 설치
+- 공식 문서엔 openjdk-7-jdk가 작성되어 있으나, 우분투 17.04에선 ppa를 추가해야 7 버전을 설치 가능
+- ppa를 추가하지 않고 8 버전을 설치
+
+```
+!apt-get update
+!apt-get install g++ openjdk-8-jdk 
+!apt-get install python3-dev; pip3 install konlpy
+```
+
+- 예제 코드
+
+	```
+	from konlpy.tag import Twitter
+
+	twitter = Twitter()
+	twitter.pos("질문이나 건의사항은 깃헙 이슈 트래커에 남겨주세요")
+	```
+	
 ### Github 코드를 Colab에서 사용하기
 - ```nbviewer```나 ```htmlpreview```처럼 사용 가능
 - ```https://github.com/~~~``` 부분을 ```https://colab.research.google.com/github/~~~```로 교체하면 됨
