@@ -8,6 +8,7 @@ comments: true
 ---
 
 - Google의 Colab 사용법에 대해 정리한 글입니다
+- 이 글은 계속 업데이트 될 예정입니다!
 - 목차
 	- [UI](#ui) 
 	- [상단 설정](#상단-설정)
@@ -258,8 +259,6 @@ print('Device:', torch.device('cuda:0'))
 - 그래프 그리기
 
 	```
-	import matplotlib as mpl
-	
 	import matplotlib.pyplot as plt
 	import matplotlib.font_manager as fm
 	import numpy as np
