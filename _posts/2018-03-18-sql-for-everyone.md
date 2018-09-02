@@ -114,7 +114,7 @@ INSERT INTO `user_log` (`user_id`, `event`,`event_date`) VALUES
 
 ```
 <br/>
-제가 임의로 만든 테이블로 이름은 ```user_log```입니다.  
+제가 임의로 만든 테이블로 Table 이름은 ```user_log```입니다.  
 블로그 서비스를 하는 업체의 유저 로그 데이터라고 생각해주세요!   
 이 테이블엔 user\_id, event, event\_date가 기록되어 있습니다. 이제 우리는 화면의 우측에 쿼리를 작성한 후, RUN SQL 버튼을 눌러봅시다!!!! 
 
@@ -158,7 +158,7 @@ WHERE user_id = '1';
 이것을 쿼리로 간단하게 해보겠습니다!
 
 ## GROUP BY
-여기서 나오는 개념은 ```GROUP BY``` 입니다! GROUP BY [컬럼 이름] 이런 방식으로 사용하는데, 직관적으로 설명하자면 컬럼들을 그룹화한다(aggregate)라고 생각해주세요
+여기서 나오는 개념은 ```GROUP BY``` 입니다! GROUP BY [컬럼 이름] 이런 방식으로 사용하는데, 직관적으로 설명하자면 **컬럼들을 그룹화한다(aggregate)**라고 생각해주세요
 <br/>
 
 GROUP BY에 대한 이해를 돕기 위해 그림을 그려봤는데, 아래와 같은 과정을 통해 결과가 나타납니다 <br/>
@@ -180,11 +180,11 @@ GROUP BY user_id, event, event_date;
 처음 보는 것들을 설명드리겠습니다
 
 - COUNT
-	- 개수를 세주는 친구입니다
+	- 개수를 Count하는 친구입니다
 	- COUNT(개수를 셀 컬럼) 이런 방식으로 사용합니다
 	- COUNT(user\_id)를 하면 user\_id의 개수를 세주는 것입니다
 - DISTINCT
-	- COUNT(DISTINCT user_id)를 하면 중복을 제외한 고유한 user\_id의 개수를 세주는 것입니다
+	- COUNT(DISTINCT user_id)를 하면 중복을 제외한 **고유한** user\_id의 개수를 세주는 것입니다
 - AS 'unique'
 	-  값을 센 후 이름을 unique로 칭하겠다라는 뜻입니다 
 
@@ -301,7 +301,7 @@ ORDER BY event_date;
 
 ### 처음 SQL 접하시는 분들이 자주 하시는 질문
 - ```WHERE```과 ```HAVING```의 차이가 무엇인가요?
-	- WHERE은 Table에서 조건을 뽑아내는 것이고 HAVING은 그룹화한 후 결과에서 조건을 뽑는 것입니다. 동시에 사용하는 경우도 있으며, ```HAVING```은 주로 ```GROUP BY```와 함께 쓰입니다
+	- WHERE은 **현재 Table에서 조건을 뽑아**내는 것이고 HAVING은 **그룹화한 후 결과에서 조건을 뽑는 것**입니다. 동시에 사용하는 경우도 있으며, ```HAVING```은 주로 ```GROUP BY```와 함께 쓰입니다
 
 ### 정답
 
@@ -347,5 +347,42 @@ Table에서 WHERE 조건에 해당하는 값들을 찾은 후, SELECT!
 
 <br/>
 
-이후 글은 ToDo에 나와있는 내용들을 하나씩 추가해보겠습니다
+## Join
+Join은 2개 이상의 Table을 조합해 새로운 가상 Table처럼 만들어 결과로 보여줍니다. 여러 Table을 연결한다고 생각하면 좋을 것 같습니다
 
+### Join은 왜 필요할까?
+데이터베이스에 대한 지식이 없을 땐, **모든 Data를 하나의 Table에 넣으면 Join이 필요없을텐데 왜 굳이 Table을 나눠서 저장할까?**라는 의문을 가졌습니다. 조금 더 공부한 결과 관계형 데이터베이스는 **정규화** 과정을 거쳐 데이터 중복을 최소화해 데이터를 관리합니다.   
+이 정규화 과정을 거치면 Table끼리 관계(Relation)를 갖게 됩니다. 또한 저장 공간의 효율성과 확장성이 증가됩니다! 
+
+
+Table에 저장된 데이터를 효과적으로 검색하기 위해 Join을 사용합니다. 제 사례를 들자면, User의 상태 데이터는 user_state table에 저장하고 User의 로그 데이터는 user_log table에 저장했습니다. 그리고 다양한 행동 패턴을 분석할 때 (예를 들어, 블로그에 누적 글이 3개 이상인 유저들과 3개 미만인 유저들의 행동 패턴을 비교하고 싶을 경우) Join을 사용했습니다
+
+### Join의 종류
+- Inner Join
+- Cross Join
+- Self Join
+- Outer Join
+	- Left Outer Join
+	- Right Outer Join
+	- Full Outer Join 
+
+	
+### Join 문법
+```
+SELECT
+FROM TABLE_A as a
+LEFT JOIN
+(SELECT
+FROM TABLE_B) as b
+ON a.column1 = b.column1
+```
+
+
+- ToDo : Join 문제 만들기
+- 설명글 추가
+- 어떻게 쓰는지
+- 그 후 설명
+
+
+
+https://www.benlcollins.com/spreadsheets/google-sheets-query-sql/	
