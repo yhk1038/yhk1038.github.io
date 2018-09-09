@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Python 변수, 객체, 복사"
-subtitle:   "Python Scheduler 만들기(APScheduler)"
+subtitle:   "Python 변수, 객체, 복사"
 categories: development
 tags: python
 comments: true
