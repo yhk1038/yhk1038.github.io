@@ -140,7 +140,7 @@ Coursera 강의인 How to Win a Data Science Competition: Learn from Top Kaggler
 - 현실의 카테고리컬 feature들을 변경하는 방법
 
 ## Feature Interactions
-- <img src-"https://www.dropbox.com/s/ov2kpqr71n301xx/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-09-04%2021.21.43.png?raw=1">
+- <img src="https://www.dropbox.com/s/ov2kpqr71n301xx/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-09-04%2021.21.43.png?raw=1">
 - One Hot 인코딩 후, 각 컬럼별로 곱함
 - <img src="https://www.dropbox.com/s/t6i7hxedaffr9yo/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-09-04%2021.27.54.png?raw=1">
 - 곱, 합, 차, 나누기 등을 사용해 상호작용!
