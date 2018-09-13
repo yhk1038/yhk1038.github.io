@@ -5,7 +5,7 @@ menu: true
 order: 10
 ---
 
-## 소개 [ 현재 무직입니다 ]
+## 소개 
 - Github : [https://github.com/zzsza](https://github.com/zzsza)
 - Mail : snugyun01@gmail.com
 
