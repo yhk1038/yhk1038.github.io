@@ -60,8 +60,9 @@ comments: true
 	- 컬럼 기반 데이터베이스 (Column Oriented)
 	- SQL은 Row 기반! 컬럼을 정해두고 Row를 추가하는 방식(=자유롭지 않음)인 반면 컬럼 기반은 스키마가 자유롭고 Sparse한 거대한 테이블에 적합
 	- Master와 Slave가 존재
-	- <img src="http://saphanatutorial.com/wp-content/uploads/2013/09/Difference-between-Column-based-and-Row-based-Tables.png">
- 
+	- <img src="https://www.dropbox.com/s/pvu5isxpl0mmpoh/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-10-22%20%EC%98%A4%EC%A0%84%209.36.37.png?raw=1">
+
+
 ## Apache Spark
 - 메모리에서 처리해서 효율이 좋음
 - 반복 계산이 많은 경우 특히 성능이 좋음
