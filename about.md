@@ -37,6 +37,7 @@ order: 10
 | 맥주 추천 시스템 	| 2015.6 - 12 	| 기획/디자인<br>데이터 크롤링 	| Collaborative Filtering을 <br>활용한 맥주 추천 시스템 	|
 
 ## 발표
+- [데이터야놀자 Ignite Talk : 사회인의 휴학, Gap Year 이야기](https://datayanolja.github.io/speakers/ignite6.html)(18.10.19)
 - 숙명여대 취업캠프 특강(18.06.26)
 - [백수들의 Conference](https://dfab.event-us.kr/p/2397)(18.06.24)
 - 인하대 Data Science 특강(18.05.03)
@@ -56,7 +57,7 @@ order: 10
 - [구름 이야기(GCP 사례)](https://www.slideshare.net/zzsza/feat-gcp-gcp-86347239)  
 - [Kaggle knowhow](https://github.com/zzsza/Kaggle-knowhow)
 - [10분만에 익히는 jupyter notebook](https://www.slideshare.net/zzsza/10-jupyter-notebook)  
-
+- [사회인의 휴학, Gap Year 이야기](https://www.slideshare.net/zzsza/gap-year-119998766)
 
 ## 기타
 - 패스트캠퍼스 [데이터 엔지니어링 Extension SCHOOL](http://school.fastcampus.co.kr/data_des/) 1기 2학기(Scala, Spark Part) 조교
