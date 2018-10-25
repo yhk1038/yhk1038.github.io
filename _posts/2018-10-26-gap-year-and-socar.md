@@ -41,6 +41,7 @@ comments: true
 	
 ### 자아 성찰	
 <img src="https://www.dropbox.com/s/w0xytz6ljfxjbnj/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-10-24%2021.37.19.png?raw=1" width="600" height="400">
+
 ---
 
 - 위 이미지는 퇴사하고 처음 자아 성찰을 하며 작성한 글입니다
@@ -74,6 +75,8 @@ comments: true
 ### 일기
 <img src="https://www.dropbox.com/s/g1lcp9j14990y76/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-10-24%2022.38.48.png?raw=1" width="700" height="700">
 
+---
+
 - 자아 성찰을 하고, 거의 매일 짧은 일기를 작성했습니다
 	- 같은 시기에 Gap Year를 보내는 **딥러닝을 공부하는 청년백수 모임**에 활동한 것이 짧은 일기를 작성할 때 도움이 되었습니다
 - 일기의 형태보다 Daily To Do List 형태로 작성했습니다
@@ -98,10 +101,10 @@ comments: true
 	- Linux 쉘 스크립트 다시 공부 : [블로그](https://zzsza.github.io/tag/development-linux/)
 	- Coursera Kaggle 강의 : [블로그](https://zzsza.github.io/tag/data-kaggle/)
 	- 마이크로 소프트웨어 잡지 구독
-		- <img src="https://www.dropbox.com/s/b0zs0cjjlou0sdh/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-10-25%2009.33.28.jpg?raw=1">
+		- <img src="https://www.dropbox.com/s/b0zs0cjjlou0sdh/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-10-25%2009.33.28.jpg?raw=1" width="600" height="400">
 		- 전반적인 개발 지식이 부족한 제게 이 잡지는 정말 유익했어요!(다양한 주제를 다룸)
 	- 좋은 블로그 글 구독
-		- <img src="https://www.dropbox.com/s/6pwk125gsnmoe9e/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-10-25%2009.36.46.png?raw=1">
+		- <img src="https://www.dropbox.com/s/6pwk125gsnmoe9e/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-10-25%2009.36.46.png?raw=1" width="600" height="400">
 		- 개인 용도의 슬랙을 생성해, 좋은 블로그 글을 RSS 구독하고 있습니다
 		- 또한 인터넷에서 접할 수 있는 좋은 글들은 별도의 채널(Ex:딥러닝-자료)에 보관하고 있습니다
 - 여기서 핵심은 제가 무엇이 공부했다가 아니라 블로그 또는 Github에 **메모**를 한 것이에요! 
@@ -184,7 +187,7 @@ comments: true
 
 - 아래부턴 1달간 찍은 소소한 사진입니다
 	
-<img src="https://www.dropbox.com/s/c3we7w30qre8qfq/2018-09-17%2015.03.55.jpg?raw=1" widht="600" height="600">
+<img src="https://www.dropbox.com/s/c3we7w30qre8qfq/2018-09-17%2015.03.55.jpg?raw=1" widht="500" height="500">
 
 - 뚝섬역에 위치한 쏘카 사무실 문 앞! 파랑파랑해서 좋아요
 	
@@ -233,5 +236,6 @@ comments: true
 
 ## ★ 인재 모십니다 ★
 - 쏘카에서 데이터 분석가, 데이터 사이언티스트, 데이터 엔지니어, 머신러닝 전문가 상시 모집하고 있습니다
+	- 데이터 분석가 Wanted 공고 : [링크](https://www.wanted.co.kr/wd/1177?referer_id=6529) 
 - 지원할 생각이 있으신 분은 제게 연락을...! [kyle@socar.kr](kyle@socar.kr)
 	
