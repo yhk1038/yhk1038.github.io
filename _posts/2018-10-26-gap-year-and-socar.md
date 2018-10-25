@@ -155,7 +155,7 @@ comments: true
 
 
 ### 이직 시점
-<img src="https://www.dropbox.com/s/kiytn31kh9sqvfg/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-10-25%2000.14.36.png?raw=1" width="600" height="200">
+<img src="https://www.dropbox.com/s/kiytn31kh9sqvfg/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-10-25%2000.14.36.png?raw=1" width="600" height="180">
 
 - 평소에 회사 탐방을 꾸준히 했기 때문에 많은 회사에 대해 인지하고 있었습니다
 - 회사에 대해 많은 정보가 있는 것도 중요하지만 더 중요한 것은 **회사 선정시 고려할 우선 순위**입니다
