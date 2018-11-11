@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "딥모닝 1주차. PR12-001~005"
-subtitle:   "딥모닝 1주차. PR12-001~005"
+title:  "딥모닝 1주차. PR12-001~006"
+subtitle:   "딥모닝 1주차. PR12-001~006"
 categories: data
 tags: paper
 comments: true
