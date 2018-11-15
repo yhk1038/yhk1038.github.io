@@ -20,6 +20,8 @@ comments: true
 	- [BigQuery 사용하기](#bigquery-사용하기)
 	- [Matplotlib에서 한글 사용하기](#matplotlib에서-한글-사용하기)
 	- [TensorBoard 사용하기](#tensorboard-사용하기)
+	- [JDK 설치하기](#jdk-설치하기)
+	- [Google Storage에서 파일 읽기](google-storage에서-파일-읽기)
 
 ## Google Colab
 ---
@@ -381,6 +383,34 @@ print('Device:', torch.device('cuda:0'))
 	print('Test loss:', score[0])
 	print('Test accuracy:', score[1])
 	```
+
+### JDK 설치하기
+- Python을 사용해 JDK 설치하기
+- 아래 코드 입력
+
+	```
+	import os      
+	def install_java():
+	  !apt-get install -y openjdk-8-jdk-headless -qq > /dev/null      #install openjdk
+	  os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-8-openjdk-amd64"     #set environment variable
+	  !java -version       #check java version
+	install_java()
+	```
+
+### Google Storage에서 파일 읽기
+```
+!pip3 install gcsfs dask 
+
+import gcsfs
+
+from google.colab import auth
+auth.authenticate_user()
+
+fs = gcsfs.GCSFileSystem(project='project_name')
+with fs.open('주소') as f:
+    df = pd.read_csv(f)
+```
+
 
 ## Reference
 - [Google Colab Free GPU Tutorial](https://medium.com/deep-learning-turkey/google-colab-free-gpu-tutorial-e113627b9f5d)
