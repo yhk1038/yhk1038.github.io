@@ -214,7 +214,7 @@ comments: true
         - 천천히 전개하고, 모르겠으면 영상 13분 참고
         - L을 최대화
     - <img src="https://www.dropbox.com/s/zct65yiq1c9fwqg/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-11-15%2009.17.35.png?raw=1">
-        - 몬테카를로 q(z|x)로 샘플링한 값으로 L을 계산
+        - 몬테카를로 q(zㅣx)로 샘플링한 값으로 L을 계산
         - 몇개를 뽑는거니 variance가 존재
     - <img src="https://www.dropbox.com/s/bs4lqaselx9jkgf/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-11-15%2009.19.00.png?raw=1">
         - 전개를 조금 다르게 하면, 애널리틱하게(수학적으로) 표현 가능
