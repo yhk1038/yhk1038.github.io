@@ -60,6 +60,9 @@ order: 10
 - [사회인의 휴학, Gap Year 이야기](https://www.slideshare.net/zzsza/gap-year-119998766)
 
 ## 기타
+- Edwith [Data science from MIT](https://www.edwith.org/datascience) 퍼블리싱
 - 패스트캠퍼스 [데이터 엔지니어링 Extension SCHOOL](http://school.fastcampus.co.kr/data_des/) 1기 2학기(Scala, Spark Part) 조교
 - 패스트캠퍼스 [PyTorch로 시작하는 딥러닝 입문 CAMP](http://www.fastcampus.co.kr/data_camp_pytorch/) 3기 실습 조교
 - 제이펍 베타리더스 6기
+- [스타트업, 식사는 하셨습니까?](https://www.facebook.com/groups/795777620529967/) 페이스북 그룹 2기 운영진(에디터)
+- [달다 쓰다, 또 하나의 게양](https://www.wadiz.kr/web/campaign/detail/698) 크라우드 펀딩 성공
