@@ -101,37 +101,21 @@ comments: true
 ### 구글 드라이브와 Colab 연동
 
 ```
-!apt-get install -y -qq software-properties-common python-software-properties module-init-tools
-!add-apt-repository -y ppa:alessandro-strada/ppa 2>&1 > /dev/null
-!apt-get update -qq 2>&1 > /dev/null
-!apt-get -y install -qq google-drive-ocamlfuse fuse
 from google.colab import auth
 auth.authenticate_user()
 
-from oauth2client.client import GoogleCredentials
-creds = GoogleCredentials.get_application_default()
-
-import getpass
-!google-drive-ocamlfuse -headless -id={creds.client_id} -secret={creds.client_secret} < /dev/null 2>&1 | grep URL
-
-vcode = getpass.getpass()
-!echo {vcode} | google-drive-ocamlfuse -headless -id={creds.client_id} -secret={creds.client_secret}
+from google.colab import drive
+drive.mount('/gdrive')
 ```
 
 - colab에서 구글 드라이브 권한 획득
 	- 위 명령어 복사 붙여넣기
 	- 그 후 나오는 URL로 접속한 후, verification code 입력
 	- 단, 매번 이 작업을 해줘야 함....(일정 시간 이후엔 끊김)
-
-```
-!mkdir -p drive
-!google-drive-ocamlfuse drive
-```
-	
 - colab에서 drive란 폴더를 만든 후, 우리 구글 드라이브의 root와 drive 폴더를 연결(mount)
 
 ```
-!cd drive/data; ls-al;
+!cd gdrive/data; ls-al;
 ```
 
 - 구글드라이브의 root에 data란 폴더가 있었음
@@ -139,7 +123,7 @@ vcode = getpass.getpass()
 
 ```
 import pandas as pd
-df = pd.read_csv("./drive/data/train_activity.csv")
+df = pd.read_csv("./gdrive/data/train_activity.csv")
 ```
 
 - 만약 apt-key output should not be parsed (stdout is not a terminal)란 Warning이 나오면 이미 인증이 완료되었다는 뜻이므로 바로 mount하면 됨
