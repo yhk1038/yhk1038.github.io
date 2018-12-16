@@ -16,7 +16,7 @@ comments: true
 - 성장, 코칭, 채용, 팀, 달인의 비결에 대한 내용이 계속 기억에 남네요
 - 김창준님 [블로그](http://agile.egloos.com/)에도 좋은 내용이 많이 있습니다 
 
-<img src="https://www.dropbox.com/s/rhohm5g0opohww6/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-12-16%2016.46.49.png?raw=1" height=500 widht=300>
+<img src="https://www.dropbox.com/s/rhohm5g0opohww6/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202018-12-16%2016.46.49.png?raw=1" height="500" widht="300">
 
 
 ---
@@ -128,7 +128,7 @@ comments: true
     - 비슷한 부분에서 몰입!
     - 업무 시간에서 불안함이나 지루함을 느끼는 때가 대부분이면 실력이 늘지 않는 환경에 있는 것
     - 팀장이 실력에 맞는 일을 주기보다 자신이 몰입할 수 있도록 전략을 세워야 함
-    - <img src="https://www.dropbox.com/s/ozerpvl0xlq7yoi/스크린샷 2018-12-16 14.54.46.png?raw=1" height=400 width=600>
+    - <img src="https://www.dropbox.com/s/ozerpvl0xlq7yoi/스크린샷 2018-12-16 14.54.46.png?raw=1" height="400" width="600">
     - 지루함을 느끼는 경우 : a1 실력 낮추기
         - 평상시 즐겨 쓰던 보조 도구를 사용하지 않기
     - 지루함을 느끼는 경우 : a2 난이도 높이기
@@ -217,18 +217,19 @@ comments: true
     - 상대방에 대해 이해하고, 많은 대화를 해야 함
 - 이것도 모르세요?
     - 공감하고 이해하려는 대화
-        - <img src="https://www.dropbox.com/s/45512tepib3i6tp/스크린샷 2018-12-16 16.26.28.png?raw=1" width=400 height=500>
-        - <img src="https://www.dropbox.com/s/9zy12em1d0gyuq0/스크린샷 2018-12-16 16.27.30.png?raw=1" width=400 height=180>
+        - (혹시 이 부분이 문제있으면 연락주세요!)
+        - <img src="https://www.dropbox.com/s/45512tepib3i6tp/스크린샷 2018-12-16 16.26.28.png?raw=1" width="400" height="500">
+        - <img src="https://www.dropbox.com/s/9zy12em1d0gyuq0/스크린샷 2018-12-16 16.27.30.png?raw=1" width="400" height="180">
         - 이 부분은 [링크](https://edykim.com/ko/post/tech-has-a-toxic-tone-problem-lets-fix-it/) 참고
         - 훌륭한 팀장이라면 그 사람의 사고 과정을 전략적으로 이해하려고 함
     - 행동을 유도하는 대화
-        - <img src="https://www.dropbox.com/s/h7xhqbe5qs6j49b/스크린샷 2018-12-16 16.29.13.png?raw=1" width=400 height=500>
-        - <img src="https://www.dropbox.com/s/jua0jzh0yosq48x/스크린샷 2018-12-16 16.29.26.png?raw=1" width=400 height=650>
-        - <img src="https://www.dropbox.com/s/8zxpwrdt761rjp7/스크린샷 2018-12-16 16.29.37.png?raw=1" width=400 height=250>
+        - <img src="https://www.dropbox.com/s/h7xhqbe5qs6j49b/스크린샷 2018-12-16 16.29.13.png?raw=1" width="400" height="500">
+        - <img src="https://www.dropbox.com/s/jua0jzh0yosq48x/스크린샷 2018-12-16 16.29.26.png?raw=1" width="400" height="650">
+        - <img src="https://www.dropbox.com/s/8zxpwrdt761rjp7/스크린샷 2018-12-16 16.29.37.png?raw=1" width="400" height="250">
 - 하향식 접근의 함정
     - 바텀업 : 탐색적인 성격
     - 대부분 탐다운 식으로 일함
-    - 잘 정의된 문제(weel-defined)와 잘 정의되지 않은(ill-defined) 문제에 따라 접근 방법이 다름
+    - 잘 정의된 문제(well-defined)와 잘 정의되지 않은(ill-defined) 문제에 따라 접근 방법이 다름
         - 어려운 문제는 탑다운과 버텀업을 섞어 씀
 - 전문가팀이 실패하는 이유
     - 전문가들 모아서 팀 만든다고 반드시 잘하는 것은 아님
