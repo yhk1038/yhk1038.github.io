@@ -1,10 +1,10 @@
 ---
 layout: list
-title: ETC
-slug: etc
+title: ML Ops
+slug: mlops
 menu: true
 submenu: true
-order: 6
+order: 3
 description: >
-  기타 정보
+  ML + DevOps = MLOps
 ---
