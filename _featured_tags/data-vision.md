@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: OpenCV
-slug: opencv
+title: Vision
+slug: vision
 category: data
 menu: false
 order: 5
