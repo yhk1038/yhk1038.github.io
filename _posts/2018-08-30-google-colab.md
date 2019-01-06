@@ -22,6 +22,7 @@ comments: true
 	- [TensorBoard 사용하기](#tensorboard-사용하기)
 	- [JDK 설치하기](#jdk-설치하기)
 	- [Google Storage에서 파일 읽기](google-storage에서-파일-읽기)
+	- [MNIST on TPU 소스](https://colab.research.google.com/github/GoogleCloudPlatform/training-data-analyst/blob/master/courses/fast-and-lean-data-science/01_MNIST_TPU_Keras.ipynb)
 
 ## Google Colab
 ---
@@ -207,28 +208,15 @@ print('Device:', torch.device('cuda:0'))
 	  print(dataset.dataset_id)
 	```
 
-- ```pandas.io``` 사용시
+- ```pandas_gbq``` 사용시
 
 	```
 	import pandas as pd
 	from google.colab import auth
 	auth.authenticate_user()
 	
-	sample_count = 2000
-	row_count = pd.io.gbq.read_gbq('''
-	  SELECT 
-	    COUNT(*) as total
-	  FROM [bigquery-public-data:samples.gsod]''', project_id=project_id, verbose=False).total[0]
-	
-	df = pd.io.gbq.read_gbq('''
-	  SELECT
-	    *
-	  FROM
-	    [bigquery-public-data:samples.gsod]
-	  WHERE RAND() < %d/%d
-	''' % (sample_count, row_count), project_id=project_id, verbose=False)
-	
-	print('Full dataset has %d rows' % row_count)
+	query = "SELECT * FROM <YOUR TABLE> LIMIT 10"
+	df = pd.read_gbq(query=query, project_id=<your project id>, dialect=‘standard’))
 	```
 
 ### Matplotlib에서 한글 사용하기
