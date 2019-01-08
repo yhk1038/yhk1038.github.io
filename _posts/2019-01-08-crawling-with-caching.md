@@ -66,8 +66,7 @@ from throttle import Throttle
 
 
 class Downloader:
-    def __init__(self, delay=5, user_agent='wswp', proxies=None, cache={},
-                 timeout=60):
+    def __init__(self, delay=5, user_agent='wswp', proxies=None, cache={}, timeout=60):
         self.throttle = Throttle(delay)
         self.user_agent = user_agent
         self.proxies = proxies
@@ -95,13 +94,6 @@ class Downloader:
         return result['html']
 
     def download(self, url, headers, proxies):
-        """ Download a and return the page content
-            args:
-                url (str): URL
-                headers (dict): dict of headers (like user_agent)
-                proxies (dict): proxy dict w/ keys 'http'/'https', values
-                    are strs (i.e. 'http(s)://IP') (default: None)
-        """
         print('Downloading:', url)
         try:
             resp = requests.get(url, headers=headers, proxies=proxies,
