@@ -208,7 +208,7 @@ print('Device:', torch.device('cuda:0'))
 	  print(dataset.dataset_id)
 	```
 
-- ```pandas_gbq``` 사용시
+- ```pandas_gbq``` 사용시 (개인적으로 이 방법 추천)
 
 	```
 	import pandas as pd
@@ -370,20 +370,36 @@ print('Device:', torch.device('cuda:0'))
 	```
 
 ### Google Storage에서 파일 읽기
-```
-!pip3 install gcsfs dask 
+- gcsfs를 활용한 방법
+	- storage에서 땡겨오기 때문에 colab에 파일을 옮기지 않아도 됨. 그러나 약간 시간 소요됨. 빠른 방법은 아래 gsutil 참고 
 
-import gcsfs
+	```
+	!pip3 install gcsfs dask 
+	
+	import gcsfs
+	
+	from google.colab import auth
+	auth.authenticate_user()
+	
+	fs = gcsfs.GCSFileSystem(project='project_name')
+	with fs.open('주소') as f:
+	    df = pd.read_csv(f)
+	```
 
-from google.colab import auth
-auth.authenticate_user()
-
-fs = gcsfs.GCSFileSystem(project='project_name')
-with fs.open('주소') as f:
-    df = pd.read_csv(f)
-```
-
-
+- 위 방법보다 빠른 방법(gsutil 사용)
+	- 단, 세션이 초기화되면 매번 gsutil로 파일을 땡겨와야 합니다 
+	
+	```
+	from google.colab import auth
+	auth.authenticate_user()
+	
+	import pandas as pd
+	
+	file_path = 'data.csv'
+	!gsutil cp gs://<your_bucket>/{file_path} {file_path}
+	df = pd.read_csv(query_result_path)
+	```
+	
 ## Reference
 - [Google Colab Free GPU Tutorial](https://medium.com/deep-learning-turkey/google-colab-free-gpu-tutorial-e113627b9f5d)
 - [Google Colaboratory를 활용하여 Keras 개발환경 구축](http://yamalab.tistory.com/80)
