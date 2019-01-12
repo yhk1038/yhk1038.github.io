@@ -341,7 +341,7 @@ comments: true
 		kubectl expose deployment hello-node --type="LoadBalancer"
 		```
 	- 직접 노출시키는 것이 아닌 배포를 노출시킴!!!!
-	- 서비스가 이 배포에서 관리하는 모든 포드에 걸쳐 트래ㅣㄱ의 부하를 분산
+	- 서비스가 이 배포에서 관리하는 모든 포드에 걸쳐 트래픽의 부하를 분산
 - IP 주소 확인
 	- 외부 부하 분산 IP 1개 보임
 	
@@ -355,9 +355,9 @@ comments: true
 - 쿠버네티스의 강력한 기능은 애플리케이션을 간편하게 확장할 수 있는 것
 	- 갑자기 용량이 필요해졌을 경우 복제 컨트롤러에 새로운 복제를 관리하라고 명령할 수 있음
 	
-	```
-	kubectl scale deployment hello-node --replicas=4
-	``` 
+		```
+		kubectl scale deployment hello-node --replicas=4
+		``` 
 	
 	- 배포에 관한 설명 확인
 	
@@ -471,28 +471,28 @@ pods/monolith.yaml
 
 	```
 	apiVersion: v1
-kind: Pod
-metadata:
-  name: monolith
-  labels:
-    app: monolith
-spec:
-  containers:
-    - name: monolith
-      image: kelseyhightower/monolith:1.0.0
-      args:
-        - "-http=0.0.0.0:80"
-        - "-health=0.0.0.0:81"
-        - "-secret=secret"
-      ports:
-        - name: http
-          containerPort: 80
-        - name: health
-          containerPort: 81
-      resources:
-        limits:
-          cpu: 0.2
-          memory: "10Mi"
+	kind: Pod
+	metadata:
+	  name: monolith
+	  labels:
+	    app: monolith
+	spec:
+	  containers:
+	    - name: monolith
+	      image: kelseyhightower/monolith:1.0.0
+	      args:
+	        - "-http=0.0.0.0:80"
+	        - "-health=0.0.0.0:81"
+	        - "-secret=secret"
+	      ports:
+	        - name: http
+	          containerPort: 80
+	        - name: health
+	          containerPort: 81
+	      resources:
+	        limits:
+	          cpu: 0.2
+	          memory: "10Mi"
   ```
   
   - 포드는 하나의 컨테이너로 구성
