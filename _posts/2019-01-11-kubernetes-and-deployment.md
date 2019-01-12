@@ -226,7 +226,7 @@ comments: true
 - 쿠버네티스
 	- Notebook, 멀티노드 클러스터, 클라우드에서 내부 배포할 수 있고 다양한 환경에서 실행할 수 있는 오픈소스
 	- Kubernetes Engine(Google의 Managed Service)를 사용해 인프라 설정보다 쿠버네티스를 경험하는 것에 집중
-	- [kubectl docemuent](https://kubernetes.io/docs/reference/kubectl/overview/)
+	- [kubectl document](https://kubernetes.io/docs/reference/kubectl/overview/)
 - Node.js 애플리케이션 만들기
 	- 쿠버네티스 엔진에 배포할 애플리케이션 작성
 	- server.js
