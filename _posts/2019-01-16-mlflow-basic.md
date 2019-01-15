@@ -7,8 +7,9 @@ tags: mlflow
 comments: true
 ---
 
-- 머신러닝 라이프 사이클을 관리할 수 있는 오픈소스인 MLflow에 대한 소개 및 간단한 사용 방법에 대한 글입니다
+- 머신러닝 라이프 사이클을 관리할 수 있는 오픈소스인 MLflow에 대한 소개 및 간단한 Tutorial에 대한 글입니다
 
+---
 
 ## MLflow
 - MLflow는 End to End로 머신러닝 라이프 사이클을 관리할 수 있는 오픈소스
