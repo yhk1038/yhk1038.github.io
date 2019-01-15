@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Mlflow 소개 및 Tutorial"
-subtitle: "Mlflow 소개 및 Tutorial"
+title:  "MLflow 소개 및 Tutorial"
+subtitle: "MLflow 소개 및 Tutorial"
 categories: mlops
 tags: mlflow
 comments: true
