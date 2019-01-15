@@ -4,5 +4,5 @@ title: Model & Pipeline version
 slug: version
 category: mlops
 menu: false
-order: 4
+order: 5
 ---

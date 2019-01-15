@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: Serving
-slug: serving
+title: MLflow
+slug: mlflow
 category: mlops
 menu: false
-order: 3
+order: 2
 ---
