@@ -115,9 +115,9 @@ Artifacts
 	```
 	mlflow run --no-conda git@github.com:mlflow/mlflow-example.git -P alpha=5
 	>>> Elasticnet model (alpha=5.000000, l1_ratio=0.100000):
-  RMSE: 0.8594260117338262
-  MAE: 0.6480675144220314
-  R2: 0.046025292604596424
+	RMSE: 0.8594260117338262
+	MAE: 0.6480675144220314
+	R2: 0.046025292604596424
   
 	mlflow run tutorial -P alpha=0.5
 	```
@@ -140,7 +140,7 @@ Artifacts
 	```
 	# train.py
 	import numpy as np
-from sklearn.linear_model import LogisticRegression
+	from sklearn.linear_model import LogisticRegression
 
 	import mlflow
 	import mlflow.sklearn
