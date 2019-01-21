@@ -105,8 +105,9 @@ Artifacts
 		```
 
 	<img src="https://www.dropbox.com/s/jzrxbe2h3z6mwvh/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-01-16%2000.18.20.png?raw=1">
-
-
+	<img src="https://www.dropbox.com/s/jzrxbe2h3z6mwvh/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-01-16%2000.18.20.png?dl=0">
+	<img src="https://www.dropbox.com/s/jzrxbe2h3z6mwvh/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-01-16%2000.18.20.png">
+	
 ### MLflow Project 실행
 - [MLflow Projects Document](https://mlflow.org/docs/latest/projects.html) 
 - default 설정은 디펜던시가 conda에 있음
