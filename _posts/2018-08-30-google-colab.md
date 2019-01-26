@@ -14,16 +14,18 @@ comments: true
 	- [상단 설정](#상단-설정)
 	- [구글 드라이브와 Colab 연동](#구글-드라이브와-colab-연동)
 	- [구글 드라이브와 로컬 연동](#구글-드라이브와-로컬-연동)
-	- [PyTorch 설치](#pytorch-설치)
+	- [PyTorch 사용하기](#pytorch-사용하기)
 	- [KoNLPy 설치](#konlpy-설치)
 	- [Github 코드를 Colab에서 사용하기](#github-코드를-colab에서-사용하기)
 	- [BigQuery 사용하기](#bigquery-사용하기)
 	- [Matplotlib에서 한글 사용하기](#matplotlib에서-한글-사용하기)
 	- [TensorBoard 사용하기](#tensorboard-사용하기)
 	- [JDK 설치하기](#jdk-설치하기)
-	- [Google Storage에서 파일 읽기](google-storage에서-파일-읽기)
+	- [Google Storage에서 파일 읽기](#google-storage에서-파일-읽기)
 	- [MNIST on TPU 소스](https://colab.research.google.com/github/GoogleCloudPlatform/training-data-analyst/blob/master/courses/fast-and-lean-data-science/01_MNIST_TPU_Keras.ipynb)
+	- [Kaggle 연동하기](#kaggle-연동하기)
 
+	
 ## Google Colab
 ---
 
@@ -36,6 +38,7 @@ comments: true
 	- CPU 제논 2.3GHz
 	- 메모리 13G 
 	- **GPU(Tesla K80)** : GPU 없는 제게 희망..
+	- TPU도 사용 가능
 - GPU 사용시 최대 12시간
 - Github의 소스 코드를 Colab에서 사용 가능
 
@@ -144,25 +147,15 @@ df = pd.read_csv("./gdrive/data/train_activity.csv")
 - 이제 "폴더 위치"에 원하는 데이터를 저장해두면 Colab에서 사용 가능
 	- 단, 크기가 큰 파일은 동기화 시간이 오래 걸릴 수 있음 
 
-### PyTorch 설치
-- ```Tensorflow```, ```Keras```, ```xgboost``` 등 대중적으로 많이 사용하는 라이브러리는 설치되어 있음
-- ```Pytorch```는 기본 내장이 아니기 때문에 설치 시도!
-- ```pip3 install```로 설치시 Error 발생
-- Code snippet에 있는 파이토치 설치 방법은 0.3.0 버전
-	- 여기선 0.4.1 버전 설치
-	- 추후 업그레이드되는 버전을 설치하고 싶다면 torch-0.4.1에서 0.4.1을 수정하면 될 것 같음
+### PyTorch 사용하기
+- 2019년 1월 26일부터 Colab에 기본적으로 PyTorch, torchvision, torchtext가 내장되었습니다
+- 출처 : [PyTorch 트위터](https://mobile.twitter.com/PyTorch/status/1088882504700968960)
 	 
 ```
-from os import path
-from wheel.pep425tags import get_abbr_impl, get_impl_ver, get_abi_tag
-platform = '{}{}-{}'.format(get_abbr_impl(), get_impl_ver(), get_abi_tag())
-
-accelerator = 'cu90' if path.exists('/opt/bin/nvidia-smi') else 'cpu'
-
-!pip3 install -q http://download.pytorch.org/whl/{accelerator}/torch-0.4.1-{platform}-linux_x86_64.whl torchvision
 import torch
-print('Torch', torch.__version__, 'CUDA', torch.version.cuda)
-print('Device:', torch.device('cuda:0'))
+import torchvision
+import torchtext
+print(torch.__version__)
 ```
 
 ### KoNLPy 설치
@@ -398,6 +391,64 @@ print('Device:', torch.device('cuda:0'))
 	file_path = 'data.csv'
 	!gsutil cp gs://<your_bucket>/{file_path} {file_path}
 	df = pd.read_csv(query_result_path)
+	```
+
+### Kaggle 연동하기
+- 1) Kaggle beta API Json Key 다운
+	- Kaggle - My Account - Dataset 옆에 있는 ...을 클릭한 후, Account로 이동
+	- 하단에 API 부분에 Create New API Token을 클릭하면 Json Key가 다운로드 됨
+	- 이 Json 키를 매번 Colab에서 올려서 할 수도 있지만, 더 편하게 사용하고 싶어서 Google Storage에 Json 파일을 올리고, 거기서 키를 복사해오는 방법으로 진행합니다
+
+- 2) Google Storage에 Json Key 저장
+	- [Google Storage](https://console.cloud.google.com/storage/browser)로 이동한 후, Storage 버킷 선택 (버킷이 없다면 생성!)
+	- Colab에서 아래 명령어 입력
+	
+	```
+	from google.colab import auth
+	auth.authenticate_user()
+	
+	!mkdir -p ~/.kaggle
+	!mv ./kaggle.json ~/.kaggle/
+	!chmod 600 ~/.kaggle/kaggle.json	
+	```	
+	
+- 3) Kaggle 설치 및 데이터 다운로드
+	
+	```
+	!pip install kaggle
+	```	
+	
+	- Competition 확인하기
+
+	```
+	!kaggle competitions list
+	```
+	
+	- 데이터 다운로드는 각 대회 Data 부분에 나와있는 API 명령어를 입력하면 됨
+
+	```
+	!kaggle competitions download -c elo-merchant-category-recommendation
+	```
+	
+	- 아래 명령어로 압축을 풀면 data 폴더에 파일들이 저장됨
+	
+	```
+	!unzip '*.zip' -d ./data
+	```
+	
+	- 복사하기 편하게 한번에 작성
+
+	```
+	from google.colab import auth
+	auth.authenticate_user()
+	
+	!pip install kaggle
+	!mkdir -p ~/.kaggle
+	!mv ./kaggle.json ~/.kaggle/
+	!chmod 600 ~/.kaggle/kaggle.json	
+	
+	!kaggle competitions download -c elo-merchant-category-recommendation
+	!unzip '*.zip' -d ./data
 	```
 	
 ## Reference
