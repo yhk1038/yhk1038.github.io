@@ -109,7 +109,7 @@ from google.colab import auth
 auth.authenticate_user()
 
 from google.colab import drive
-drive.mount('/gdrive')
+drive.mount('/content/gdrive')
 ```
 
 - colab에서 구글 드라이브 권한 획득
