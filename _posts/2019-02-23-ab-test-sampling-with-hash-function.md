@@ -24,8 +24,8 @@ comments: true
 	- 위키피디아 [AB 테스트](https://ko.wikipedia.org/wiki/A/B_%ED%85%8C%EC%8A%A4%ED%8A%B8)
 
 
-<br/ >
-<br/ >
+<br/>
+<br/>
 
 ### AB Test Sampling
 - 보통 실무에서 AB Test를 할 경우 user_id를 가지고 하곤 함
@@ -36,8 +36,8 @@ comments: true
 - 이렇게 계속 만들다 보면 어느덧 user_id의 자리수를 모두 채우고, 점점 조건이 애매할 수 있음
 - **그래서 생각한 방법이 Hash 함수를 사용해 user_id를 숫자로 만들고, 해당 숫자를 어떤 기준점 기준으로 A와 B로 나누는 방법**
 
-<br/ >
-<br/ >
+<br/>
+<br/>
 
 ### Hash 함수
 - 해시 함수는 특정 길이의 데이터를 고정된 길이의 데이터로 매핑하는 함수
@@ -52,8 +52,8 @@ comments: true
 	- 데이터가 쌓인 곳에서 user_id -> hash -> A/B로 파악
 - Hash 함수를 사용하면 균일하게 나눠질 것이라고 생각
 
-<br/ >
-<br/ >
+<br/>
+<br/>
 
 ### 코드
 - 파이썬에서 user_id를 Hash하는 코드
@@ -85,8 +85,8 @@ comments: true
 
 - SQL에서 필요할 경우, 대부분 Hash 함수를 지원하기 때문에 쉽게 user_id를 Hash할 수 있음(없다면 UDF 만들어서 사용)
 
-<br/ >
-<br/ >
+<br/>
+<br/>
 
 ### Salt 설정
 - AB Test마다 일정한 규칙 안에서 salt를 설정
