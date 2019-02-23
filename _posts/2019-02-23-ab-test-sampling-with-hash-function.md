@@ -96,5 +96,6 @@ comments: true
 
 ### Reference
 - 강규영님의 [해시 기반 샘플링](https://boxnwhis.kr/2014/12/13/Hash-based_sampling.html)
+- [Deterministic A/B tests via the hashing trick](https://medium.com/simpl-under-the-hood/deterministic-a-b-tests-via-the-hashing-trick-d1ea49483202)
 - 김재석님의 [A/B Testing에 대한 기초적인 정보들](https://spoqa.github.io/2012/05/15/ab-testing-basic.html)
 - 버즈빌의 [Sampling부터 Interpretation까지](https://www.buzzvil.com/ko/2018/06/14/tech-industry-a-b-testing-sampling%EB%B6%80%ED%84%B0-interpretation%EA%B9%8C%EC%A7%80/)
