@@ -174,7 +174,7 @@ val file = spark.textFile("hdfs://...")val counts = file.flatMap(line => line.s
 - Caching
 
 	```
-	val a = sc.makdRDD(1 to 20000000)
+	val a = sc.makeRDD(1 to 20000000)
 	a.count
 	// 꽤나 시간이 걸림
 	
