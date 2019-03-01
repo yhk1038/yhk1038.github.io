@@ -59,6 +59,7 @@ User-Agent: HTTPie/0.9.3
 	"imp_uid": "imp_1234567890",
 	"merchant_uid": "order_id_8237352",
 	"status": "paid"
+}	
 ```
 
 - 1 : Start Line
