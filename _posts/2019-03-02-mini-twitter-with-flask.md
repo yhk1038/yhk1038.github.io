@@ -3,7 +3,7 @@ layout: post
 title:  "Python Flask로 미니 트위터 구현하기"
 subtitle: "Flask로 미니 트위터 구현하기"
 categories: development
-tags: web, python
+tags: web python
 comments: true
 ---
 	 
