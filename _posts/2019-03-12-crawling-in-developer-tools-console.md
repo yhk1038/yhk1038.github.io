@@ -137,3 +137,8 @@ comments: true
 - 2점 이하 평점의 Word Cloud
 	- <img src="https://www.dropbox.com/s/24s12qytd4p59m6/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-03-12%2001.11.47.png?raw=1">
 	
+
+### 마무리
+- 약간 생소하지만 간단한 개발자 도구를 통해 데이터를 수집해봤습니다!
+- 도구는 선택의 문제이니 모두 상황에 맞는 적절한 도구를 찾으면 좋겠습니다!
+	- 개발자 도구로 할 수 있는 일이 더 궁금하신 분들은 [링크](https://flaviocopes.com/chrome-devtools-tips/)를 참고해주세요 :)  	
