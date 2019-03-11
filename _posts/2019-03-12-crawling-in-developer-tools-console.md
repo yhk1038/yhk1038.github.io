@@ -99,7 +99,7 @@ comments: true
 
 	```
 	import pandas as pd
-	df = pd.read_json("tada-review.json")
+	df = pd.read_json("review.json")
 	
 	p = re.compile(r'\d+')
 	def parser(body):
