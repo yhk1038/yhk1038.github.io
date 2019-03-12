@@ -85,7 +85,7 @@ comments: true
 - 이제 터미널에서 아래 코드 실행
 
 	```
-	vi reiew.json
+	vi review.json
 	``` 
 	
 - 수정 모드를 위해 i를 한번 입력한 후, command + v
