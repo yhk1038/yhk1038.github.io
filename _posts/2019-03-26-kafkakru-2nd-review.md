@@ -45,6 +45,8 @@ comments: true
 	```
 
 ## 인사
+<img src="https://www.dropbox.com/s/171e1o759mlbadb/2019-03-26%2018.52.45.jpg?raw=1">
+
 - 발표 자료 : [https://github.com/kafkakru/meetup](https://github.com/kafkakru/meetup)
 - 나중에 스티커를 만든다고 하심!
 
@@ -98,8 +100,9 @@ comments: true
         - 고객 상담데이터(STT) ⇒ RESTFul 한글 형태소 분석기(Nori)
         - 웹/앱 로그
 - 아키텍쳐
-    - 스트리밍 데이터(24시간 발생하는 웹, 고객 상담) ⇒ 카프카
-    - GA 데이터 ⇒ Batch로 logstash
+	- <img src="https://www.dropbox.com/s/1jpa38uk5qyvmho/2019-03-26%2019.28.17.jpg?raw=1"> 
+	- 스트리밍 데이터(24시간 발생하는 웹, 고객 상담) ⇒ 카프카
+	- GA 데이터 ⇒ Batch로 logstash
 - 카프카 사용 이유
     - 데이터가 많고, 다른 곳에서 사용
 - 카드사라 고객 상담 데이터 중 `탈퇴`라는 단어나 `카드론`은 민감 ⇒ 이 단어가 나오면 해당 부서에 Push ⇒ 대응(카드론은 수익에 연결된 단어)
@@ -191,6 +194,8 @@ comments: true
 
 
 ## Kafka Streams : Interactive Queries
+<img src="https://www.dropbox.com/s/4ykqy84awjik760/2019-03-26%2020.38.05.jpg?raw=1">
+
 - Apache Software Foundation, 이동진님
 - Kafka Topic에 저장된 내용을 Microservice에서 참조하고 싶은데, 어떻게 해야 하나요?
     - Redis 같은데 저장해서 써야 하나요?
@@ -221,6 +226,10 @@ comments: true
     - Queryable Store : interactive query 기능이설정된 key value storage
     - 수정은 안됨
 - Interactive Query 예제
+	- <img src="https://www.dropbox.com/s/252ca0sjobh2isq/2019-03-26%2020.45.29.jpg?raw=1">
+	- <img src="https://www.dropbox.com/s/smn7utvu9vzg3q0/2019-03-26%2020.46.08.jpg?raw=1">
+	- <img src="https://www.dropbox.com/s/nk8s2kpjzzmvhd5/2019-03-26%2020.48.37.jpg?raw=1">
+
 - 결론
     - KTable을 사용하면 Kafka Topic의 내용을 표 형태로 읽어올 수 있다
         - 그 내용을 Interactive Query를 사용해서 열어볼 수 있음
