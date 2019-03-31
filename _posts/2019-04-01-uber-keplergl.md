@@ -108,7 +108,17 @@ comments: true
 - 최대 파일 업로드 크기는 얼마인지?
 	- 250mb 이하 파일을 허용함. 사파리에선 더 큰 파일을 로드할 수는 있지만 성능은 제한됨 
 	
+
+### Tutorial
+- [Vis.gl 블로그](https://medium.com/vis-gl)에 글이 많음
+- [Animating 40 years of California Earthquakes](https://medium.com/vis-gl/animating-40-years-of-california-earthquakes-e4ffcdd4a289) 
+- [Mapping the Parisian trees](https://medium.com/vis-gl/mapping-the-parisian-trees-6dc30f6aabc7)
+- [Visualizing Unemployment for U.S. Counties with kepler.gl](https://medium.com/vis-gl/visualizing-u-s-county-unemployment-with-kepler-gl-c5f2ed31c71)
+- [Using Kepler.gl and Movement to Visualize Traffic Effects of a Rainstorm](https://medium.com/vis-gl/movement-in-kepler-d00e843f464d)
+
+
 ### 자체 서버에 빌드하기
+- 별도로 빌드해서 사용해야 하는 분들을 위해 작성한 부분
 - Git, Node.js, Yarn이 설치되어 있어야 함
 - MapboxAccessToken 있어야 함
 	 - [홈페이지](https://account.mapbox.com/) 가입 후 발급
@@ -128,8 +138,10 @@ npm start
 <img src="https://www.dropbox.com/s/4i3uv5r19avptal/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-03-31%2016.40.48.png?raw=1" width="400" height="500">
 
 
+
 ### Reference
 - [kepler.gl Github](https://github.com/uber/kepler.gl)
 - [공식 홈페이지](https://kepler.gl/)
 - [Kepler User Guide](https://github.com/uber/kepler.gl/tree/master/docs/user-guides)
 - [Developing Kepler.gl](https://github.com/uber/kepler.gl/blob/master/contributing/DEVELOPERS.md)
+- [Vis.gl Medium](https://medium.com/vis-gl)
