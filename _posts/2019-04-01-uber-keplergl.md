@@ -35,6 +35,8 @@ comments: true
 - Buildings
 	- <img src="https://www.dropbox.com/s/dzw21i1l72729cz/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-03-31%2014.22.32.png?raw=1" width="400" height="350">
 
+---
+
 ### 사용 방법
 - 홈페이지 메인에서 GET STARTED 클릭
 	- 혹은 URL : [https://kepler.gl/demo](https://kepler.gl/demo)로 접속
@@ -117,6 +119,8 @@ comments: true
 - [Using Kepler.gl and Movement to Visualize Traffic Effects of a Rainstorm](https://medium.com/vis-gl/movement-in-kepler-d00e843f464d)
 
 
+---
+
 ### 자체 서버에 빌드하기
 - 별도로 빌드해서 사용해야 하는 분들을 위해 작성한 부분
 - Git, Node.js, Yarn이 설치되어 있어야 함
@@ -135,7 +139,7 @@ npm start
 
 - 완료된 후, `localhost:8080`에 가면 아래 같은 화면이 뿅!
 
-<img src="https://www.dropbox.com/s/4i3uv5r19avptal/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-03-31%2016.40.48.png?raw=1" width="400" height="500">
+<img src="https://www.dropbox.com/s/4i3uv5r19avptal/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-03-31%2016.40.48.png?raw=1">
 
 
 
