@@ -107,7 +107,7 @@ comments: true
     - 데이터가 많고, 다른 곳에서 사용
 - 카드사라 고객 상담 데이터 중 `탈퇴`라는 단어나 `카드론`은 민감 ⇒ 이 단어가 나오면 해당 부서에 Push ⇒ 대응(카드론은 수익에 연결된 단어)
 - 프로젝트 이슈
-    - 사용자 쿼리 기록해야 함 ⇒ 끔융감독원 감사
+    - 사용자 쿼리 기록해야 함 ⇒ 금융감독원 감사
     - 6.5.1부터 UserID를 남길 수 있음
     - xpack.security.audit.enabled; true
     - xpack.security.audit.outputs: logfile
@@ -145,7 +145,7 @@ comments: true
 
 <br/><br/>
 
-## Kfaka를 활용한 RabbitMQ 로그 처리
+## Kafka를 활용한 RabbitMQ 로그 처리
 - 카카오, 정원빈님
 - RabbitMQ
     - erlang으로 구현된 AMQP 메시지 브로커
