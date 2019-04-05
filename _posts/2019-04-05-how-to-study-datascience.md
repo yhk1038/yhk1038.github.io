@@ -145,6 +145,7 @@ comments: true
 - 대학생 분들에게 고민을 나누기 위해 취업 특강을 많이 했습니다
 	- [Data Science. Intro](https://www.slideshare.net/zzsza/data-science-intro) 
 - TMI) [글쓰는 개발자 모임, 글또](https://www.slideshare.net/zzsza/ss-137831892)를 시작해서 다른 분들이 글쓰는 것을 돕고 있습니다
+- 데이터 진로와 관련된 책을 집필하려고 하고 있습니다. 빠르게 작성해서 만나볼 수 있으면 좋겠네요
 
 ---
 
