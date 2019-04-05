@@ -210,6 +210,8 @@ comments: true
 	- 단, 채용공고를 정리한 내용을 토대로 어떤 능력이 필요한지는 파악할 수 있을 것 같습니다. 
 	- 그 전에 어떤 직군을 하고 싶은지 고민해보시는 것을 추천합니다.제가 작성한 [I-want-to-study-Data-Science](https://github.com/Team-Neighborhood/I-want-to-study-Data-Science/wiki)를 참고하면 좋을 것 같습니다
 
+- 참고하실 분들을 위해 제 이력서를 보여드립니다
+	- <img src="https://www.dropbox.com/s/zgrgqgu90zrs5gf/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-04-06%2000.33.11.png?raw=1"> 
 
 	
 	
