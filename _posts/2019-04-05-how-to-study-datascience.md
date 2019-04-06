@@ -134,6 +134,8 @@ comments: true
 		- 캘린더에 시간 단위로 일정을 등록해 지키려고 노력하고 있습니다
 		- <img src="https://www.dropbox.com/s/pti3kmcf2jgmc11/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-04-06%2009.12.04.png?raw=1">
 		- 파란색은 회사 일정, 연보라색은 개인 일정입니다
+- [2017년 회고, 2018년 계획](https://zzsza.github.io/diary/2017/12/30/2017-retrospect/) 블로그 글에 자세히 작성했습니다
+
 
 ### 2018년
 - 4월까지 회사를 다니다 퇴사했습니다
@@ -150,6 +152,7 @@ comments: true
 	- [Data Science. Intro](https://www.slideshare.net/zzsza/data-science-intro) 
 - TMI) [글쓰는 개발자 모임, 글또](https://www.slideshare.net/zzsza/ss-137831892)를 시작해서 다른 분들이 글쓰는 것을 돕고 있습니다
 - 데이터 진로와 관련된 책을 집필하려고 하고 있습니다. 빨리 오프라인에서 만나볼 수 있으면 좋겠네요
+- [2018년 회고, 2019년 다짐](https://zzsza.github.io/diary/2018/12/22/2018-retrospect/) 블로그 글에 자세히 나와있어요!
 
 ---
 
@@ -222,11 +225,9 @@ comments: true
 
 - 위 질문에 대해 답변을 남긴 [FAQ](https://github.com/Team-Neighborhood/I-want-to-study-Data-Science/wiki/FAQ)를 참고하셔도 좋을 것 같습니다
 
-
  
 - 이력서 작성하실 때 어려운 분들을 위해 제 이력서를 보여드립니다
 	- <img src="https://www.dropbox.com/s/zgrgqgu90zrs5gf/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-04-06%2000.33.11.png?raw=1"> 
-
 	
 	
 	 
