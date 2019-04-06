@@ -131,7 +131,7 @@ comments: true
 	- <img src="https://www.dropbox.com/s/di9g6ymhk7ijnr4/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-04-05%2022.37.40.png?raw=1">
 	- 어떤 일을 하기 전에, 다양한 고민이 많았고 뜬구름도 많이 잡았습니다. 이런 피드백을 핵직구로 받은 후 계속 개선하다보니 이젠 린한 사고 과정이 체득되었습니다
 	- 꾸준히 메모하던 습관에서, 일정 관리도 더 자세히 하게 되었습니다
-		- 캘린더에 시간 단위로 일정을 등록해 지키려고 노력하고 있습니다
+		- 캘린더에 시간 단위로 일정을 등록하고 있습니다
 		- <img src="https://www.dropbox.com/s/pti3kmcf2jgmc11/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-04-06%2009.12.04.png?raw=1">
 		- 파란색은 회사 일정, 연보라색은 개인 일정입니다
 - [2017년 회고, 2018년 계획](https://zzsza.github.io/diary/2017/12/30/2017-retrospect/) 블로그 글에 자세히 작성했습니다
@@ -196,6 +196,11 @@ comments: true
 		- <img src="https://www.dropbox.com/s/fh3tg35iz0f4dkn/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-02-15%2014.49.54.png?raw=1"> 
 - 앞으로도 좋은 팀, 좋은 문화를 가질 수 있도록 계속 노력할 예정입니다
 
+### 미래
+- 요새 관심사인 Operation Research, 시계열 예측, MLOps 등 다양한 내용들을 공부, 정리, 현업에서 바로 활용을 하려고 합니다
+- 친한 분들과 유튜브 채널을 만들었습니다 : [DeepNOL!](https://www.youtube.com/channel/UCdLZ0MsYS4hmqFgOYCB6C9w) 데이터와 관련된 다양한 이야기를 전해드리려고 합니다
+	- 이와 별개로 제 개인 유튜브에 책 리뷰를 남기려고 합니다
+- 구성원들과 함께 자라기를 실천하기 위해 어떤 행동을 할까 고민하고 있습니다 
 
 ### 정리
 - 제 일대기를 작성했지만, 명쾌하게 답변하지 않은 부분을 정리하려 합니다
