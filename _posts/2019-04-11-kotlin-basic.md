@@ -285,7 +285,5 @@ comments: true
 		            """ 
 	
 ### Reference
-- [테라폼 도입기 클라우드 인프라스트럭처 코드로 재정의하기 - 김대권
-](https://youtu.be/V5zW9MgvRi0)
-- [테라폼 기초 튜토리얼](https://www.44bits.io/ko/post/terraform_introduction_infrastrucute_as_code)
-- [Google Cloud Platform에 Terraform 설정하기](https://blog.outsider.ne.kr/1366)
+- [코틀린 공식 문서](https://kotlinlang.org/docs)
+- [인프런, 코틀린 강의](https://www.inflearn.com/course/코틀린-강좌-새차원)
