@@ -24,6 +24,7 @@ comments: true
 - 영상 볼 수 있는 곳
     - [https://cloud.withgoogle.com/next/sf/next-onair](https://cloud.withgoogle.com/next/sf/next-onair)
     - 다양한 분야 중 Analyze & Learn archive를 중점적으로 봄
+- [All 29 AI announcements from Google Next ‘19: the smartest laundry list](https://cloud.google.com/blog/products/ai-machine-learning/all-ai-announcements-from-google-next19-the-smartest-laundry-list) : AI/인공지능 기술에 대한 총 정리 글
 - [Cloud Next 1일차 정리](https://cloud.google.com/blog/topics/inside-google-cloud/next19-recap-day1)
 - [Cloud Next 2일차 정리](https://cloud.google.com/blog/topics/inside-google-cloud/day-2-next-19-working-smarter-better-and-more-securely-cloud)
 - 이상훈님의 [2일차 정리글](https://www.facebook.com/phoenixlee.sh/posts/2634407856601132)
