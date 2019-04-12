@@ -39,6 +39,7 @@ comments: true
 	- 회사에서 BigQuery쪽은 적극적으로 사용하고 있기 때문에 최신 기능을 모두 팔로업하고 있는데, 다른 도구들도 조금씩 테스트해보고 좋은 것은 바로 사용해볼 예정!
 	- 서울 리전!
 
+---
 
 ### ML Ops Best Practices on Google Cloud
 - [https://www.youtube.com/watch?v=20h_RTHEtZI](https://www.youtube.com/watch?v=20h_RTHEtZI)
@@ -50,7 +51,7 @@ comments: true
     - <img src="https://www.dropbox.com/s/14kjzk2tsokql9y/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-04-12%2023.14.11.png?raw=1"> 
 - Model Analyze
     - [TFMA](https://www.tensorflow.org/tfx/model_analysis/get_started)
-    - Model 정확도 점점 낮아지고 지속적 모니터링이 불가능한 상황이 자주 오는데, 이럴 때 사용하면 좋음
+    - Model 정확도가 시간이 지나며 점점 낮아지고 지속적 모니터링이 불가능한 상황이 자주 오는데, 이럴 때 사용하면 좋음
     - <img src="https://www.dropbox.com/s/kvvs6o4rmnwsr3c/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-04-12%2023.22.21.png?raw=1">
     - <img src="https://www.dropbox.com/s/uaixck53fkfm208/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-04-12%2023.24.27.png?raw=1">
     - <img src="https://www.dropbox.com/s/0ifgpk12qdlqpzf/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-04-12%2023.26.50.png?raw=1">
@@ -67,9 +68,11 @@ comments: true
 	- <img src="https://www.dropbox.com/s/9fbqtejea5ki416/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-04-13%2000.14.25.png?raw=1">
 	- <img src="https://www.dropbox.com/s/0t5enhuy9q39hyv/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-04-13%2000.15.50.png?raw=1">
 
+---
+
 ### Accelerating Machine Learning App Development with Kubeflow Pipelines 
 - [https://www.youtube.com/watch?v=TZ1lGrJLEZ0](https://www.youtube.com/watch?v=TZ1lGrJLEZ0)
-- [Hidden Technical Debt in ML Systems](https://zzsza.github.io/data/2018/01/28/hidden-technical-debt-in-maching-learning-systems/)를 보면 실제로 모델링이 차지하는 부분은 매우 작음
+- [Hidden Technical Debt in ML Systems](https://zzsza.github.io/data/2018/01/28/hidden-technical-debt-in-maching-learning-systems/)를 보면 모델링이 차지하는 부분은 매우 작음
 - [Kubeflow](https://www.kubeflow.org/)
 	- A Kubernetes-native open source platform to develop, deploy and manage, scalable ML Workloads 
 - ML Workflow Orchestration
@@ -109,6 +112,8 @@ comments: true
 		- <img src="https://www.dropbox.com/s/nlixphmj86t9cau/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-04-13%2001.34.39.png?raw=1">
 		- TFMA를 Static HTML로 생성해줌
 
+---
+
 ### What's New with BigQuery ML and Using it to Assess Data Quality
 - [https://www.youtube.com/watch?v=DnlG4frLKmw](https://www.youtube.com/watch?v=DnlG4frLKmw)
 - [BigQuery ML](https://zzsza.github.io/gcp/2018/08/03/bigqueryml/)의 새로운 기능에 대해 말해줌
@@ -135,6 +140,8 @@ comments: true
 	- <img src="https://www.dropbox.com/s/lizg8uw38l6urol/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-04-13%2001.48.30.png?raw=1">
 	- <img src="https://www.dropbox.com/s/ptdopkb7kv04v7l/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-04-13%2001.49.58.png?raw=1">
 
+---
+
 ### Data Processing in Google Cloud: Hadoop, Spark, and Dataflow
 - [https://www.youtube.com/watch?v=GRP-cGbJSCs](https://www.youtube.com/watch?v=GRP-cGbJSCs)
 - 이미 많이 알던 내용들인데, 새롭게 알게된 내용 위주로 캡쳐
@@ -148,6 +155,8 @@ comments: true
 - Dataproc
 	- <img src="https://www.dropbox.com/s/64ukdqwcnewieum/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-04-13%2001.04.24.png?raw=1">
 	- Web interface에서 제플린 선택 가능  
+
+---
 
 ### Rethinking Business: Data Analytics With Google Cloud
 - [https://www.youtube.com/watch?v=DpngHc31a5Y](https://www.youtube.com/watch?v=DpngHc31a5Y)
@@ -195,7 +204,7 @@ comments: true
 	- <img src="https://www.dropbox.com/s/z4fegch5hwi7a2v/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-04-13%2001.53.05.png?raw=1">
 	- <img src="https://www.dropbox.com/s/5r7h4my6cq57ybi/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-04-13%2001.53.40.png?raw=1">
 
-	
+---	
 	 
 ### AI Hub: The One Place for Everything AI
 - [https://www.youtube.com/watch?v=QMTT2ngnj9Q](https://www.youtube.com/watch?v=QMTT2ngnj9Q)
