@@ -24,14 +24,17 @@ comments: true
 - 영상 볼 수 있는 곳
     - [https://cloud.withgoogle.com/next/sf/next-onair](https://cloud.withgoogle.com/next/sf/next-onair)
     - 다양한 분야 중 Analyze & Learn archive를 중점적으로 봄
-- [All 29 AI announcements from Google Next ‘19: the smartest laundry list](https://cloud.google.com/blog/products/ai-machine-learning/all-ai-announcements-from-google-next19-the-smartest-laundry-list) : AI/인공지능 기술에 대한 총 정리 글
-- [Cloud Next 1일차 정리](https://cloud.google.com/blog/topics/inside-google-cloud/next19-recap-day1)
-- [Cloud Next 2일차 정리](https://cloud.google.com/blog/topics/inside-google-cloud/day-2-next-19-working-smarter-better-and-more-securely-cloud)
+- Google Cloud 블로그 글
+	- [All 29 AI announcements from Google Next ‘19: the smartest laundry list](https://cloud.google.com/blog/products/ai-machine-learning/all-ai-announcements-from-google-next19-the-smartest-laundry-list) : AI/인공지능 기술에 대한 총 정리 글
+	- [News to build on: 122+ announcements from Google Cloud Next ‘19](https://cloud.google.com/blog/topics/inside-google-cloud/100-plus-announcements-from-google-cloud-next19) : Cloud Next 19에서 나온 모든 새로운 것 정리
+	- [Cloud Next 1일차 정리](https://cloud.google.com/blog/topics/inside-google-cloud/next19-recap-day1)
+	- [Cloud Next 2일차 정리](https://cloud.google.com/blog/topics/inside-google-cloud/day-2-next-19-working-smarter-better-and-more-securely-cloud)
+	- [Cloud Next 3일차 정리](https://cloud.google.com/blog/topics/inside-google-cloud/next19-recap-day3)
 - 이상훈님의 [2일차 정리글](https://www.facebook.com/phoenixlee.sh/posts/2634407856601132)
 - 총평
 	- 우선 구글 클라우드의 데이터 처리 도구들(Pub/Sub, Dataflow, Dataproc, BigQuery)는 정말 강력하고 더 쉽게 사용할 수 있게 됨
 		- 진입 장벽이 낮아지는 중
-		- 미래엔 데이터 엔지니어링 스킬은 기본적으로 있는 머신러닝 엔지니어들도 많이 나올 것 같음
+		- 미래엔 데이터 엔지니어링 스킬이 기본적으로 있는 머신러닝 엔지니어들도 많이 나올 것 같음
 	- AI Platform, Kubeflow, TFX, TFDV, TFMA 등을 보면 MLOps도 활발하게 진행되고 있는 듯?
 		- Kubeflow 정복할 예정! 이걸 위해 쿠버네티스 공부중.. 
 		- Tensorflow보다 PyTorch가 상승하는 것 같지만 프러덕션에선 대부분 Tensorflow를 써야할 듯
