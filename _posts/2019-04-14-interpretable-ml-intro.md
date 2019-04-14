@@ -356,7 +356,8 @@ comments: true
     - 함정
         - 최근에 Report된 현상
         - 확률값이 부정확하단 말이 있음(not calibrated)
-        - $$P(Y=1\vert X)$$가 0.5인 데이터들을 모아놓고 보면 $$P(Y=1\vert X) ≠ 0.5$$
+        - $$P(Y=1\vert X)$$가 0.5인 데이터들을 모아놓고 보면 
+	        - $$P(Y=1\vert X) ≠ 0.5$$
         - 이 현상을 개선하기 위해 많은 연구가 이루어짐
 - Bayesian Machine Learning
     - 불확실성을 위해 많이 사용하는 기법
