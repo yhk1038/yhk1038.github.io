@@ -22,6 +22,7 @@ comments: true
 	- [Interpretable ML Symposium](http://interpretable.ml/) : NIPS 2017
 	- [모두의 연구소 Safe AI Lab](http://pay.modulabs.co.kr/lab_safeai/)
 	- [LIME Github](https://github.com/marcotcr/lime)
+	- Kaggle [Machine Learning Explainability](https://www.kaggle.com/learn/machine-learning-explainability)
 	- Paper
 		- [Interpretable machine learning: definitions, methods, and applications](https://arxiv.org/abs/1901.04592) 
 		- [Why Should I Trust You? Explaining the Prediction of Any classifier](https://www.kdd.org/kdd2016/papers/files/rfp0573-ribeiroA.pdf)
