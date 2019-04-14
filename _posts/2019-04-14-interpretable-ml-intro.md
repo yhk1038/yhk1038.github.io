@@ -12,6 +12,7 @@ comments: true
 ---
 
 
+
 ### 총평
 - 요새 Interpretable Machine Learning의 필요성을 느끼고 LIME이나 깃북을 보며 공부하고 있었는데, 연사님의 좋은 발표 덕에 Interpretable ML의 큰 그림을 더 잘 이해할 수 있게됨
 - 많은 사람들이 비슷한 생각을 하고 있구나- 깨달았고, 회사 업무에 어떻게 적용할 수 있을지 고민해볼 예정
@@ -148,7 +149,7 @@ comments: true
                 - 차원 축소 혹은 feature delete ⇒ 휴리스틱
 - 2) 개별 Data point에 대해 예측해야되는 순간
     - 나이, 거리, 등록기간에 따른 재등록 확률을 예측
-    -$$w_{i} x_{i}$$ : log odds-ratio에 대한 기여도
+    - $$w_{i} x_{i}$$ : log odds-ratio에 대한 기여도
     - Local interpretability
 - 3) 확률값과 신뢰구간
     - 모델의 출력은 확률값 0 ~ 1
@@ -262,8 +263,8 @@ comments: true
     - LIME
         - f(x) : black-box model based on features
         - g(z) : local explanation based on interpretable representation
-        - \pi_{x}(z) : 가중치
-        - \omega (g) : regularization
+        - $$\pi_{x}(z)$$ : 가중치
+        - $$\Omega (g)$$ : regularization
         - g(z)가 f(x)를 잘 모사하면서 너무 복잡하지 않도록 학습
 - 2) Counterfactual Explanation
     - Counterfactual = What if
@@ -355,7 +356,7 @@ comments: true
     - 함정
         - 최근에 Report된 현상
         - 확률값이 부정확하단 말이 있음(not calibrated)
-        - P(Y=1|X)가 0.5인 데이터들을 모아놓고 보면 P(Y=1|X) ≠ 0.5
+        - $$P(Y=1\vert X)$$가 0.5인 데이터들을 모아놓고 보면 $$P(Y=1\vert X) ≠ 0.5$$
         - 이 현상을 개선하기 위해 많은 연구가 이루어짐
 - Bayesian Machine Learning
     - 불확실성을 위해 많이 사용하는 기법
