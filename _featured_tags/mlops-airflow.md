@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: Model & Pipeline version
+title: Airflow
 slug: airflow
-category: airflow
+category: mlops
 menu: false
 order: 2
 ---
