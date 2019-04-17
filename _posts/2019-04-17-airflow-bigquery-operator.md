@@ -94,21 +94,21 @@ comments: true
 	```
 		
 	- bql는 이제 deprecate 예정, sql 사용(.sql 파일도 사용 가능)
-	- destination\_dataset\_table : <project>.<dataset>.<table> 형태로 사용
+	- destination\_dataset\_table : `<project>.<dataset>.<table>` 형태로 사용
 	- write_disposition : WRITE\_EMPTY(빈 경우만 쓰기), WRITE\_TRUNCATE(덮어 쓰기), WRITE\_APPEND(데이터 Append), [참고 문서](https://cloud.google.com/bigquery/docs/reference/rest/v2/jobs)
 	- bigquery\_conn\_id : Connection 설정 이름
 - BigQueryCreateExternalTable
 	- GoogleCloudStorageToBigQueryOperator과 유사한 작업을 하는 Operator로 BigQueryCreateExternalTable은 Bigtable, Google Storage, Google Drive 등에서 데이터를 가지고 올 수 있음(더 넓은 개념)
 
 	```
-	date = "\{{ macros.ds_format(macros.ds_add(ds, -1), '%Y-%m-%d', '%Y/%m/%d') \}}"
+	date = "{#{ macros.ds_format(macros.ds_add(ds, -1), '%Y-%m-%d', '%Y/%m/%d') }#}" # 코드에선 # 빼주세요
 	
 	create_table = BigQueryCreateExternalTable(bucket='bucket_name', source_objects=[f'{date}/user_log.csv'],
-												schema_fields =[{"name": "user_id", "type": "STRING", "mode": "REQUIRED"}, {"name":"purchase_amount", "type": "INTEGER", "mode": "NULLABLE"}],
-												schema_object='bigquery-schema/user_log.json' # Google Storage path,
-												source_format='CSV',
-												bigquery_conn_id='bigquery_default',
-												google_cloud_storage_conn_id='storage_default'
+										schema_fields =[{"name": "user_id", "type": "STRING", "mode": "REQUIRED"}, {"name":"purchase_amount", "type": "INTEGER", "mode": "NULLABLE"}],
+										schema_object='bigquery-schema/user_log.json' # Google Storage path,
+										source_format='CSV',
+										bigquery_conn_id='bigquery_default',
+										google_cloud_storage_conn_id='storage_default'
 	```
 	
 - BigQueryDeleteDatasetOperator
@@ -116,10 +116,10 @@ comments: true
 	
 	```
 	delete_temp_data = BigQueryDeleteDatasetOperator(dataset_id = 'temp-dataset',
-	                                                 project_id = 'temp-project',
-	                                                 bigquery_conn_id='_my_gcp_conn_',
-	                                                 task_id='Deletetemp',
-	                                                 dag=dag)
+                                         project_id = 'temp-project',
+                                         bigquery_conn_id='_my_gcp_conn_',
+                                         task_id='Deletetemp',
+                                         dag=dag)
  ```	 
  
 - BigQueryToBigQueryOperator
@@ -128,8 +128,8 @@ comments: true
 	
 	```
 	move_table = BigQueryToBigQueryOperator(source_project_dataset_tables='project.dataset.table',  \
-											destination_project_dataset_talbe='project.dataset.tableb', write_disposition='WRITE_TRUNCATE', \
-											bigquery_conn_id='bigquery_default')
+									destination_project_dataset_talbe='project.dataset.tableb', write_disposition='WRITE_TRUNCATE', \
+									bigquery_conn_id='bigquery_default')
 	```  
 	
 ### 참고 자료
