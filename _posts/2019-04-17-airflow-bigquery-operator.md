@@ -86,11 +86,11 @@ comments: true
 	
 	```
 	BigQueryOperator(bql=None, sql=None, destination_dataset_table=None, write_disposition='WRITE_EMPTY', \
-	allow_large_results=False, flatten_results=None, bigquery_conn_id='bigquery_default', delegate_to=None, \
-	udf_config=None, use_legacy_sql=True, maximum_billing_tier=None, maximum_bytes_billed=None, \
-	create_disposition='CREATE_IF_NEEDED', schema_update_options=(), query_params=None, labels=None, \
-	priority='INTERACTIVE', time_partitioning=None, api_resource_configs=None, cluster_fields=None, \
-	location=None, *args, **kwargs)
+		allow_large_results=False, flatten_results=None, bigquery_conn_id='bigquery_default', delegate_to=None, \
+		udf_config=None, use_legacy_sql=True, maximum_billing_tier=None, maximum_bytes_billed=None, \
+		create_disposition='CREATE_IF_NEEDED', schema_update_options=(), query_params=None, labels=None, \
+		priority='INTERACTIVE', time_partitioning=None, api_resource_configs=None, cluster_fields=None, \
+		location=None, *args, **kwargs)
 	```
 		
 	- bql는 이제 deprecate 예정, sql 사용(.sql 파일도 사용 가능)
@@ -101,14 +101,14 @@ comments: true
 	- GoogleCloudStorageToBigQueryOperator과 유사한 작업을 하는 Operator로 BigQueryCreateExternalTable은 Bigtable, Google Storage, Google Drive 등에서 데이터를 가지고 올 수 있음(더 넓은 개념)
 
 	```
-	date = "{{ macros.ds_format(macros.ds_add(ds, -1), '%Y-%m-%d', '%Y/%m/%d') }}"
+	date = "\{{ macros.ds_format(macros.ds_add(ds, -1), '%Y-%m-%d', '%Y/%m/%d') \}}"
 	
 	create_table = BigQueryCreateExternalTable(bucket='bucket_name', source_objects=[f'{date}/user_log.csv'],
-	schema_fields =[{"name": "user_id", "type": "STRING", "mode": "REQUIRED"}, {"name":"purchase_amount", "type": "INTEGER", "mode": "NULLABLE"}],
-	schema_object='bigquery-schema/user_log.json' # Google Storage path,
-	source_format='CSV',
-	bigquery_conn_id='bigquery_default',
-	google_cloud_storage_conn_id='storage_default'
+												schema_fields =[{"name": "user_id", "type": "STRING", "mode": "REQUIRED"}, {"name":"purchase_amount", "type": "INTEGER", "mode": "NULLABLE"}],
+												schema_object='bigquery-schema/user_log.json' # Google Storage path,
+												source_format='CSV',
+												bigquery_conn_id='bigquery_default',
+												google_cloud_storage_conn_id='storage_default'
 	```
 	
 - BigQueryDeleteDatasetOperator
@@ -116,10 +116,10 @@ comments: true
 	
 	```
 	delete_temp_data = BigQueryDeleteDatasetOperator(dataset_id = 'temp-dataset',
-                                                 project_id = 'temp-project',
-                                                 bigquery_conn_id='_my_gcp_conn_',
-                                                 task_id='Deletetemp',
-                                                 dag=dag)
+	                                                 project_id = 'temp-project',
+	                                                 bigquery_conn_id='_my_gcp_conn_',
+	                                                 task_id='Deletetemp',
+	                                                 dag=dag)
  ```	 
  
 - BigQueryToBigQueryOperator
@@ -128,8 +128,8 @@ comments: true
 	
 	```
 	move_table = BigQueryToBigQueryOperator(source_project_dataset_tables='project.dataset.table',  \
-	destination_project_dataset_talbe='project.dataset.tableb', write_disposition='WRITE_TRUNCATE', \
-	bigquery_conn_id='bigquery_default')
+											destination_project_dataset_talbe='project.dataset.tableb', write_disposition='WRITE_TRUNCATE', \
+											bigquery_conn_id='bigquery_default')
 	```  
 	
 ### 참고 자료
