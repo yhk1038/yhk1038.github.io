@@ -4,5 +4,5 @@ title: Serving
 slug: serving
 category: mlops
 menu: false
-order: 3
+order: 5
 ---

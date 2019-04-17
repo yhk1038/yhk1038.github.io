@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: MLflow
-slug: mlflow
+title: Tensorflow Extended
+slug: tfx
 category: mlops
 menu: false
-order: 3
+order: 4
 ---
