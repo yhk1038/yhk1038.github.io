@@ -92,8 +92,10 @@ comments: true
 	- <img src="https://www.dropbox.com/s/9di8t3vjxoa3i7e/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-03-31%2016.20.49.gif?raw=1">  
 - 5) Map View mode
 	- dual map view, 3D Map, show legend 가능
+	- Dual Map view를 한 후, visible layers를 다르게 설정할 수 있음
+	- <img src="https://www.dropbox.com/s/m4oguf9kap8n8wn/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-04-22%2020.42.59.png?raw=1">
 - 6) Share
-	- Share 옵션으로 Export Image, Export Data, Export Config, Expot Map, Share Public URL(Dropbox)를 사용할 수 있음
+	- Share 옵션으로 Export Image, Export Data, Export Config, Export Map, Share Public URL(Dropbox)를 사용할 수 있음
 	- config를 export해서 재사용 가능
 
 ### 2019 로드맵
