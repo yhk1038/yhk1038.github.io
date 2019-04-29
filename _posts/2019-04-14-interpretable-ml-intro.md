@@ -3,7 +3,7 @@ layout: post
 title:  "Interpretable Machine Learning"
 subtitle: "Interpretable Machine Learning"
 categories: data
-tags: geographic
+tags: interpretable
 comments: true
 ---
 
