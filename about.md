@@ -23,7 +23,7 @@ order: 10
 
 |          	| 기간          	| 담당 업무                                                                                                                      	|
 |:----------:	 |:---------------:|--------------------------------------------------------------------------------------------------------------------------------	|
-| 쏘카 | 2018.9 - 현재 | To be Updated |
+| 쏘카 | 2018.9 - 현재 | 타다데이터팀 <br> 모빌리티의 다양한 문제를 풀기 위해 다양한 데이터 분석 / 머신러닝 / 데이터 엔지니어링 수행 |
 | 레트리카 |2017.2 - 2018.4 	| 데이터 분석 <br> 데이터 이벤트 설계 <br> 데이터 이벤트 QA <br> 주요 지표 Report 자동화 <br> BigQuery와 Dataflow를 사용한 데이터 엔지니어링 <br> Airflow를 사용한 데이터 파이프라인 생성 및 관리 <br> 데이터 대시보드 생성 및 관리(Tableau, Superset) <br> 딥러닝 모델을 통한 야한 사진 Auto Block 	|
 
 ## 프로젝트
@@ -37,6 +37,8 @@ order: 10
 | 맥주 추천 시스템 	| 2015.6 - 12 	| 기획/디자인<br>데이터 크롤링 	| Collaborative Filtering을 <br>활용한 맥주 추천 시스템 	|
 
 ## 발표
+- [Write The Docs 서울 2019 : 글쓰는 개발자 모임, 글또](https://www.slideshare.net/zzsza/ss-137831892) (19.03.23)
+- [Daily 만년 Junior들의 이야기 - 델리만주 : 데이터 사이언스 입문](https://festa.io/events/192)(19.02.16)
 - [데이터야놀자 Ignite Talk : 사회인의 휴학, Gap Year 이야기](https://datayanolja.github.io/speakers/ignite6.html)(18.10.19)
 - 숙명여대 취업캠프 특강(18.06.26)
 - [백수들의 Conference](https://dfab.event-us.kr/p/2397)(18.06.24)
@@ -48,6 +50,7 @@ order: 10
 - 패스트캠퍼스 스쿨 홈커밍 데이(18.01.20)
 
 ## 작성 문서
+- [마이크로 소프트웨어 396호 : 개발자 글쓰기 모임, 글또](http://www.yes24.com/Product/Goods/72176082)
 - [개발자를 위한 (블로그) 글쓰기 intro](https://www.slideshare.net/zzsza/intro-102870757)
 - [Data Science. Intro](https://www.slideshare.net/zzsza/data-science-intro)
 - [바닥부터 시작하는 데이터 인프라](https://www.slideshare.net/zzsza/little-big-data-1)
