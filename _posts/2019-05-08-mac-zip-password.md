@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Mac, Linux에서 Zip password(암호) 설정하는 방법"
+title:  "Mac, Linux에서 Zip 파일에 password(암호) 설정하는 방법"
 subtitle: "Mac, Linux Zip 파일에 password(암호) 설정하는 방"
 categories: development
 tags: linux
