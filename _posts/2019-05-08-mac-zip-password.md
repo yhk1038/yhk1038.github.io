@@ -33,10 +33,10 @@ comments: true
 	zip -e 압축_파일.zip *.json
 	```
 	
-- 폴더째 압축하고 싶은 경우 `-r` 옵션	을 주면 됨(암호까지 주려면 `-er` 
+- 폴더째 압축하고 싶은 경우 `-r` 옵션	을 주면 됨(암호까지 주려면 `-er`)
 
 	```
-	zip -er zip_file.zip 
+	zip -er zip_file.zip ./
 	```
 	
 <img src="https://www.dropbox.com/s/xewt1gmz55550y7/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-05-08%2021.47.50.png?raw=1">
