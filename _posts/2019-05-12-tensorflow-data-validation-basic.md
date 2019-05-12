@@ -23,7 +23,7 @@ comments: true
 - 내부적으로 [Facet](https://github.com/PAIR-code/facets), [Apache Beam](https://beam.apache.org/) 사용
 - 회사 업무시, 데이터 경진대회(캐글 등)에서 유용할 듯
 - 이 글은 0.13.1 버전 기준으로 작성했습니다. 추후 계속 수정될 예정입니다
-- 코드는 모두 Github에 올렸습니다. [Nbviewer](https://nbviewer.jupyter.org/github/zzsza/tfx-tutorial/blob/master/data-validation/All-Features-Example.ipynb))로 확인 부탁드려요!
+- 코드는 모두 Github에 올렸습니다. [Nbviewer](https://nbviewer.jupyter.org/github/zzsza/tfx-tutorial/blob/master/data-validation/All-Features-Example.ipynb?flush_cache=true)로 확인 부탁드려요!
 
 ### 기능
 - Statistics 생성 및 시각화
@@ -91,7 +91,7 @@ pip install tensorflow-data-validation
 	
 	<img src="https://www.dropbox.com/s/wuudyhmvisv9d3e/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-05-12%2013.44.27.png?raw=1">
 	
-	- Interactive하게 직접 만져보고 싶으신 분은 웹에서 제 [Github nbviewer](https://nbviewer.jupyter.org/github/zzsza/tfx-tutorial/blob/master/data-validation/All-Features-Example.ipynb) 참고
+	- Interactive하게 직접 만져보고 싶으신 분은 웹에서 제 [Github nbviewer](https://nbviewer.jupyter.org/github/zzsza/tfx-tutorial/blob/master/data-validation/All-Features-Example.ipynb?flush_cache=true) 참고!
 	- Numeric Features
 		- 맨 왼쪽에 Sort By 옵션
 			- Non-uniformity 
