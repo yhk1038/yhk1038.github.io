@@ -6,7 +6,7 @@ categories: development
 tags: web
 comments: true
 ---
-생활코딩 [WEB2 - Domain Name System](https://opentutorials.org/course/3276)을 수강하며 내용을 정리한 글입니다. 이 수업을 들으니 제가 얼핏 알았던 개념을 확실하게 알 수 있었고, 대표적인 면접 문제인 브라우저의 URL 입력창에 www.naver.com을 입력하면 무슨 일이 벌어질까요?란 질문을 왜 하는지 알 것 같습니다(다른 네트워크 개념과 프론트 개념도 알아야 하겠지만!)
+생활코딩 [WEB2 - Domain Name System](https://opentutorials.org/course/3276)을 수강하며 내용을 정리한 글입니다. 이 수업을 들으니 제가 얼핏 알았던 개념을 확실하게 알 수 있었고, 대표적인 면접 문제인 브라우저의 URL 입력창에 www.naver.com 을 입력하면 무슨 일이 벌어질까요?란 질문을 왜 하는지 알 것 같습니다(다른 네트워크 개념과 프론트 개념도 알아야 하겠지만!)
 
 
 ## 수업소개
@@ -17,7 +17,7 @@ comments: true
 - IP Address : host끼리 통신을 하기 위해 필요한 주소
 - IP 주소를 기억하는 것이 어렵기 때문에 Jon Postel과 Paul Mockapetris에 의해서 DNS(Domain Name System)이 나왔습니다
 	- DNS Server : 수많은 IP 주소와 도메인이 저장되어 있습니다
-	- 웹에서 www.naver.com을 입력하면 DNS Server에 www.naver.com의 IP 주소를 알려준 후, 그 IP 주소를 토대로 접속하는 것입니다
+	- 웹에서 www.naver.com 을 입력하면 DNS Server에 www.naver.com의 IP 주소를 알려준 후, 그 IP 주소를 토대로 접속하는 것입니다
 
 	
 ## IP 주소와 Hosts의 개념
