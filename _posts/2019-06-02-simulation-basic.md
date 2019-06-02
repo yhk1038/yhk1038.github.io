@@ -173,4 +173,5 @@ comments: true
 
 
   
- 	
+### Reference
+- KAIST 김탁곤 교수님의 [시스템 모델링 시뮬레이션 입문](https://kooc.kaist.ac.kr/isms1) 	
