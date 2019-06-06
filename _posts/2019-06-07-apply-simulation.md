@@ -1,14 +1,14 @@
 ---
 layout: post
-title:  "모델 개발 방법론 및 M&S 활용 방법"
-subtitle: "시모델 개발 방법론 및 M&S 활용 방법"
+title:  "시뮬레이션 모델 개발 방법론 및 M&S 활용 방법"
+subtitle: "시뮬레이션 모델 개발 방법론 및 M&S 활용 방법"
 categories: data
 tags: simulation
 comments: true
 ---
 
 
-- 모델 개발 방법론 및 M&S 활용 방법에 대한 글입니다
+- 시뮬레이션 모델 개발 방법론 및 M&S 활용 방법에 대한 글입니다
 
 
 ---
@@ -153,6 +153,8 @@ comments: true
 	- 이런 시스템 중 M&S 시스템 구축
 	- 도메인 지식을 구현
 	- <img src="https://www.dropbox.com/s/dknklod2x16t7d9/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202019-06-06%2020.02.41.png?raw=1">
+
+---
 
 ### 동적 시스템의 데이터 모델 및 시뮬레이션 모델
 - 머신러닝을 이용한 모델과 시뮬레이션 모델의 차이점을 이해하기
