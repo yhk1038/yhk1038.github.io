@@ -67,7 +67,7 @@ comments: true
 		salt(str) : salt 문자열
 		ratio_threshold(float) : 기준 ratio. 예 : 0.5
 		"""
-		id_and_salt = user_id + salt
+		id_and_salt = str(user_id) + salt
 		
 		h = hashlib.sha1()
 		h.update(id_and_salt.encode('utf-8'))
