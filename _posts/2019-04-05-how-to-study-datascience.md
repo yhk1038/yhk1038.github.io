@@ -21,7 +21,7 @@ comments: true
 	- 데이터 사이언스에 대한 상담을 많이 진행한 후, 만든 [[I Want to Study Data Science]](https://github.com/Team-Neighborhood/I-want-to-study-Data-Science/wiki) 
 	- 데이터 사이언스 직군에 대해 설명한 [[Data Science. Intro]](https://www.slideshare.net/zzsza/data-science-intro)
 	- [[Kaggle Knowhow]](https://github.com/zzsza/Kaggle-knowhow)
-	- 데이터 인프라가 없던 환경에서 하나부터 추가하는 과정에 대해 이야기한 [[바닥부터 시작하는 데이터 인프라]](https://www.slideshare.net/zzsza/little-big-data-1) 
+	- 데이터 인프라가 없던 환경에서 하나씩 추가하는 과정에 대해 이야기한 [[바닥부터 시작하는 데이터 인프라]](https://www.slideshare.net/zzsza/little-big-data-1) 
 
 
 ## 첫 시작
