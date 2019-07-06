@@ -1,7 +1,7 @@
 ---
 layout: tag-blog
-title: CloudML
-slug: CloudML
+title: AI Platform
+slug: ai-platform
 category: gcp
 menu: false
 order: 3
