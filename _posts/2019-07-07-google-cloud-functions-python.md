@@ -37,13 +37,13 @@ comments: true
 
 ### 작업 흐름
 - Cloud Functions 포맷에 맞게 Python으로 함수를 만든다
-- Cloud functions에 배포한다
+- Cloud Functions에 배포한다
 - Cloud Scheduler에서 주기적으로 Cloud Functions의 함수를 실행시킨다
 
 ---
 
 ### Hello World
-- 우선 Cloud Functions을 클라우드에 올리는 방법을 코드를 치면서 진행할 예정
+- 우선 아무것도 모르는 상태에서 Hello World를 찍어보며 진행하겠습니다
 - main.py 작성
 	
 	```
