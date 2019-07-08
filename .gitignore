@@ -4,3 +4,4 @@ _site
 vendor
 .idea
 _posts/.ipynb_checkpoints
+**/.DS_Store

@@ -50,7 +50,7 @@ google_analytics:    UA-65985148-3
 disqus_shortname:    docki
 
 # This text will appear in the footer of every page. Markdown enabled.
-copyright:           '&copy; 2017. by Yonghyun Kim'
+copyright:           '&copy; 2019. by Yonghyun Kim'
 
 # Format of the permalinks
 permalink:           pretty
